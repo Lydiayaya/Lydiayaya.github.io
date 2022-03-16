@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: hexo | Hexo</title>
+  <title>xd-mp-mini4一些源码解读 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/hexo/index.html">
+  <meta name="description" content="umi+dva+react+ts单页应用,页面地址的跳转都是在浏览器端完成的,不会重新请求服务器端获取HTML,html旨在应用初始化时加载一次.所有页面由不同的租价构成,页面的切换其实就是不同组件的切换,只需要在配置中把不同的路由和对应得组件关联上. config通用配置文件 public-静态资源文件只放了几张图片 mock文件夹存储mock文件，此目录下所有JS和ts文件爱会被解析为mock">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xd-mp-mini4一些源码解读">
+<meta property="og:url" content="http://example.com/2021/07/16/XD-MP-MINI4/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="umi+dva+react+ts单页应用,页面地址的跳转都是在浏览器端完成的,不会重新请求服务器端获取HTML,html旨在应用初始化时加载一次.所有页面由不同的租价构成,页面的切换其实就是不同组件的切换,只需要在配置中把不同的路由和对应得组件关联上. config通用配置文件 public-静态资源文件只放了几张图片 mock文件夹存储mock文件，此目录下所有JS和ts文件爱会被解析为mock">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-16T10:23:34.000Z">
+<meta property="article:modified_time" content="2022-03-16T09:24:53.770Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="实习心得">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -150,64 +155,187 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-XD-MP-MINI4" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/05/31/myFirstBlog/" class="archive-article-date">
-  	<time datetime="2021-05-31T14:43:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/05/31/myFirstBlog/">如何写一篇blog</a>
+    <h1 class="article-title" itemprop="name">
+      xd-mp-mini4一些源码解读
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/07/16/XD-MP-MINI4/" class="archive-article-date">
+  	<time datetime="2021-07-16T10:23:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="umi-dva-react-ts"><a href="#umi-dva-react-ts" class="headerlink" title="umi+dva+react+ts"></a><code>umi+dva+react+ts</code></h3><p>单页应用,页面地址的跳转都是在浏览器端完成的,不会重新请求服务器端获取<code>HTML,html</code>旨在应用初始化时加载一次.所有页面由不同的租价构成,页面的切换其实就是不同组件的切换,只需要在配置中把不同的路由和对应得组件关联上.</p>
+<h3 id="config"><a href="#config" class="headerlink" title="config"></a><code>config</code></h3><p>通用配置文件</p>
+<h3 id="public-静态资源文件"><a href="#public-静态资源文件" class="headerlink" title="public-静态资源文件"></a>public-静态资源文件</h3><p>只放了几张图片</p>
+<h3 id="mock文件夹"><a href="#mock文件夹" class="headerlink" title="mock文件夹"></a>mock文件夹</h3><p>存储mock文件，此目录下所有<code>JS和t</code>s文件爱会被解析为mock文件。</p>
+<h3 id="src"><a href="#src" class="headerlink" title="src"></a><code>src</code></h3><p><code>.umi</code>目录，临时文件目录，比如入口文件（？），路由等，都会被临时生成到这里。不要提交<code>.umi</code>文件到git仓库，他们会在<code>umidev和 umi</code> build时被删除并重新生成</p>
+<h6 id="layout-index-tsx-约定式路由时的全局布局文件"><a href="#layout-index-tsx-约定式路由时的全局布局文件" class="headerlink" title="layout/index.tsx 约定式路由时的全局布局文件"></a><code>layout/index.tsx</code> 约定式路由时的全局布局文件</h6><p><code>routes.ts</code>是配置式路由,如果没有<code>route,Umi</code>会进入约定式路由模式然后分析<code>src/pages</code>目录拿到路由配置.约定式路由又叫文件路由,就是不需要手写配置,文件系统即路由,通过目录和文件极其命名分析出路由配置.</p>
+<p>动态路由<code>[name]=&gt;/:name</code></p>
+<p>动态可选路由 <code>[name$]=&gt;/:name?/</code></p>
+<h5 id="权限路由"><a href="#权限路由" class="headerlink" title="权限路由"></a>权限路由</h5><h4 id="umirc-ts"><a href="#umirc-ts" class="headerlink" title=".umirc.ts"></a><code>.umirc.ts</code></h4><p><code>.umirc.ts</code> 或者 <code>config/config.ts</code></p>
+<p>配置文件，包含 <code>umi</code> 内置功能和插件的配置。但是在这个项目中,项目配置卸载<code>config/config.ts</code>中的,并把配置的路由拆分成了单独的<code>routes.ts.</code></p>
+<h5 id="本地临时配置"><a href="#本地临时配置" class="headerlink" title="本地临时配置"></a>本地临时配置</h5><p><code>.umirc.local.ts</code> 或者 <code>config/config.local.ts</code></p>
+<p><code>.local.ts</code>是本地验证使用的临时配置需要将其添加到.<code>gitignore</code>,务必不要提交到git仓库中.</p>
+<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a><code>package.json</code></h4><h4 id="babel转码器"><a href="#babel转码器" class="headerlink" title="babel转码器"></a>babel转码器</h4>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实习心得</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/07/16/XD-MP-MINI4/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2021/08/08/%E5%AE%9E%E4%B9%A0%E6%9C%88%E5%BF%97%EF%BC%88%E4%BA%8C%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          实习月志（二）
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2021/07/10/react/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react的指向</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -230,9 +358,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
