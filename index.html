@@ -152,6 +152,352 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-游乡里" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/">游乡里</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/" class="archive-article-date">
+  	<time datetime="2022-03-23T14:06:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  uni-app+云开发  微信小程序</p>
+<p>主要技术点：</p>
+<h5 id="搜索和搜索记录："><a href="#搜索和搜索记录：" class="headerlink" title="搜索和搜索记录："></a>搜索和搜索记录：</h5><h5 id="定位与搜索定位："><a href="#定位与搜索定位：" class="headerlink" title="定位与搜索定位："></a>定位与搜索定位：</h5><p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327230315354.png" alt="image-20220327230315354"></p>
+<p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327230613883.png" alt="image-20220327230613883"></p>
+<h5 id="组件封装："><a href="#组件封装：" class="headerlink" title="组件封装："></a>组件封装：</h5><ol>
+<li>（模态登录授权框）</li>
+</ol>
+<p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327230836506.png" alt="image-20220327230836506"></p>
+<p>​    </p>
+<h5 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h5><ol>
+<li><p>云开发请求操作数据库</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> db=wx.cloud.database()</span><br><span class="line"><span class="keyword">const</span> banner=db.collection(<span class="string">&quot;目标数据库&quot;</span>)</span><br><span class="line">banner.get()</span><br><span class="line">    .then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line">    .catch(<span class="function">(<span class="params">error</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>父子传值 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父组件中</span></span><br><span class="line">&lt;Child :data=<span class="string">&quot;data&quot;</span>&gt;&lt;/Child&gt;</span><br><span class="line"><span class="comment">//子组件中</span></span><br><span class="line">props:&#123;</span><br><span class="line">    <span class="attr">data</span>:数据类型</span><br><span class="line">&#125;</span><br><span class="line">子组件中可以直接使用data</span><br></pre></td></tr></table></figure></li>
+<li><p>使用解构方便log操作</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//全局定义一个log</span></span><br><span class="line"><span class="keyword">var</span> &#123;log&#125;=<span class="built_in">console</span><span class="comment">//（在export代码前面）</span></span><br><span class="line"><span class="comment">//然后console.log()就可以直接用log()</span></span><br></pre></td></tr></table></figure></li>
+<li><p>promise封装</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//封装</span></span><br><span class="line"><span class="comment">//1.class 面向类</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//2.promise封装</span></span><br><span class="line"><span class="comment">//新建一个JS文件</span></span><br><span class="line"><span class="keyword">var</span> name=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> promise(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">      resolve()<span class="comment">//处理正确情况，接收正确结果</span></span><br><span class="line">      reject()<span class="comment">//处理错误情况，接收错误结果</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//export &#123;name&#125;</span></span><br><span class="line"><span class="comment">//在需要用的组建中import &#123;home&#125; from  &quot;文件位置&quot; 这里的home是promise对象</span></span><br><span class="line"><span class="comment">//直接调用home().then().catch()</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>并发批量请求 promise.all,该请求返回的是将里面所有请求返回的数据组合起来的一个数组</li>
+</ol>
+</li>
+</ol>
+<p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220324162130697.png" alt="image-20220324162130697"></p>
+<ol start="6">
+<li>使用vuex切换tab分类u</li>
+</ol>
+<p>uni-app自带vuex,</p>
+<p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220326215110692.png" alt="image-20220326215110692"></p>
+<p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220326215154071.png" alt="image-20220326215154071"></p>
+<p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327222242299.png" alt="image-20220327222242299"></p>
+<p>vuex流程图：</p>
+<p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327221511195.png" alt="image-20220327221511195"></p>
+<p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327221544274.png" alt="image-20220327221544274"></p>
+<p>传递：</p>
+<p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327222051907.png" alt="image-20220327222051907"></p>
+<p>actions：实行异步操作（需要异步请求，传值到mutations），mutations实行同步操作。</p>
+<ol start="7">
+<li>loading提示</li>
+</ol>
+<p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327224049486.png" alt="image-20220327224049486"></p>
+<p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327223854176.png" alt="image-20220327223854176"></p>
+<p>页面生命周期函数只会在父组件里生效。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">项目详细</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-笔试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/23/%E7%AC%94%E8%AF%95/">笔试</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/23/%E7%AC%94%E8%AF%95/" class="archive-article-date">
+  	<time datetime="2022-03-23T09:38:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>webgl和three.js</p>
+<h3 id="自如"><a href="#自如" class="headerlink" title="自如"></a>自如</h3><p>一整个无语住了，参加了自如管培生的笔试，太难了，70%的题都不会</p>
+<p>考的基本上是数据结构，数据库，测试，操作系统</p>
+<p>大概写一下试题：</p>
+<ol>
+<li>排序算法的空间复杂度与时间复杂度以及其稳定性</li>
+<li>二叉树的前序后序中序排列</li>
+<li>vue父子组件传值与函数调用</li>
+<li>死锁是什么？怎么解决？怎么造成的</li>
+<li>进程与线程？</li>
+<li>如果aba与aab相等，abcd与acbd相等，caa与aac相等，现有两个字符串，判断她们是否相等</li>
+<li>写一个线程安全的单例模式</li>
+<li>如果九宫格密码，最少连接4个点，最多连接9个点，那么有多少连接方式？有多少个密码</li>
+<li>数据库安全索引</li>
+<li>如何测试一个产品，从哪些方面</li>
+<li>软件缺陷提交</li>
+<li>交换1kb的数据，三种通讯方式</li>
+<li>Hash表</li>
+<li>垃圾回收机制</li>
+</ol>
+<h3 id="创维"><a href="#创维" class="headerlink" title="创维"></a>创维</h3><ol>
+<li><p>promise的执行,reject,resolve</p>
+</li>
+<li><p>var foo=function foo(){</p>
+<p>console.log(foo===foo)</p>
+<p>}</p>
+</li>
+<li><p>(true +flase)&gt;2+true  打印false</p>
+</li>
+<li><p>JS编程范式： 命令式（简单的从上而下完成任务，流水账过程式编码风格）、面向对象（简单的从上而下完成任务，流水账过程式编码风格）、函数式</p>
+</li>
+<li><p>Array.apply(null,{length:1})  //返回undefied</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="built_in">Array</span>(<span class="number">2</span>); </span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">2</span>); </span><br><span class="line"><span class="comment">//其实直接调用Array和new Array()两种方式创建数组是一样的</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.apply(&#123;<span class="attr">length</span>:<span class="number">2</span>&#125;)===<span class="built_in">Array</span>.apply([<span class="literal">undefined</span>, <span class="literal">undefined</span>])</span><br><span class="line"><span class="comment">//apply(),的第二个参数不光可以是数组还可以是个类数组对象（即包含length属性，且length属性值是个数字的对象），所有其实&#123;length：2&#125;也是一个类数组对象，只是没有进行初始化而已，取值的话返回undefined。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//Array(20)：很简单，就是创建一个 length 为 20  的数组，并且JavaScript会自动为数组的每一项赋值 undefined ，而这个 undefined 和 我们自己手动赋值的undefined 有点不一样。可以理解为JavaScript自动赋上的 undefined  相当于为数组的每个值霸个位置，日后方便我们的使用（博主自己是这么理解的，有什么不对的地方，大家记得指出）。</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">//Array.apply(null, &#123;length: 20&#125;)：已这种方式创建出来的数组呢，数组中的每一项一创建出来就被我们赋上了确确实实的值 undefined ，而不仅仅是霸个位置那简单。如果大家以后想创建一个数组每一项一开始就是 undefined 的数组的话，那用这种方法听不错的。</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/23/%E7%AC%94%E8%AF%95/image-20220327211048695.png" alt="image-20220327211048695"></p>
+<ol start="6">
+<li>for循环+setTimeout</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出三个3</span></span><br><span class="line">因为 <span class="keyword">for</span> 循环会先执行完（同步优先于异步优先于回调），这时五个 <span class="built_in">setTimeout</span> 的回调全部塞入了事件队列中，然后立即执行。</span><br><span class="line">因为 <span class="built_in">setTimeout</span> 的 <span class="built_in">console</span>.log(i); 的i是 <span class="keyword">var</span> 定义的，所以是函数级的作用域，不属于 <span class="keyword">for</span> 循环体，属于 <span class="built_in">global</span>。等到 <span class="keyword">for</span> 循环结束，i 已经等于 <span class="number">3</span> 了，因为 <span class="built_in">setTimeout</span> 的 <span class="built_in">console</span>.log(i); 的i是 <span class="keyword">var</span> 定义的，所以是函数级的作用域，不属于 <span class="keyword">for</span> 循环体，属于 <span class="built_in">global</span>。等到 <span class="keyword">for</span> 循环结束，i 已经等于 <span class="number">3</span> 了，</span><br><span class="line"></span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i) &#123;</span><br><span class="line">      <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">      &#125;, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//返回0,1,2</span></span><br><span class="line"><span class="keyword">let</span> 为代码块的作用域，所以每一次 <span class="keyword">for</span> 循环，<span class="built_in">console</span>.log(i); 都引用到 <span class="keyword">for</span> 代码块作用域下的i，因为这样被引用，所以 <span class="keyword">for</span> 循环结束后，这些作用域在 <span class="built_in">setTimeout</span> 未执行前都不会被释放</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li> 文本溢出</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">overflow：hidden;</span><br><span class="line">text-overflow:ellipsis;</span><br><span class="line">white-space:nowrap;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//多行</span></span><br><span class="line">overflow:hidden;</span><br><span class="line">text-overflow:hidden;</span><br><span class="line">display:-webket-box;</span><br><span class="line">-webkit-line-clamp: <span class="number">2</span>;</span><br><span class="line">-webkit-box-orient: vertical;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>find(),map(),every(),some(),reduce()</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	forEach():用于调用数组的每个元素，并将元素传递给回调函数,不生成新数组,注意: forEach() 对于空数组是不会执行回调函数的。</span><br><span class="line"><span class="attr">tips</span>: forEach()中不支持使用<span class="keyword">break</span>(报错)和<span class="keyword">return</span>(不能结束循环)，有需要时可使用常规的<span class="keyword">for</span>循环。</span><br><span class="line">	map(): 对所有元素执行一次函数，并生成一个由返回值组成的新数组。是否改变原数组：否 ;是否对空数组进行检测：否</span><br><span class="line">	filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。 是否改变原数组：否 ;是否对空数组进行检测：否</span><br><span class="line">	find() 方法返回通过测试（函数内判断）的数组的**第一个**元素的值。find() 方法为数组中的每个元素都调用一次函数执行：</span><br><span class="line">    some() 方法用于检测数组中的元素是否满足指定条件（函数提供）。some() 方法会依次执行数组的每个元素：如果有一个元素满足条件，则表达式返回<span class="literal">true</span> , 剩余的元素不会再执行检测。如果没有满足条件的元素，则返回<span class="literal">false</span>。</span><br><span class="line">	every() 方法用于检测数组所有元素是否都符合指定条件（通过函数提供）。every() 方法使用指定函数检测数组中的所有元素：如果数组中检测到有一个元素不满足，则整个表达式返回 <span class="literal">false</span> ，且剩余的元素不会再进行检测。如果所有元素都满足条件，则返回 <span class="literal">true</span>。</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li> JS高阶函数</li>
+</ol>
+<p>JavaScript的函数其实都指向某个变量。既然变量可以指向函数，函数的参数能接收变量，那么一个函数就可以接收另一个函数作为参数，这种函数就称之为高阶函数。</p>
+<p>（array）的高阶函数主要有:</p>
+<ol>
+<li>map/reduce</li>
+<li>filter</li>
+<li>sort</li>
+<li>every find findIndex forEach 等</li>
+</ol>
+<p>10</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&#x27;xxx&#x27;</span>&gt;&lt;/script&gt;</span><br><span class="line">浏览器在解析HTMl的时候，如果遇到一个人格属性的script便签，就会暂停解析，先发送网络请求获取该JS脚本的代码内容，然后让JS引擎执行改代码，当代码执行完毕后，恢复解析HTML</span><br><span class="line">&lt;script src=<span class="string">&#x27;xxx&#x27;</span> <span class="keyword">async</span>&gt;&lt;/script&gt;</span><br><span class="line">当浏览器遇到<span class="keyword">async</span>的，请求该脚本的网罗请求是异步的，不会阻塞浏览器解析HTML一旦网络请求回来之后，如果此时HTML还没有解析完，浏览器会暂停解析，先让JS引擎执行代码，执行完毕后再进行解析。</span><br><span class="line">&lt;script src=<span class="string">&#x27;xxx&#x27;</span> defer&gt;&lt;/script&gt;</span><br><span class="line">当浏览器遇到带有 defer 属性的 script 时，获取该脚本的网络请求也是异步的，不会阻塞浏览器解析 HTML，一旦网络请求回来之后，如果此时 HTML 还没有解析完，浏览器不会暂停解析并执行 JS 代码，而是等待 HTML 解析完毕再执行 JS 代码</span><br></pre></td></tr></table></figure>
+
+<ol start="11">
+<li>解决跨域的方式</li>
+</ol>
+<p>Jsonp、cors、postMessage跨域、nginx代理跨域、nodejs中间件代理跨域、document.domain + iframe跨域、location.hash + iframe跨域、window.name + iframe跨域、WebSocket协议跨域。</p>
+<h3 id="美团"><a href="#美团" class="headerlink" title="美团"></a>美团</h3><ol>
+<li><p>关于string+number<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37122369/article/details/78066231">https://blog.csdn.net/m0_37122369/article/details/78066231</a></p>
+</li>
+<li><p>假设现有100元的商品，而代金券有50元、30元、20元、5元四种，则最佳优惠是两张50元面额的代金券；而如果现有65元的商品，则最佳优惠是两张30元代金券以及一张5元代金券。</p>
+</li>
+<li><p>斐波那契数列</p>
+</li>
+<li><p>给定一个包含非负整数的 M x N 迷宫，请找出一条从左上角到右下角的路径，使得路径上的数字总和最小。每次只能向下或者向右移动一步。</p>
+</li>
+<li></li>
+<li><p>```js<br>class<code> </code>A {</p>
+<pre><code>String i = ``&quot;op&quot;``;
+void` `func(String s) &#123;
+    s = ``&quot;&quot;``+``9``;
+    &#125;
+static` `void` `test() &#123;
+    A a = ``new` `A();
+    a.func(a.i);
+    &#125;
+</code></pre>
+<p>}</p>
+<ol>
+<li>i,s,a都在栈中，new出来的对象A在堆上。字符串变量i,s以及对象指针a都存在栈中，new出来的对象开辟内存存在堆上，对应地址是指针a存的内容</li>
+<li>执行完后a.i的值还是字符串op。a.func(a.i)这句执行函数，把a.i作为参数传递，该函数会复制一个变量，两个变量完全独立，所以在函数体里只是把复制的那个变量（一个新的局部变量）改变为’op9’,在函数体外的a.i并没有被改变</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">8. </span><br><span class="line"></span><br><span class="line">   ```js</span><br><span class="line">   // 定时器任务属于宏任务，并且需要先在任务队列等待，等到同步任务执行完，执行栈清空，才会在任务队列中按顺序选任务进去</span><br><span class="line">   setTimeout(() =&gt; console.``log``(``&#x27;a&#x27;``));``//4. 打印a</span><br><span class="line">   //Promise 属于异步微任务，在本轮同步任务结束之前执行</span><br><span class="line">   Promise.resolve().then(</span><br><span class="line">     // 1. 打印 b</span><br><span class="line">     () =&gt; console.``log``(``&#x27;b&#x27;``) ``// 单引号要改为&#x27;,然后去掉;号</span><br><span class="line">    ).then(</span><br><span class="line">     // 箭头函数的resolve传递的参数作为下一个then的参数</span><br><span class="line">     () =&gt; Promise.resolve(``&#x27;c&#x27;``).then(</span><br><span class="line">      // 执行箭头函数</span><br><span class="line">      (data) =&gt; &#123;</span><br><span class="line">       // 把定时器任务也放入任务队列中等待，在第一个定时器之后</span><br><span class="line">       setTimeout(() =&gt; console.``log``(``&#x27;d&#x27;``)); //5. 打印d</span><br><span class="line">          // 2.打印 f</span><br><span class="line">       console.``log``(``&#x27;f&#x27;``);</span><br><span class="line">       // 此时返回的 数据作为下一个then的参数</span><br><span class="line">       return` `data;</span><br><span class="line">      &#125;</span><br><span class="line">     )</span><br><span class="line">    ).then(data =&gt; console.``log``(data)); ``// 3.打印 c</span><br><span class="line">    `* `打印bfcad``</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li></li>
+<li></li>
+</ol>
+<p><img src="/2022/03/23/%E7%AC%94%E8%AF%95/image-20220323220059462.png" alt="image-20220323220059462"></p>
+<p><img src="/2022/03/23/%E7%AC%94%E8%AF%95/image-20220323220119915.png" alt="image-20220323220119915"></p>
+</li>
+</ol>
+<h3 id="其他模拟笔试"><a href="#其他模拟笔试" class="headerlink" title="其他模拟笔试"></a>其他模拟笔试</h3><ol>
+<li><p>已知，1000个硬币里有10个金币。随机的取出n个硬币，则取出硬币里有金币的概率是多少？</p>
+<p>思路：如果n&gt;990，则一定会取到金币</p>
+</li>
+<li><p>当padding/margin为百分比时，无论top/bottom还是left/right，对应的都是父类的width</p>
+</li>
+<li><p>1.匹配相关：与正则表达式配合使用</p>
+<p>（1）str.match(RegExp):匹配指定字符串</p>
+<p>（2）str.replace(RegExp):替换指定字符</p>
+<p>（3）str.search(RegExp):查找字符</p>
+<p>2.索引相关：</p>
+<p>（1）charAt(index):通过索引值查找，返回指定字符</p>
+<p>（2）indexOf(val):返回指定字符首次出现的位置</p>
+<p>（3）lastIndexOf(val):返回指定字符最后出现的位置</p>
+<p>（4）charCodeAt(index):返回指定字符的Unicode编码，介于0 - 65535的数字</p>
+<p>3.操作字符相关：</p>
+<p>（1）str1.concat(str2,…,strn) :连接字符串</p>
+<p>（2）str.slice(start,end):传入两个索引值，截取两个值之间的字符串，不包括end值。返回新字符串。若start为负数，从最后一位开始数起。</p>
+<p>（3）str.substr(start,length):传入截取的其实索引值和截取的长度，返回新字符串，若start为负数，从最后一位开始数起。</p>
+<p>（4）str.substring(from,to):传入两个索引值，截取两个值之间的字符串，不包括to值。返回新字符串，若start为负数，默认start为0.</p>
+<p>（5）str.split(spearator,limit):分割字符串，以数组形式返回。spearator指定切割的地方，limit设置返回字符串的最大长度.用于指定字符<strong>两边</strong>分割字符串，分割后的元素（包括空白符）依次放入[ ]得到一个数组。</p>
+<p>4.不需要传参：</p>
+<p>（1）str.valueOf():返回字符串原始值</p>
+<p>（2）str.toUpperCase():字符串大写</p>
+<p>（3）str.toLowerCase():字符串小写</p>
+<p>（4）str.trim():去掉字符串两边空白</p>
+</li>
+</ol>
+<p>操作数组：</p>
+<p>arr.shift（）从数组头部删除一个元素，返回删除的元素，改变原数组</p>
+<p>arr.push()在数组尾部添加一个元素，改变原数组。</p>
+<ol start="4">
+<li><p>信号量分为<strong>互斥量</strong>和<strong>信号量</strong>互斥量的初始值一般为1，表示临界区只允许一个进程进入**，从而实现互斥；</p>
+<p><strong>互斥量等于0</strong>时，表示<strong>临界区已经有1个进程进入</strong>，<strong>临界区外无进程等待</strong>；</p>
+<p><strong>互斥量小于0</strong>时，表示<strong>临界区****已经有1个进程进入</strong>，<strong>互斥量的绝对值表示在临界区外等待进入的进程数</strong>。</p>
+<p>资源信号量的初值可以是任意整数，<strong>表示可用的资源数</strong>，<strong>资源数小于0时，表示所有资源全部用完</strong>，<strong>而且还有进程正在等待使用该资源</strong>，<strong>等待的进程数就是资源量的绝对值。</strong></p>
+</li>
+<li><p>颜色代码可以用#RRGGBB[AA]表示，R表示红，G表示绿，B表示蓝，A是透明度，透明度可以省略，默认是FF。</p>
+<p>除了这种完整版，还有一种缩减版，用#RGB[A]表示，#f098相当于#ff009988。</p>
+<p>这两种使用的都是16进制编码，所以只会出现0-9a-f。</p>
+</li>
+<li><p>正则表达式</p>
+</li>
+<li><p>JSON.parse与JSON.stringfy</p>
+</li>
+<li><p>strcpy   没限制长度可能导致溢出（安全版本strncpy）</p>
+<p> strncat  限制了copy的长度就没问题，strcat可能导致溢出</p>
+<p> sprintf   和printf()一样，有格式化字符串攻击的可能</p>
+<p> strcmp  比较两个string长度，无危害</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">春招</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/23/%E7%AC%94%E8%AF%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-书籍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1065,222 +1411,6 @@ console.log(&#39;promise 2&#39;)
 
 
   
-    <article id="post-算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/20/%E7%AE%97%E6%B3%95/">算法</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/20/%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2022-03-20T13:52:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/20/%E7%AE%97%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Vue" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/20/Vue/">Vue</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/20/Vue/" class="archive-article-date">
-  	<time datetime="2022-03-20T13:51:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="底层实现原理"><a href="#底层实现原理" class="headerlink" title="底层实现原理"></a>底层实现原理</h4><h4 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h4><h5 id="数据驱动（MVVM）"><a href="#数据驱动（MVVM）" class="headerlink" title="数据驱动（MVVM）"></a>数据驱动（MVVM）</h5><h5 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h5><h5 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h5><p>指令 (Directives) 是带有 v- 前缀的特殊属性作用：当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。</p>
-<ul>
-<li>常用的指令<ul>
-<li>条件渲染指令 <code>v-if</code></li>
-<li>列表渲染指令<code>v-for</code></li>
-<li>属性绑定指令<code>v-bind</code></li>
-<li>事件绑定指令<code>v-on</code></li>
-<li>双向数据绑定指令<code>v-model</code></li>
-</ul>
-</li>
-</ul>
-<h4 id="关于双向绑定的理解"><a href="#关于双向绑定的理解" class="headerlink" title="关于双向绑定的理解"></a>关于双向绑定的理解</h4><h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><p>每个Vue实例在创建时期都会经过一系列的初始化过程，vue的生命周期勾子，就是说在达到某一阶段或条件时去触发的函数，目的就是为了完成一些动作或事件。vue实例从创建到销毁的过程就是一个vue的生命周期。即指从创建爱你、初始化数据、编译模板、挂载DOM到渲染、更新到渲染、销毁等一系列过程，主要分为创建、挂载、更新、销毁以及一些其他的特殊场景的生命周期</p>
-<ol>
-<li><p><code>create阶段</code>：vue实例被创建</p>
-<pre><code> `beforeCreate`: 创建前，此时data和methods中的数据都还没有初始化
-`created`： 创建完毕，data中有值，未挂载
-</code></pre>
-</li>
-<li><p><code>mount阶段</code>： vue实例被挂载到真实DOM节点</p>
-<pre><code> `beforeMount`：可以发起服务端请求，去数据
- `mounted`: 组件挂载到实例上去之后，此时可以操作DOM
-</code></pre>
-</li>
-<li><p><code>update阶段</code>：当vue实例里面的data数据变化时，触发组件的重新渲染</p>
-<pre><code>  `beforeUpdate` :组件数据发生变化，更新前
-     `updated`：更新后
-</code></pre>
-</li>
-<li><p><code>destroy阶段</code>：vue实例被销毁</p>
-<pre><code>       `beforeDestroy`：实例被销毁前，此时可以手动销毁一些方法
-</code></pre>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//其余特殊组件</span><br><span class="line">activated：keep-alive缓存的组件激活时</span><br><span class="line">deactivated：keep-alive缓存的组件停用时调用</span><br></pre></td></tr></table></figure>
-
-<p><code> destroyed</code>:销毁后</p>
-</li>
-</ol>
-<p><img src="/2022/03/20/Vue/image-20220324191649514.png" alt="image-20220324191649514"></p>
-<p><img src="/2022/03/20/Vue/image-20220324191827487.png" alt="image-20220324191827487"></p>
-<h4 id="组件通信"><a href="#组件通信" class="headerlink" title="组件通信"></a>组件通信</h4><h6 id="props父传子"><a href="#props父传子" class="headerlink" title="props父传子"></a>props父传子</h6><p>子组件设置props属性，东一接收父组件传递过来的参数，父组件在使用子组件标签中通过 : data=“data”</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;  </span><br><span class="line">    <span class="comment">// 字符串形式  </span></span><br><span class="line">     <span class="attr">name</span>:<span class="built_in">String</span> <span class="comment">// 接收的类型参数  </span></span><br><span class="line">    <span class="comment">// 对象形式  </span></span><br><span class="line">    <span class="attr">age</span>:&#123;    </span><br><span class="line">        <span class="attr">type</span>:<span class="built_in">Number</span>, <span class="comment">// 接收的类型为数值  </span></span><br><span class="line">        <span class="attr">defaule</span>:<span class="number">18</span>,  <span class="comment">// 默认值为18  </span></span><br><span class="line">       <span class="attr">require</span>:<span class="literal">true</span> <span class="comment">// age属性必须传递  </span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-
-<h6 id="emit子传父"><a href="#emit子传父" class="headerlink" title="$emit子传父"></a>$emit子传父</h6><p>子组件通过$emit触发自定义事件，$emit第二个参数魏传递的数值；父组件绑定检同期获取子组件传递过来的参数。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//子</span></span><br><span class="line"><span class="built_in">this</span>.$emit(<span class="string">&#x27;add&#x27;</span>, good)  </span><br><span class="line"><span class="comment">//父</span></span><br><span class="line">&lt;Children @add=<span class="string">&quot;cartAdd($event)&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
-
-<h6 id="EventBus兄弟传值"><a href="#EventBus兄弟传值" class="headerlink" title="EventBus兄弟传值"></a>EventBus兄弟传值</h6><p>创建一个中央事件总线 EventBus，兄弟组件通过$emit触发自定义事件，$emit第二个参数作为传递的数值。另一个兄弟组件通过$on监听自定义事件。</p>
-<h6 id="vuex-负责复杂关系的组件数据传递"><a href="#vuex-负责复杂关系的组件数据传递" class="headerlink" title="vuex 负责复杂关系的组件数据传递"></a>vuex 负责复杂关系的组件数据传递</h6><h6 id="父组件调用子组件方法（ref）"><a href="#父组件调用子组件方法（ref）" class="headerlink" title="父组件调用子组件方法（ref）"></a>父组件调用子组件方法（ref）</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父组件</span></span><br><span class="line">&lt;Father ref=<span class="string">&quot;child&quot;</span>/&gt;</span><br><span class="line"> methods:&#123;</span><br><span class="line">     <span class="function"><span class="title">clickFUnction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">         <span class="comment">//调用子组件的方法</span></span><br><span class="line">         <span class="built_in">this</span>.$refs[child].function()</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//子组件</span></span><br><span class="line"><span class="attr">methods</span>:&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h6 id="子组件通过props调用父组件方法"><a href="#子组件通过props调用父组件方法" class="headerlink" title="子组件通过props调用父组件方法"></a>子组件通过props调用父组件方法</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父组件</span></span><br><span class="line">&lt;Father :clickFUnction=<span class="string">&quot;clickFUnction&quot;</span>/&gt;</span><br><span class="line"> methods:&#123;</span><br><span class="line">     <span class="function"><span class="title">clickFUnction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      </span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//子组件</span></span><br><span class="line"><span class="attr">props</span>:[<span class="string">&quot;clickFUnction&quot;</span>]</span><br><span class="line"><span class="attr">methods</span>:&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.clickFUnction()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="vue2与vue3"><a href="#vue2与vue3" class="headerlink" title="vue2与vue3"></a>vue2与vue3</h4><ol>
-<li>利用新的语言特性(ES6)</li>
-<li>解决架构问题</li>
-</ol>
-<ul>
-<li>速度更快</li>
-<li>体积减少</li>
-<li>更易维护</li>
-<li>更接近原生</li>
-<li>更易使用</li>
-</ul>
-<h4 id="封装组件"><a href="#封装组件" class="headerlink" title="封装组件"></a>封装组件</h4><h4 id="vue与react的对比"><a href="#vue与react的对比" class="headerlink" title="vue与react的对比"></a>vue与react的对比</h4><p><strong>相同</strong></p>
-<ul>
-<li>都有组件化思想</li>
-<li>都支持服务器端渲染</li>
-<li>都有Virtual DOM（虚拟dom）</li>
-<li>数据驱动视图</li>
-<li>都有支持native的方案：<code>Vue</code>的<code>weex</code>、<code>React</code>的<code>React native</code></li>
-<li>都有自己的构建工具：<code>Vue</code>的<code>vue-cli</code>、<code>React</code>的<code>Create React App</code></li>
-</ul>
-<p><strong>不同</strong></p>
-<ul>
-<li>数据流向的不同。<code>react</code>从诞生开始就推崇单向数据流，而<code>Vue</code>是双向数据流</li>
-<li>数据变化的实现原理不同。<code>react</code>使用的是不可变数据，而<code>Vue</code>使用的是可变的数据</li>
-<li>组件化通信的不同。<code>react</code>中我们通过使用回调函数来进行通信的，而<code>Vue</code>中子组件向父组件传递消息有两种方式：事件和回调函数</li>
-<li>diff算法不同。<code>react</code>主要使用diff队列保存需要更新哪些DOM，得到patch树，再统一操作批量更新DOM。<code>Vue</code> 使用双向指针，边对比，边更新DOM</li>
-</ul>
-<h4 id="computed-和-watch-的区别"><a href="#computed-和-watch-的区别" class="headerlink" title="computed 和 watch 的区别"></a>computed 和 watch 的区别</h4><p><strong>computed计算属性 ，</strong></p>
-<p>它会根据所依赖的数据动态显示新的计算结果, 该计算结果会被缓存起来。computed的值是会被缓存的。如果所依赖的数据发生改变时候, 就会重新计算最新的结果,不支持异步，当computed内有异步操作时无效，无法监听数据的变化。如果一个属性是由其他属性计算而来的，这个属性依赖其他属性，是一个多对一或者一对一，一般用computed</p>
-<p><strong>watch：侦听属性</strong></p>
-<p>不支持缓存，数据变，直接会触发相应的操作,watch支持异步；监听的函数接收两个参数，第一个参数是最新的值；第二个参数是输入之前的值；当一个属性发生变化时，需要执行对应的操作；一对多；</p>
-<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6917805693860839431">详解Vue中的computed和watch - 掘金 (juejin.cn)</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/20/Vue/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1402,11 +1532,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1419,6 +1549,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">项目详细</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">春招</a>
               </li>
              
               <li class="article-tag-list-item">
