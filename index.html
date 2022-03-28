@@ -346,6 +346,47 @@ console.log(&#39;promise 2&#39;)
 })<br>console.log(‘end’)<br>输出： promise1 promise2 end promise then timer1 timer2<br>注意：<br>按照同步先⾏，异步靠后的原则，阅读代码时，先分析同步代码和异步代码，Promise对象虽然是微任务，但是<br>new Promise时的回调函数是同步执⾏的，所以优先输出promise 1 和 promise 2。 在resolve执⾏时Promise对象的状态变更为已完成，所以then函数的回调被注册到微任务事件中，此时并不执<br>⾏，所以接下来应该输出end。<br>同步代码执⾏结束后，观察异步代码的宏任务和微任务，在本次的同步代码块中注册的微任务会优先执⾏，参考上<br>⽂中描述的列表，Promise为微任务，setTimeout和requestAnimationFrame为宏任务，所以Promise的异步任务<br>会在下⼀个宏任务执⾏前执⾏，所以promise then是第四个输出的结果。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">##### 深浅拷贝与赋值</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">var num=123</span><br><span class="line">var person=&#123;</span><br><span class="line">    name:&#x27;乔丹&#x27;,</span><br><span class="line">    likes:&#123;</span><br><span class="line">        a:1,</span><br><span class="line">        b:&#123;</span><br><span class="line">            c:2</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//赋值：</span><br><span class="line">var person1=person</span><br><span class="line">person1.name=&#x27;科比&#x27;</span><br><span class="line">console.log(person.name) //科比</span><br><span class="line">console.log(person1.name)//科比</span><br><span class="line">//浅拷贝：1.创建一个新的对象 2.拷贝值(如果属性是一般数据类型 拷贝的就是基本类型的值 如果属性是引用数据类型那么拷贝的就是内存的地址)</span><br><span class="line">function shallowClone(source)&#123;</span><br><span class="line">    var newObj=&#123;&#125;</span><br><span class="line">    for(var i in source)&#123;</span><br><span class="line">        newonj[i]=source[i]</span><br><span class="line">    &#125;</span><br><span class="line">    return newobj</span><br><span class="line">&#125;</span><br><span class="line">console.log(person.name)//乔丹</span><br><span class="line">console.log(person1.name)//科比</span><br><span class="line">//es6 for……of版</span><br><span class="line">for(var [key,value] of Object.entires(source))&#123;</span><br><span class="line">    newonj[key]=value</span><br><span class="line">&#125;</span><br><span class="line">//解构版浅拷贝</span><br><span class="line">var target = &#123; ...obj &#125;</span><br><span class="line">target.goods[0] = &#x27;天才&#x27;</span><br><span class="line">console.log(obj.goods[0])</span><br><span class="line">//深拷贝：如果属性是引用数据类型那么就会开辟一个新堆，在浅拷贝的基础之上</span><br><span class="line">//第一种JSON.parse</span><br><span class="line">let arr = [1, 3, &#123;</span><br><span class="line">    username: &#x27; kobe&#x27;</span><br><span class="line">&#125;];</span><br><span class="line">let arr4 = JSON.parse(JSON.stringify(arr));</span><br><span class="line">//第二种是内存的地址)</span><br><span class="line">function deppClone(source)&#123;</span><br><span class="line">    var newObj=&#123;&#125;</span><br><span class="line">    for(var i in source)&#123;</span><br><span class="line">        if(typoof obj[i]===&quot;object&quot;||obj[i]!==null)//判断是否是对象</span><br><span class="line">        &#123;</span><br><span class="line">            newObj[i]=&#123;&#125;</span><br><span class="line">            for (var j in obj[j])&#123;</span><br><span class="line">                newObj[i][j]=obj[i][j]</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            newonj[i]=source[i]</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    return newobj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h5 id="实现轮播图的"><a href="#实现轮播图的" class="headerlink" title="实现轮播图的"></a>实现轮播图的</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_20495901/article/details/122936580">JS实现轮播图（一看就懂逻辑清晰）_Beannnnnnn的博客-CSDN博客_js无缝轮播图实现原理</a></p>
+<h5 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try catch finally"></a>try catch finally</h5><p>try 块里一共有三个关键字try catch 和finally</p>
+<p>,finally语句无论try和catch执行结果如如何都会执行，catch时捕获到try语句里的错误才会执行。 catch 和 finally 语句都是可选的，但使用 try 语句时必须至少使用一个。</p>
+<ol>
+<li> 如果try语句没有使用finally，则返回try语句中return的东西，</li>
+</ol>
+<p>   ​    函数try…catch语句之外的return 就不执行了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testFinally</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> num + <span class="number">1</span>;<span class="comment">//return这里的值11</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num + <span class="number">5</span>; <span class="comment">//无效，没执行到这，try...catch执行之后就跳出了</span></span><br><span class="line">    <span class="comment">//除非try...catch...finaly语句中没有return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(testFinally());<span class="string">``</span><span class="comment">//11</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li> 如果try语句后面有finally，try中的return不会跳出函数,因为一定要进入finally语句</li>
+</ol>
+<p>​    函数try…finally语句之外的return 就不执行了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testFinally</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> num += <span class="number">1</span>; <span class="comment">//return右边的语句正常执行，计算得num=11</span></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;        <span class="comment">//有finally，try中的return不会跳出函数，因为一定要进入finally语句</span></span><br><span class="line">        <span class="keyword">return</span> num + <span class="number">20</span>; <span class="comment">//11+20=31</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num + <span class="number">5</span>; <span class="comment">//无效，没执行到这，try...finally执行之后就跳出了</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(testFinally())；<span class="comment">// 31</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>如果try语句后面有finally，try中就算有break用来跳出语句块，也不管用<pre><code>只要有finally，不管try和catch语句中执行什么，一定会进入finally语句
+</code></pre>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testFinally</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line">    aaa: <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">break</span> aaa; <span class="comment">//有break按理说应该要跳出 try...finally... 这个语句块了</span></span><br><span class="line">                   <span class="comment">//但是不管用，因为后面有finally，一定要进入finally语句</span></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;         </span><br><span class="line">        <span class="keyword">return</span> num + <span class="number">20</span>; <span class="comment">//10+20=30</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num;<span class="comment">//失效，没执行到这</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(testFinally());<span class="comment">// 30</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="break"><a href="#break" class="headerlink" title="break"></a>break</h5><p>break语句用于跳出 switch语句 或者 循环语句（ for 、for..in、while、do…while） </p>
+<p>  语法：break;</p>
+<blockquote>
+<p>1）当break语句用于switch语句时，会跳出switch代码块，终止执行switch代码。</p>
+</blockquote>
+<blockquote>
+<p>2）当break语句用于循环语句时，会跳出整个循环，不再执行后续剩余的循环。</p>
+</blockquote>
+<blockquote>
+<p>3）注意break与continue的区别：continue会跳出本轮循环，继续执行后续剩余的循环</p>
+</blockquote>
+<ol>
+<li> 在标签引用中使用 break 语句，用于跳出标签代码块：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cars = [<span class="string">&quot;BMW&quot;</span>, <span class="string">&quot;Volvo&quot;</span>, <span class="string">&quot;Saab&quot;</span>, <span class="string">&quot;Ford&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> text = <span class="string">&quot;&quot;</span>;</span><br><span class="line">list: &#123; <span class="comment">//list标签引用</span></span><br><span class="line">    text += cars[<span class="number">0</span>];</span><br><span class="line">    text += cars[<span class="number">1</span>];</span><br><span class="line">    text += cars[<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">break</span> list; <span class="comment">//在标签引用中使用 break 语句，用于跳出list代码块，不再执行list代码块里剩余的代码</span></span><br><span class="line">    text += cars[<span class="number">3</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(text);<span class="comment">//BMW Volvo Saab</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在标签引用中使用 break 语句，用于跳出嵌套循环：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> i, j;</span><br><span class="line"> </span><br><span class="line">Loop1: <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123; <span class="comment">// 第一个循环标签 &quot;Loop1&quot;</span></span><br><span class="line">    <span class="attr">Loop2</span>: <span class="keyword">for</span> (j = <span class="number">10</span>; j &lt; <span class="number">15</span>; j++) &#123;<span class="comment">// 第二个循环标签 &quot;Loop2&quot;</span></span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">12</span>) &#123;</span><br><span class="line">            <span class="keyword">break</span> Loop2;<span class="comment">//跳出Loop2代码块</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(i, j)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//i=0,j=10</span></span><br><span class="line"><span class="comment">//i=0,j=11</span></span><br><span class="line"><span class="comment">//i=1,j=10</span></span><br><span class="line"><span class="comment">//i=1,j=11</span></span><br><span class="line"><span class="comment">//1=2,j=10</span></span><br><span class="line"><span class="comment">//i=2,j=11</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -543,7 +584,86 @@ console.log(&#39;promise 2&#39;)
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>  操作系统（Operating System 简称OS）是一组主管并控制计算机操作、运用和运行硬件、软件资源和提供公共服务来组织用户交互的相互关联的系统软件程序，同时也是计算机系统的内核与基石。</p>
+<p>简单来讲，操作系统就是一种复杂的软件，相当于软件管家。</p>
+<p>操作系统需要处理如管理与配置内存</p>
+<p>、决定系统资源工序的优先次序，控制输入与输出设备、操作网络与管理文件系统等基本事务。</p>
+<h4 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h4><ol>
+<li>进程（线程）：是操作对象CPU的抽象</li>
+<li>虚拟地址（地址空间）：是操作系统对物理内存的抽象</li>
+<li>文件：操作系统对物理磁盘的抽象</li>
+<li>shell：是一个程序，可从键盘获取命令并将其提供给操作系统以执行</li>
+<li>GUI：是一种用户界面，允许用户通过图形图标和音频指示符与电子设备进行交互 </li>
+<li>计算机架构（computer architecture）:在计算机工程中，计算机体系结构是描述计算机系统功能，组织和实现的一组规则和方法。他主要包括指令集、内存管理、I/O和总线结构。</li>
+<li>多处理系统（(Computer multitasking）指计算机同时运行多个程序的能力</li>
+<li>程序计数器（Program counter）程序计数器 是一个CPU中的寄存器，用于指示计算机在其程序序列中的位置</li>
+<li>多线程（multithreading）：是指从软件或者硬件上实现多个线程并发执行的技术</li>
+<li>CPU核心（core）：是cpu的大脑，它接收指令，并执行计算或运算以满足这些指令。一个CPU可以有多个内核</li>
+<li>图形处理器（Graphics Processing Unit）：又称显示核心、视觉处理器、显示芯片或绘图芯片</li>
+<li>缓存命中(cache hit)：当应用程序或软件请求数据时，会首先发生缓存命中</li>
+<li>RAM((Random Access Memory)：随机存取存储器，也叫主存，是与 CPU 直接交换数据的内部存储器</li>
+<li>ROM (Read Only Memory)：只读存储器是一种半导体存储器，其特性是一旦存储数据就无法改变或删除</li>
+<li>虚拟地址(virtual memory)： 虚拟内存是计算机系统内存管理的一种机制</li>
+<li>驱动程序(device driver)：设备驱动程序，简称驱动程序（driver），是一个允许高级别电脑软件与硬件交互的程序</li>
+<li>USB(Universal Serial Bus)：是连接计算机系统与外部设备的一种串口总线标准，也是一种输入输出接口的技术规范</li>
+<li>地址空间(address space)：地址空间是内存中可供程序或进程使用的有效地址范</li>
+<li>进程间通信(interprocess communication)： 指至少两个进程或线程间传送数据或信号的一些技术或方法</li>
+<li>目录(directory)： 在计算机或相关设备中，一个目录或文件夹就是一个装有数字文件系统的虚拟容器</li>
+<li>路径(path name)： 路径是一种电脑文件或目录的名称的通用表现形式，它指向文件系统上的一个唯一位置。</li>
+<li>根目录(root directory)：根目录指的就是计算机系统中的顶层目录，比如 Windows 中的 C 盘和 D 盘，Linux 中的 /</li>
+<li>工作目录(Working directory)：它是一个计算机用语。用户在操作系统内所在的目录，用户可在此目录之下，用相对文件名访问文件。</li>
+<li>文件描述符(file descriptor)： 文件描述符是计算机科学中的一个术语，是一个用于表述指向文件的引用的抽象化概念</li>
+<li>客户端(clients)：客户端是访问服务器提供的服务的计算机硬件或软件。</li>
+<li>服务端(servers)： 在计算中，服务器是为其他程序或设备提供功能的计算机程序或设备</li>
+</ol>
+<h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>进程是对正在运行中的程序的一个抽象，<strong>是系统进行资源分配和调度的基本单位</strong>。操作系统的其他所有内容都是围绕着进程展开的，负责执行这些任务的是CPU。</p>
+<p>进程是一种抽象的概念，一般是由程序（用于描述进程要完成的功能，是控制进程执行的指令集）、数据集合（是程序在执行时所需要的数据和工作区）和进程控制块（包含进程的描述信息和控制信息，是进程存在的唯一标志）三部分组成。</p>
+<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>操作系统能够进行运算调度的最小单位，是进程中的一个执行任务（控制单元），负责当前进程中程序的执行。</p>
+<p>一个进程至少有一个线程，一个进程可以运行多个线程。这些线程共享同一块内存，线程之间可以共享对象、资源，如果有冲突或需要协同，还可以随时沟通以解决冲突或保持同步。</p>
+<p><strong>每个进程都有独立的代码和数据空间（程序上下文），程序之间的切换会有较大的开销；线程可以看做轻量级的进程，同一类线程共享代码和数据空间，每个线程都有自己独立的运行栈和程序计数器（PC），线程之间切换的开销小</strong></p>
+<p><strong>在操作系统中能同时运行多个进程（程序）；而在同一个进程（程序）中有多个线程同时执行（通过CPU调度，在每个时间片中只有一个线程执行）</strong></p>
+<p><strong>在操作系统中能同时运行多个进程（程序）；而在同一个进程（程序）中有多个线程同时执行（通过CPU调度，在每个时间片中只有一个线程执行）</strong></p>
+<p><strong>没有线程的进程可以看做是单线程的，如果一个进程内有多个线程，则执行过程不是一条线的，而是多条线（线程）共同完成的；线程是进程的一部分，所以线程也被称为轻权进程或者轻量级进程</strong></p>
+<p>举个例子：进程=火车，线程=车厢</p>
+<ul>
+<li>线程在进程下行进（单纯的车厢无法运行）</li>
+<li>一个进程可以包含多个线程（一辆火车可以有多个车厢）</li>
+<li>不同进程间数据很难共享（一辆火车上的乘客很难换到另外一辆火车，比如站点换乘）</li>
+<li>同一进程下不同线程间数据很易共享（A车厢换到B车厢很容易）</li>
+<li>进程要比线程消耗更多的计算机资源（采用多列火车相比多个车厢更耗资源）</li>
+<li>进程间不会相互影响，一个线程挂掉将导致整个进程挂掉（一列火车不会影响到另外一列火车，但是如果一列火车上中间的一节车厢着火了，将影响到所有车厢）</li>
+</ul>
+<h4 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h4><p>死锁是指两个或两个以上的进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象，若无外力作用，他们都将无法推进下去。此时成系统处于思索状态或系统产生了死锁。这些永远都在互相等待的进程成为思索进程。产生死锁的原因，主要包括：</p>
+<ol>
+<li>系统资源不足</li>
+<li>程序执行的顺序有问题</li>
+<li>资源分配不当</li>
+</ol>
+<p>如果在一个系统中以下四个条件同时成立，那么就能引起死锁：</p>
+<ul>
+<li><p>互斥条件：一个资源每次只能被一个进程使用</p>
+</li>
+<li><p>请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放</p>
+</li>
+<li><p>不剥夺条件：进程已获得的资源，在未使用完之前，不能强行剥夺</p>
+</li>
+<li><p>循环等待条件：若干进程之间形成一种头尾相接的循环等待资源关系。</p>
+</li>
+</ul>
+<h5 id="解除死锁"><a href="#解除死锁" class="headerlink" title="解除死锁"></a>解除死锁</h5><h6 id="鸵鸟策略："><a href="#鸵鸟策略：" class="headerlink" title="鸵鸟策略："></a>鸵鸟策略：</h6><p>发生死锁时不去管它，因为处理死锁的代价很高，反而不处理它会带来更高的性能。当死锁不易发生或者发生死锁对用户的影响不是很大时采取这种策略。Windows、Linux、Unix会采用这种策略。</p>
+<h6 id="死锁的检测与恢复："><a href="#死锁的检测与恢复：" class="headerlink" title="死锁的检测与恢复："></a>死锁的检测与恢复：</h6><p>涉及死锁检测算法2个：<br>第一个死锁检测算法：深度搜索进程资源有向图<br><strong>若进程资源有向图中存在环路</strong>，表明发生死锁。<strong>检测方式为深度优先搜索</strong>，对搜索的节点做标记，若遍历到存在标记的节点，表明该有向图存在环路，会发生死锁。<br>第二个死锁检测算法：标记法<br>向量E代表资源总数，向量A代表剩余资源，<br>矩阵C代表各进程持有资源数，矩阵R代表各进程要请求的资源数。<br>算法的记忆方式就是RACA，先从R中找到请求资源数小于A的进程，并标记该进程，意味着该进程可以请求到自己所需的资源，之后释放持有资源，将C中该进程持有资源加到原来的A向量中，即完成了释放资源。再重复RACA，直到最后R中存在没有被标记的进程代表会发生死锁，否则不会发生死锁。<br>死锁恢复算法若干：</p>
+<ol>
+<li>资源剥夺法：剥夺发生死锁的进程锁持有的资源，但不撤销该进程，直到进程解除死锁。</li>
+<li>进程回滚法：设定检查点，让发生死锁的进程回滚，直到解除死锁。要求建立保存检查点、回退及重启机制。</li>
+<li>杀死进程。</li>
+</ol>
+<h6 id="死锁预防："><a href="#死锁预防：" class="headerlink" title="死锁预防："></a>死锁预防：</h6><p><strong>破坏互斥条件</strong>：若资源为共享资源，则不会发生死锁。一般情况下，有些资源是不允许共享访问的，比如可写文件、键盘等。当然有些资源时可以共享访问的，例如只读文件和磁盘。因此，破坏互斥条件只适用于一部分资源。当然，操作系统的SPOOLING技术能够让独占设备在逻辑上看起来是被共享。但是很多时候，我们需要使用互斥条件来保证进程的安全。</p>
+<p><strong>破坏请求和保持条件</strong>：若进程持有一部分资源且申请其他资源时，由于它不会释放自己持有的资源，可能会发生死锁。因此解决方法可以是在程序运行前，将其所需要的全部资源都分配给该进程，但是这种方式会造成资源的浪费，因为它所持有的资源可能需要到运行后期才使用，又或者某些资源的运行时间很短，会导致一些其他期望持有该资源的进程等待，进而可能产生进程饥饿，造成资源的浪费，资源利用率降低。</p>
+<p><strong>破坏不可剥夺条件</strong>：方案一：当进程持有资源而申请其他资源得不到满足时，强迫其释放所持有的资源，需要时再次申请。方案二：当进程请求的资源被其他进程占有，由操作系统协调剥夺其他进程占有的资源。该种方式需要考虑进程运行时的优先级。<br>方案一可能会导致前期所做的工作失效；方案二可能会导致被剥夺进程前期所做的工作失效。</p>
+<p><strong>破坏循环等待条件</strong>：将资源按顺序编号，只能按顺序递增的方式申请资源。不易增加新的设备，进程实际运行的顺序可能和资源编号不一致，导致资源浪费，必须按规定次序申请资源，用户编程麻烦。</p>
+<h6 id="死锁避免："><a href="#死锁避免：" class="headerlink" title="死锁避免："></a>死锁避免：</h6><p>安全状态：简单的口述一下，目前状态已知的条件为占有的资源，要请求的资源，剩余的资源，进程申请资源并释放，最后若能够保证所有进程都执行，那么该状态为安全状态。<br>银行家算法：银行家算法是死锁避免中最重要的算法。其核心思想就是为进程分配资源并判断分配后是否是安全状态，若是，则分配，否则，不会分配。若能够满足全部进程的资源请求，则不会发生死锁。给每个进程分配资源的过程会产生一条安全序列，就是进程分配资源的顺序。</p>
+<h4 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h4><p>是一个开源的操作系统（OS），是一系列linux内核基础上开发的操作系统的总称。</p>
+
       
 
       
@@ -551,6 +671,17 @@ console.log(&#39;promise 2&#39;)
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -605,12 +736,35 @@ console.log(&#39;promise 2&#39;)
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h5><p>带有结构特性的数据元素的集合,他研究的是数据的逻辑结构和数据的物理结构以及他们之间的相互关系，并对这种结构定义相适应的运算，设计出相应的算法，并确保经过这些运算以后所得到的新结构仍然保持原来的结构类型。简而言之，数据结构是相互之间存在一种或多种特定关系的数据元素的集合，即带“结构”的数据元素的集合。“结构”就是指数据元素之间存在的关系，分为逻辑结构和存储结构。</p>
+        <h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>带有结构特性的数据元素的集合,他研究的是数据的逻辑结构和数据的物理结构以及他们之间的相互关系，并对这种结构定义相适应的运算，设计出相应的算法，并确保经过这些运算以后所得到的新结构仍然保持原来的结构类型。简而言之，数据结构是相互之间存在一种或多种特定关系的数据元素的集合，即带“结构”的数据元素的集合。“结构”就是指数据元素之间存在的关系，分为逻辑结构和存储结构。</p>
 <p>数据是存储在计算机内存里的，在存储是，决定了数据顺序和位置关系的便是“数据结构”。</p>
 <p><strong>逻辑结构</strong>：元素之间逻辑关系的数据结构，这里的逻辑关系是指数据元素之间的前后间关系，与数据在计算机中的存储位置无关。</p>
 <p><strong>物理结构</strong>：指数据的逻辑结构在计算机存储空间中的存放形式称为数据的物理结构，也叫做存储结构。</p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138523723">十三张图带你彻底了解所有数据结构 - 知乎 (zhihu.com)</a></p>
-<h6 id="树"><a href="#树" class="headerlink" title="树"></a>树</h6><p><strong>树（Tree）</strong>是n（n&gt;=0)个结点的有限集。n=0时称为空树。</p>
+<h4 id="时间复杂度，空间复杂度"><a href="#时间复杂度，空间复杂度" class="headerlink" title="时间复杂度，空间复杂度"></a>时间复杂度，空间复杂度</h4><p>算法是指用来操作数据、解决程序问题的一组方法问题，使用不同的算法，也许最终得到的结果是一样的，但在过程和时间却会有很大的区别。</p>
+<h6 id="时间维度："><a href="#时间维度：" class="headerlink" title="时间维度："></a>时间维度：</h6><p>算法的复杂度通常用大O表述，定义为：T(n)=O(f(n))</p>
+<p>时间复杂度：O(1)常数型、O(log n)对数型、O(n)线性型、O(nlogn)线性对数型、O(n^2)平方型、O(n^3)立方型、O(n^k)k次方型、O(2^n)指数型</p>
+<p><strong>计算时间复杂度的方法</strong></p>
+<ol>
+<li>找出算法中的基本语句</li>
+</ol>
+<p>算法中执行次数最多的那条语句就是基本语句，通常是最内层循环的循环体</p>
+<ol>
+<li>计算基本语句的执行次数的数量级</li>
+</ol>
+<p>保留最高次幂</p>
+<ol>
+<li>用大O几号表示算法的时间性能</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//性能最好的算法的时间复杂度为 O(1)，也就是在执行有限次的操作之后达到目标。比如一些计算类型的代码或者交换值的代码等。</span></span><br><span class="line"><span class="comment">//1.计算</span></span><br><span class="line"><span class="keyword">var</span> sum = a * b;</span><br><span class="line"><span class="comment">//2.交换</span></span><br><span class="line"><span class="keyword">var</span> temp = a;</span><br><span class="line"></span><br><span class="line"><span class="comment">//o(n)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">aFunc</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; n; i++) &#123; <span class="comment">// 循环次数为 n</span></span><br><span class="line">        printf(<span class="string">&quot;Hello, World!\n&quot;</span>); <span class="comment">// 循环体时间复杂度为 O(1)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对于顺序执行的语句，总的时间复杂度等于其中最大的时间复杂度，//max(O(n^2), O(n)) = O(n^2)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        sum += i</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            sum += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//循环语句中以2的倍数来逼近n   时间复杂度为 log n</span></span><br><span class="line"><span class="comment">//如果一个O(n)里面嵌套一个O(logn)那么时间复杂度为O(nlogn)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">1</span>; </span><br><span class="line">    <span class="keyword">while</span> (i &lt;= n) &#123;</span><br><span class="line">        i = i * <span class="number">2</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="空间维度"><a href="#空间维度" class="headerlink" title="空间维度"></a>空间维度</h6><p>空间复杂度主要指执行算法所需内存大小，用于对程序运行过程中所需要的临时存储空间的度量.</p>
+<p>除了需要存储空间、指令、常数、变量和输入数据外，还包括对数据进行操作的工作单元和存储计算所需信息的辅助空间</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//O(1) 临时空间不会随着n的变化而变化，因此空间复杂度为O(1)</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="number">3</span></span><br><span class="line"><span class="comment">//o(n) 随着n的增加，数组的占用的内存空间越大</span></span><br><span class="line"><span class="keyword">let</span> arr []</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=n; ++i)&#123;</span><br><span class="line">  arr.push(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//只要算法不涉及到动态分配的空间，以及递归、栈所需的空间，空间复杂度通常为O(1)，一个一维数组a[n]，空间复杂度O(n)，二维数组为O(n^2)</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="树"><a href="#树" class="headerlink" title="树"></a>树</h4><p><strong>树（Tree）</strong>是n（n&gt;=0)个结点的有限集。n=0时称为空树。</p>
 <p>2）当n&gt;1时，其余结点可分为m(m&gt;0)个互不相交的有限集T1、T2、……、Tn，其中每一个集合本身又是一棵树，并且称为根的子树。</p>
 <p>结点拥有的子树数目称为结点的<strong>度</strong>。</p>
 <p><img src="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220323155422299.png" alt="image-20220323155422299"></p>
@@ -624,6 +778,57 @@ console.log(&#39;promise 2&#39;)
 <blockquote>
 <p>(1) 若 i=1，则该结点是二叉树的根，无双亲, 否则，编号为 [i/2] 的结点为其双亲结点;<br> (2) 若 2i&gt;n，则该结点无左孩子，  否则，编号为 2i 的结点为其左孩子结点；<br> (3) 若 2i+1&gt;n，则该结点无右孩子结点，  否则，编号为2i+1 的结点为其右孩子结点。</p>
 </blockquote>
+<h5 id="遍历二叉树"><a href="#遍历二叉树" class="headerlink" title="遍历二叉树"></a>遍历二叉树</h5><ol>
+<li>前序  中左右</li>
+<li>中序  左中右</li>
+<li>后序  左右中</li>
+<li>层序 按照二叉树的层次从左到右一次遍历每层中的结点</li>
+</ol>
+<h4 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h4><p>对与排序算法的好坏衡量，主要是从时间复杂度、空间复杂度、稳定性。</p>
+<p>稳定性指的是假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变</p>
+<p>即在原序列中，r[i] = r[j]，且 r[i] 在 r[j] 之前，而在排序后的序列中，r[i] 仍在 r[j] 之前，则称这种排序算法是稳定的；否则称为不稳定的.</p>
+<p><img src="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220325105005837.png" alt="image-20220325105005837"></p>
+<p><strong>常见排序算法</strong></p>
+<h5 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h5><p>思路：</p>
+<ol>
+<li>比较相邻的元素，如果第一个比第二个大，就交换他们两个，</li>
+<li>在每一对相邻的元素作同样的工作，</li>
+<li>针对所有元素重复以上步骤，直到没有任何一对数字需要比较</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从小到大</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; len - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j+<span class="number">1</span>]) &#123;        <span class="comment">// 相邻元素两两对比</span></span><br><span class="line">                <span class="keyword">var</span> temp = arr[j+<span class="number">1</span>];        <span class="comment">// 元素交换</span></span><br><span class="line">                arr[j+<span class="number">1</span>] = arr[j];</span><br><span class="line">                arr[j] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h5><p>无论什么数据进去都是O（n2）的复杂度，所以使用它时，数据规模越小越好，唯一的好处是不占用额外的内存存储空间</p>
+<p>思路：</p>
+<ol>
+<li>在未排序的序列中找到最大（小）存放在排序序列的起始位置；</li>
+<li>从剩余未排序元素中继续寻找最大（小）的元素，然后放到已排序的序列末尾；</li>
+<li>重复第二步。直到排序完成</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectionSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> len = arr.length;</span><br><span class="line">    <span class="keyword">var</span> minIndex, temp;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        minIndex = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = i + <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[minIndex]) &#123;     <span class="comment">// 寻找最小的数</span></span><br><span class="line">                minIndex = j;                 <span class="comment">// 将最小数的索引保存</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        temp = arr[i];</span><br><span class="line">        arr[i] = arr[minIndex];</span><br><span class="line">        arr[minIndex] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h5><p>通过构建有序序列，对于未排序序列，在已排序序列中从后向前扫描，找到相应位置插入</p>
+<p>思路：</p>
+<ol>
+<li>把待排序的数组分成已排序和未排序两个部分，</li>
+<li>初始的时候把第一个元素认为是已排好序的，第一个元素至末尾都是魏排序数组，在未排序序列中选出第一个元素在已排序序列中进行比较，找到合适的位置并插入该位置（如果已经有相同元素，则插在相同元素后面）；</li>
+<li>重复动作直至之后一个元素被插入</li>
+</ol>
+<h5 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h5><p>采用分治法。将已有序的子序列合并，得到完全有序的序列，即先使每个子序列有序，再使子序列段有序。</p>
+<p>思路：</p>
+<ol>
+<li>申请空间，使其大小魏两个已经排序序列之和，该空间用来存放合并后的序列</li>
+<li>设定两个指针，最初位置分别为两个已经排序序列的其实位置</li>
+<li>比较两个指针所指向的元素，选择相对较小的元素放入到合并空间，并移动指针到下一位置</li>
+<li>重复步骤三直到某一指针到达序列尾</li>
+<li>将另一序列剩下的所有元素直接1赋值到合并序列</li>
+</ol>
+<h5 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h5><p>对冒泡排序的一种改进，基本思想是通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据比另一部分的所有数据要小，再按这种方法对这两部分数据分别进行跨苏排序，整个拍戏过程可以地柜进行。</p>
+<ul>
+<li>从数列中挑出一个元素，称为”基准”（pivot）</li>
+<li>重新排序数列，所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任何一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作</li>
+<li>递归地（recursively）把小于基准值元素的子数列和大于基准值元素的子数列排序</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> rec = <span class="function">(<span class="params">arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) &#123; <span class="keyword">return</span> arr; &#125;</span><br><span class="line">    <span class="keyword">const</span> left = [];</span><br><span class="line">    <span class="keyword">const</span> right = [];</span><br><span class="line">    <span class="keyword">const</span> mid = arr[<span class="number">0</span>]; <span class="comment">// 基准元素</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[i] &lt; mid) &#123;</span><br><span class="line">        left.push(arr[i]);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        right.push(arr[i]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [...rec(left), mid, ...rec(right)]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res(arr)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -648,68 +853,6 @@ console.log(&#39;promise 2&#39;)
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-计算机网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网路</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-  	<time datetime="2022-03-20T13:52:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">展开全文 >></a>
         </p>
       
 
@@ -984,6 +1127,160 @@ console.log(&#39;promise 2&#39;)
 
 
   
+    <article id="post-Vue" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/20/Vue/">Vue</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/20/Vue/" class="archive-article-date">
+  	<time datetime="2022-03-20T13:51:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="底层实现原理"><a href="#底层实现原理" class="headerlink" title="底层实现原理"></a>底层实现原理</h4><h4 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h4><h5 id="数据驱动（MVVM）"><a href="#数据驱动（MVVM）" class="headerlink" title="数据驱动（MVVM）"></a>数据驱动（MVVM）</h5><h5 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h5><h5 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h5><p>指令 (Directives) 是带有 v- 前缀的特殊属性作用：当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。</p>
+<ul>
+<li>常用的指令<ul>
+<li>条件渲染指令 <code>v-if</code></li>
+<li>列表渲染指令<code>v-for</code></li>
+<li>属性绑定指令<code>v-bind</code></li>
+<li>事件绑定指令<code>v-on</code></li>
+<li>双向数据绑定指令<code>v-model</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="关于双向绑定的理解"><a href="#关于双向绑定的理解" class="headerlink" title="关于双向绑定的理解"></a>关于双向绑定的理解</h4><h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><p>每个Vue实例在创建时期都会经过一系列的初始化过程，vue的生命周期勾子，就是说在达到某一阶段或条件时去触发的函数，目的就是为了完成一些动作或事件。vue实例从创建到销毁的过程就是一个vue的生命周期。即指从创建爱你、初始化数据、编译模板、挂载DOM到渲染、更新到渲染、销毁等一系列过程，主要分为创建、挂载、更新、销毁以及一些其他的特殊场景的生命周期</p>
+<ol>
+<li><p><code>create阶段</code>：vue实例被创建</p>
+<pre><code> `beforeCreate`: 创建前，此时data和methods中的数据都还没有初始化
+`created`： 创建完毕，data中有值，未挂载
+</code></pre>
+</li>
+<li><p><code>mount阶段</code>： vue实例被挂载到真实DOM节点</p>
+<pre><code> `beforeMount`：可以发起服务端请求，去数据
+ `mounted`: 组件挂载到实例上去之后，此时可以操作DOM
+</code></pre>
+</li>
+<li><p><code>update阶段</code>：当vue实例里面的data数据变化时，触发组件的重新渲染</p>
+<pre><code>  `beforeUpdate` :组件数据发生变化，更新前
+     `updated`：更新后
+</code></pre>
+</li>
+<li><p><code>destroy阶段</code>：vue实例被销毁</p>
+<pre><code>       `beforeDestroy`：实例被销毁前，此时可以手动销毁一些方法
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//其余特殊组件</span><br><span class="line">activated：keep-alive缓存的组件激活时</span><br><span class="line">deactivated：keep-alive缓存的组件停用时调用</span><br></pre></td></tr></table></figure>
+
+<p><code> destroyed</code>:销毁后</p>
+</li>
+</ol>
+<p><img src="/2022/03/20/Vue/image-20220324191649514.png" alt="image-20220324191649514"></p>
+<p><img src="/2022/03/20/Vue/image-20220324191827487.png" alt="image-20220324191827487"></p>
+<h4 id="组件通信"><a href="#组件通信" class="headerlink" title="组件通信"></a>组件通信</h4><h6 id="props父传子"><a href="#props父传子" class="headerlink" title="props父传子"></a>props父传子</h6><p>子组件设置props属性，东一接收父组件传递过来的参数，父组件在使用子组件标签中通过 : data=“data”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;  </span><br><span class="line">    <span class="comment">// 字符串形式  </span></span><br><span class="line">     <span class="attr">name</span>:<span class="built_in">String</span> <span class="comment">// 接收的类型参数  </span></span><br><span class="line">    <span class="comment">// 对象形式  </span></span><br><span class="line">    <span class="attr">age</span>:&#123;    </span><br><span class="line">        <span class="attr">type</span>:<span class="built_in">Number</span>, <span class="comment">// 接收的类型为数值  </span></span><br><span class="line">        <span class="attr">defaule</span>:<span class="number">18</span>,  <span class="comment">// 默认值为18  </span></span><br><span class="line">       <span class="attr">require</span>:<span class="literal">true</span> <span class="comment">// age属性必须传递  </span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<h6 id="emit子传父"><a href="#emit子传父" class="headerlink" title="$emit子传父"></a>$emit子传父</h6><p>子组件通过$emit触发自定义事件，$emit第二个参数魏传递的数值；父组件绑定检同期获取子组件传递过来的参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//子</span></span><br><span class="line"><span class="built_in">this</span>.$emit(<span class="string">&#x27;add&#x27;</span>, good)  </span><br><span class="line"><span class="comment">//父</span></span><br><span class="line">&lt;Children @add=<span class="string">&quot;cartAdd($event)&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<h6 id="EventBus兄弟传值"><a href="#EventBus兄弟传值" class="headerlink" title="EventBus兄弟传值"></a>EventBus兄弟传值</h6><p>创建一个中央事件总线 EventBus，兄弟组件通过$emit触发自定义事件，$emit第二个参数作为传递的数值。另一个兄弟组件通过$on监听自定义事件。</p>
+<h6 id="vuex-负责复杂关系的组件数据传递"><a href="#vuex-负责复杂关系的组件数据传递" class="headerlink" title="vuex 负责复杂关系的组件数据传递"></a>vuex 负责复杂关系的组件数据传递</h6><h6 id="父组件调用子组件方法（ref）"><a href="#父组件调用子组件方法（ref）" class="headerlink" title="父组件调用子组件方法（ref）"></a>父组件调用子组件方法（ref）</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父组件</span></span><br><span class="line">&lt;Father ref=<span class="string">&quot;child&quot;</span>/&gt;</span><br><span class="line"> methods:&#123;</span><br><span class="line">     <span class="function"><span class="title">clickFUnction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">         <span class="comment">//调用子组件的方法</span></span><br><span class="line">         <span class="built_in">this</span>.$refs[child].function()</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//子组件</span></span><br><span class="line"><span class="attr">methods</span>:&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="子组件通过props调用父组件方法"><a href="#子组件通过props调用父组件方法" class="headerlink" title="子组件通过props调用父组件方法"></a>子组件通过props调用父组件方法</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父组件</span></span><br><span class="line">&lt;Father :clickFUnction=<span class="string">&quot;clickFUnction&quot;</span>/&gt;</span><br><span class="line"> methods:&#123;</span><br><span class="line">     <span class="function"><span class="title">clickFUnction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      </span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//子组件</span></span><br><span class="line"><span class="attr">props</span>:[<span class="string">&quot;clickFUnction&quot;</span>]</span><br><span class="line"><span class="attr">methods</span>:&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.clickFUnction()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="vue2与vue3"><a href="#vue2与vue3" class="headerlink" title="vue2与vue3"></a>vue2与vue3</h4><ol>
+<li>利用新的语言特性(ES6)</li>
+<li>解决架构问题</li>
+</ol>
+<ul>
+<li>速度更快</li>
+<li>体积减少</li>
+<li>更易维护</li>
+<li>更接近原生</li>
+<li>更易使用</li>
+</ul>
+<h4 id="封装组件"><a href="#封装组件" class="headerlink" title="封装组件"></a>封装组件</h4><h4 id="vue与react的对比"><a href="#vue与react的对比" class="headerlink" title="vue与react的对比"></a>vue与react的对比</h4><p><strong>相同</strong></p>
+<ul>
+<li>都有组件化思想</li>
+<li>都支持服务器端渲染</li>
+<li>都有Virtual DOM（虚拟dom）</li>
+<li>数据驱动视图</li>
+<li>都有支持native的方案：<code>Vue</code>的<code>weex</code>、<code>React</code>的<code>React native</code></li>
+<li>都有自己的构建工具：<code>Vue</code>的<code>vue-cli</code>、<code>React</code>的<code>Create React App</code></li>
+</ul>
+<p><strong>不同</strong></p>
+<ul>
+<li>数据流向的不同。<code>react</code>从诞生开始就推崇单向数据流，而<code>Vue</code>是双向数据流</li>
+<li>数据变化的实现原理不同。<code>react</code>使用的是不可变数据，而<code>Vue</code>使用的是可变的数据</li>
+<li>组件化通信的不同。<code>react</code>中我们通过使用回调函数来进行通信的，而<code>Vue</code>中子组件向父组件传递消息有两种方式：事件和回调函数</li>
+<li>diff算法不同。<code>react</code>主要使用diff队列保存需要更新哪些DOM，得到patch树，再统一操作批量更新DOM。<code>Vue</code> 使用双向指针，边对比，边更新DOM</li>
+</ul>
+<h4 id="computed-和-watch-的区别"><a href="#computed-和-watch-的区别" class="headerlink" title="computed 和 watch 的区别"></a>computed 和 watch 的区别</h4><p><strong>computed计算属性 ，</strong></p>
+<p>它会根据所依赖的数据动态显示新的计算结果, 该计算结果会被缓存起来。computed的值是会被缓存的。如果所依赖的数据发生改变时候, 就会重新计算最新的结果,不支持异步，当computed内有异步操作时无效，无法监听数据的变化。如果一个属性是由其他属性计算而来的，这个属性依赖其他属性，是一个多对一或者一对一，一般用computed</p>
+<p><strong>watch：侦听属性</strong></p>
+<p>不支持缓存，数据变，直接会触发相应的操作,watch支持异步；监听的函数接收两个参数，第一个参数是最新的值；第二个参数是输入之前的值；当一个属性发生变化时，需要执行对应的操作；一对多；</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6917805693860839431">详解Vue中的computed和watch - 掘金 (juejin.cn)</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/20/Vue/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1122,6 +1419,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
             
             <div class="clearfix"></div>

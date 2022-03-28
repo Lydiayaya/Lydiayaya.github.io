@@ -8,15 +8,21 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Vue | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="底层实现原理核心特性数据驱动（MVVM）组件化指令系统指令 (Directives) 是带有 v- 前缀的特殊属性作用：当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。  常用的指令 条件渲染指令 v-if 列表渲染指令v-for 属性绑定指令v-bind 事件绑定指令v-on 双向数据绑定指令v-model    关于双向绑定的理解生命周期每个Vue实例在创建时期都会经过一系列的">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Vue">
 <meta property="og:url" content="http://example.com/2022/03/20/Vue/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="底层实现原理核心特性数据驱动（MVVM）组件化指令系统指令 (Directives) 是带有 v- 前缀的特殊属性作用：当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。  常用的指令 条件渲染指令 v-if 列表渲染指令v-for 属性绑定指令v-bind 事件绑定指令v-on 双向数据绑定指令v-model    关于双向绑定的理解生命周期每个Vue实例在创建时期都会经过一系列的">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/03/20/Vue/image-20220324191649514.png">
+<meta property="og:image" content="http://example.com/2022/03/20/Vue/image-20220324191827487.png">
 <meta property="article:published_time" content="2022-03-20T13:51:44.000Z">
-<meta property="article:modified_time" content="2022-03-20T13:51:44.555Z">
+<meta property="article:modified_time" content="2022-03-27T15:00:18.318Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/03/20/Vue/image-20220324191649514.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -172,7 +178,88 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="底层实现原理"><a href="#底层实现原理" class="headerlink" title="底层实现原理"></a>底层实现原理</h4><h4 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h4><h5 id="数据驱动（MVVM）"><a href="#数据驱动（MVVM）" class="headerlink" title="数据驱动（MVVM）"></a>数据驱动（MVVM）</h5><h5 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h5><h5 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h5><p>指令 (Directives) 是带有 v- 前缀的特殊属性作用：当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。</p>
+<ul>
+<li>常用的指令<ul>
+<li>条件渲染指令 <code>v-if</code></li>
+<li>列表渲染指令<code>v-for</code></li>
+<li>属性绑定指令<code>v-bind</code></li>
+<li>事件绑定指令<code>v-on</code></li>
+<li>双向数据绑定指令<code>v-model</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="关于双向绑定的理解"><a href="#关于双向绑定的理解" class="headerlink" title="关于双向绑定的理解"></a>关于双向绑定的理解</h4><h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><p>每个Vue实例在创建时期都会经过一系列的初始化过程，vue的生命周期勾子，就是说在达到某一阶段或条件时去触发的函数，目的就是为了完成一些动作或事件。vue实例从创建到销毁的过程就是一个vue的生命周期。即指从创建爱你、初始化数据、编译模板、挂载DOM到渲染、更新到渲染、销毁等一系列过程，主要分为创建、挂载、更新、销毁以及一些其他的特殊场景的生命周期</p>
+<ol>
+<li><p><code>create阶段</code>：vue实例被创建</p>
+<pre><code> `beforeCreate`: 创建前，此时data和methods中的数据都还没有初始化
+`created`： 创建完毕，data中有值，未挂载
+</code></pre>
+</li>
+<li><p><code>mount阶段</code>： vue实例被挂载到真实DOM节点</p>
+<pre><code> `beforeMount`：可以发起服务端请求，去数据
+ `mounted`: 组件挂载到实例上去之后，此时可以操作DOM
+</code></pre>
+</li>
+<li><p><code>update阶段</code>：当vue实例里面的data数据变化时，触发组件的重新渲染</p>
+<pre><code>  `beforeUpdate` :组件数据发生变化，更新前
+     `updated`：更新后
+</code></pre>
+</li>
+<li><p><code>destroy阶段</code>：vue实例被销毁</p>
+<pre><code>       `beforeDestroy`：实例被销毁前，此时可以手动销毁一些方法
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//其余特殊组件</span><br><span class="line">activated：keep-alive缓存的组件激活时</span><br><span class="line">deactivated：keep-alive缓存的组件停用时调用</span><br></pre></td></tr></table></figure>
+
+<p><code> destroyed</code>:销毁后</p>
+</li>
+</ol>
+<p><img src="/2022/03/20/Vue/image-20220324191649514.png" alt="image-20220324191649514"></p>
+<p><img src="/2022/03/20/Vue/image-20220324191827487.png" alt="image-20220324191827487"></p>
+<h4 id="组件通信"><a href="#组件通信" class="headerlink" title="组件通信"></a>组件通信</h4><h6 id="props父传子"><a href="#props父传子" class="headerlink" title="props父传子"></a>props父传子</h6><p>子组件设置props属性，东一接收父组件传递过来的参数，父组件在使用子组件标签中通过 : data=“data”</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">props:&#123;  </span><br><span class="line">    <span class="comment">// 字符串形式  </span></span><br><span class="line">     <span class="attr">name</span>:<span class="built_in">String</span> <span class="comment">// 接收的类型参数  </span></span><br><span class="line">    <span class="comment">// 对象形式  </span></span><br><span class="line">    <span class="attr">age</span>:&#123;    </span><br><span class="line">        <span class="attr">type</span>:<span class="built_in">Number</span>, <span class="comment">// 接收的类型为数值  </span></span><br><span class="line">        <span class="attr">defaule</span>:<span class="number">18</span>,  <span class="comment">// 默认值为18  </span></span><br><span class="line">       <span class="attr">require</span>:<span class="literal">true</span> <span class="comment">// age属性必须传递  </span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<h6 id="emit子传父"><a href="#emit子传父" class="headerlink" title="$emit子传父"></a>$emit子传父</h6><p>子组件通过$emit触发自定义事件，$emit第二个参数魏传递的数值；父组件绑定检同期获取子组件传递过来的参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//子</span></span><br><span class="line"><span class="built_in">this</span>.$emit(<span class="string">&#x27;add&#x27;</span>, good)  </span><br><span class="line"><span class="comment">//父</span></span><br><span class="line">&lt;Children @add=<span class="string">&quot;cartAdd($event)&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<h6 id="EventBus兄弟传值"><a href="#EventBus兄弟传值" class="headerlink" title="EventBus兄弟传值"></a>EventBus兄弟传值</h6><p>创建一个中央事件总线 EventBus，兄弟组件通过$emit触发自定义事件，$emit第二个参数作为传递的数值。另一个兄弟组件通过$on监听自定义事件。</p>
+<h6 id="vuex-负责复杂关系的组件数据传递"><a href="#vuex-负责复杂关系的组件数据传递" class="headerlink" title="vuex 负责复杂关系的组件数据传递"></a>vuex 负责复杂关系的组件数据传递</h6><h6 id="父组件调用子组件方法（ref）"><a href="#父组件调用子组件方法（ref）" class="headerlink" title="父组件调用子组件方法（ref）"></a>父组件调用子组件方法（ref）</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父组件</span></span><br><span class="line">&lt;Father ref=<span class="string">&quot;child&quot;</span>/&gt;</span><br><span class="line"> methods:&#123;</span><br><span class="line">     <span class="function"><span class="title">clickFUnction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">         <span class="comment">//调用子组件的方法</span></span><br><span class="line">         <span class="built_in">this</span>.$refs[child].function()</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//子组件</span></span><br><span class="line"><span class="attr">methods</span>:&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="子组件通过props调用父组件方法"><a href="#子组件通过props调用父组件方法" class="headerlink" title="子组件通过props调用父组件方法"></a>子组件通过props调用父组件方法</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父组件</span></span><br><span class="line">&lt;Father :clickFUnction=<span class="string">&quot;clickFUnction&quot;</span>/&gt;</span><br><span class="line"> methods:&#123;</span><br><span class="line">     <span class="function"><span class="title">clickFUnction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      </span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//子组件</span></span><br><span class="line"><span class="attr">props</span>:[<span class="string">&quot;clickFUnction&quot;</span>]</span><br><span class="line"><span class="attr">methods</span>:&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.clickFUnction()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="vue2与vue3"><a href="#vue2与vue3" class="headerlink" title="vue2与vue3"></a>vue2与vue3</h4><ol>
+<li>利用新的语言特性(ES6)</li>
+<li>解决架构问题</li>
+</ol>
+<ul>
+<li>速度更快</li>
+<li>体积减少</li>
+<li>更易维护</li>
+<li>更接近原生</li>
+<li>更易使用</li>
+</ul>
+<h4 id="封装组件"><a href="#封装组件" class="headerlink" title="封装组件"></a>封装组件</h4><h4 id="vue与react的对比"><a href="#vue与react的对比" class="headerlink" title="vue与react的对比"></a>vue与react的对比</h4><p><strong>相同</strong></p>
+<ul>
+<li>都有组件化思想</li>
+<li>都支持服务器端渲染</li>
+<li>都有Virtual DOM（虚拟dom）</li>
+<li>数据驱动视图</li>
+<li>都有支持native的方案：<code>Vue</code>的<code>weex</code>、<code>React</code>的<code>React native</code></li>
+<li>都有自己的构建工具：<code>Vue</code>的<code>vue-cli</code>、<code>React</code>的<code>Create React App</code></li>
+</ul>
+<p><strong>不同</strong></p>
+<ul>
+<li>数据流向的不同。<code>react</code>从诞生开始就推崇单向数据流，而<code>Vue</code>是双向数据流</li>
+<li>数据变化的实现原理不同。<code>react</code>使用的是不可变数据，而<code>Vue</code>使用的是可变的数据</li>
+<li>组件化通信的不同。<code>react</code>中我们通过使用回调函数来进行通信的，而<code>Vue</code>中子组件向父组件传递消息有两种方式：事件和回调函数</li>
+<li>diff算法不同。<code>react</code>主要使用diff队列保存需要更新哪些DOM，得到patch树，再统一操作批量更新DOM。<code>Vue</code> 使用双向指针，边对比，边更新DOM</li>
+</ul>
+<h4 id="computed-和-watch-的区别"><a href="#computed-和-watch-的区别" class="headerlink" title="computed 和 watch 的区别"></a>computed 和 watch 的区别</h4><p><strong>computed计算属性 ，</strong></p>
+<p>它会根据所依赖的数据动态显示新的计算结果, 该计算结果会被缓存起来。computed的值是会被缓存的。如果所依赖的数据发生改变时候, 就会重新计算最新的结果,不支持异步，当computed内有异步操作时无效，无法监听数据的变化。如果一个属性是由其他属性计算而来的，这个属性依赖其他属性，是一个多对一或者一对一，一般用computed</p>
+<p><strong>watch：侦听属性</strong></p>
+<p>不支持缓存，数据变，直接会触发相应的操作,watch支持异步；监听的函数接收两个参数，第一个参数是最新的值；第二个参数是输入之前的值；当一个属性发生变化时，需要执行对应的操作；一对多；</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6917805693860839431">详解Vue中的computed和watch - 掘金 (juejin.cn)</a></p>
+
       
 
       
@@ -201,6 +288,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -265,11 +363,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/03/20/React-0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/03/20/%E7%AE%97%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          React
+          算法
         
       </div>
     </a>
@@ -443,6 +541,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
             
             <div class="clearfix"></div>

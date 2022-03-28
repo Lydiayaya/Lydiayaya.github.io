@@ -17,8 +17,9 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220323155422299.png">
 <meta property="og:image" content="http://example.com/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220323155525631.png">
+<meta property="og:image" content="http://example.com/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220325105005837.png">
 <meta property="article:published_time" content="2022-03-20T13:52:39.000Z">
-<meta property="article:modified_time" content="2022-03-24T02:45:08.318Z">
+<meta property="article:modified_time" content="2022-03-25T08:10:30.367Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="计算机基础">
 <meta name="twitter:card" content="summary">
@@ -178,12 +179,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h5><p>带有结构特性的数据元素的集合,他研究的是数据的逻辑结构和数据的物理结构以及他们之间的相互关系，并对这种结构定义相适应的运算，设计出相应的算法，并确保经过这些运算以后所得到的新结构仍然保持原来的结构类型。简而言之，数据结构是相互之间存在一种或多种特定关系的数据元素的集合，即带“结构”的数据元素的集合。“结构”就是指数据元素之间存在的关系，分为逻辑结构和存储结构。</p>
+        <h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>带有结构特性的数据元素的集合,他研究的是数据的逻辑结构和数据的物理结构以及他们之间的相互关系，并对这种结构定义相适应的运算，设计出相应的算法，并确保经过这些运算以后所得到的新结构仍然保持原来的结构类型。简而言之，数据结构是相互之间存在一种或多种特定关系的数据元素的集合，即带“结构”的数据元素的集合。“结构”就是指数据元素之间存在的关系，分为逻辑结构和存储结构。</p>
 <p>数据是存储在计算机内存里的，在存储是，决定了数据顺序和位置关系的便是“数据结构”。</p>
 <p><strong>逻辑结构</strong>：元素之间逻辑关系的数据结构，这里的逻辑关系是指数据元素之间的前后间关系，与数据在计算机中的存储位置无关。</p>
 <p><strong>物理结构</strong>：指数据的逻辑结构在计算机存储空间中的存放形式称为数据的物理结构，也叫做存储结构。</p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138523723">十三张图带你彻底了解所有数据结构 - 知乎 (zhihu.com)</a></p>
-<h6 id="树"><a href="#树" class="headerlink" title="树"></a>树</h6><p><strong>树（Tree）</strong>是n（n&gt;=0)个结点的有限集。n=0时称为空树。</p>
+<h4 id="时间复杂度，空间复杂度"><a href="#时间复杂度，空间复杂度" class="headerlink" title="时间复杂度，空间复杂度"></a>时间复杂度，空间复杂度</h4><p>算法是指用来操作数据、解决程序问题的一组方法问题，使用不同的算法，也许最终得到的结果是一样的，但在过程和时间却会有很大的区别。</p>
+<h6 id="时间维度："><a href="#时间维度：" class="headerlink" title="时间维度："></a>时间维度：</h6><p>算法的复杂度通常用大O表述，定义为：T(n)=O(f(n))</p>
+<p>时间复杂度：O(1)常数型、O(log n)对数型、O(n)线性型、O(nlogn)线性对数型、O(n^2)平方型、O(n^3)立方型、O(n^k)k次方型、O(2^n)指数型</p>
+<p><strong>计算时间复杂度的方法</strong></p>
+<ol>
+<li>找出算法中的基本语句</li>
+</ol>
+<p>算法中执行次数最多的那条语句就是基本语句，通常是最内层循环的循环体</p>
+<ol>
+<li>计算基本语句的执行次数的数量级</li>
+</ol>
+<p>保留最高次幂</p>
+<ol>
+<li>用大O几号表示算法的时间性能</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//性能最好的算法的时间复杂度为 O(1)，也就是在执行有限次的操作之后达到目标。比如一些计算类型的代码或者交换值的代码等。</span></span><br><span class="line"><span class="comment">//1.计算</span></span><br><span class="line"><span class="keyword">var</span> sum = a * b;</span><br><span class="line"><span class="comment">//2.交换</span></span><br><span class="line"><span class="keyword">var</span> temp = a;</span><br><span class="line"></span><br><span class="line"><span class="comment">//o(n)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">aFunc</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; n; i++) &#123; <span class="comment">// 循环次数为 n</span></span><br><span class="line">        printf(<span class="string">&quot;Hello, World!\n&quot;</span>); <span class="comment">// 循环体时间复杂度为 O(1)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对于顺序执行的语句，总的时间复杂度等于其中最大的时间复杂度，//max(O(n^2), O(n)) = O(n^2)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        sum += i</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            sum += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//循环语句中以2的倍数来逼近n   时间复杂度为 log n</span></span><br><span class="line"><span class="comment">//如果一个O(n)里面嵌套一个O(logn)那么时间复杂度为O(nlogn)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">1</span>; </span><br><span class="line">    <span class="keyword">while</span> (i &lt;= n) &#123;</span><br><span class="line">        i = i * <span class="number">2</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="空间维度"><a href="#空间维度" class="headerlink" title="空间维度"></a>空间维度</h6><p>空间复杂度主要指执行算法所需内存大小，用于对程序运行过程中所需要的临时存储空间的度量.</p>
+<p>除了需要存储空间、指令、常数、变量和输入数据外，还包括对数据进行操作的工作单元和存储计算所需信息的辅助空间</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//O(1) 临时空间不会随着n的变化而变化，因此空间复杂度为O(1)</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="number">3</span></span><br><span class="line"><span class="comment">//o(n) 随着n的增加，数组的占用的内存空间越大</span></span><br><span class="line"><span class="keyword">let</span> arr []</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=n; ++i)&#123;</span><br><span class="line">  arr.push(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//只要算法不涉及到动态分配的空间，以及递归、栈所需的空间，空间复杂度通常为O(1)，一个一维数组a[n]，空间复杂度O(n)，二维数组为O(n^2)</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="树"><a href="#树" class="headerlink" title="树"></a>树</h4><p><strong>树（Tree）</strong>是n（n&gt;=0)个结点的有限集。n=0时称为空树。</p>
 <p>2）当n&gt;1时，其余结点可分为m(m&gt;0)个互不相交的有限集T1、T2、……、Tn，其中每一个集合本身又是一棵树，并且称为根的子树。</p>
 <p>结点拥有的子树数目称为结点的<strong>度</strong>。</p>
 <p><img src="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220323155422299.png" alt="image-20220323155422299"></p>
@@ -197,6 +221,57 @@
 <blockquote>
 <p>(1) 若 i=1，则该结点是二叉树的根，无双亲, 否则，编号为 [i/2] 的结点为其双亲结点;<br> (2) 若 2i&gt;n，则该结点无左孩子，  否则，编号为 2i 的结点为其左孩子结点；<br> (3) 若 2i+1&gt;n，则该结点无右孩子结点，  否则，编号为2i+1 的结点为其右孩子结点。</p>
 </blockquote>
+<h5 id="遍历二叉树"><a href="#遍历二叉树" class="headerlink" title="遍历二叉树"></a>遍历二叉树</h5><ol>
+<li>前序  中左右</li>
+<li>中序  左中右</li>
+<li>后序  左右中</li>
+<li>层序 按照二叉树的层次从左到右一次遍历每层中的结点</li>
+</ol>
+<h4 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h4><p>对与排序算法的好坏衡量，主要是从时间复杂度、空间复杂度、稳定性。</p>
+<p>稳定性指的是假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变</p>
+<p>即在原序列中，r[i] = r[j]，且 r[i] 在 r[j] 之前，而在排序后的序列中，r[i] 仍在 r[j] 之前，则称这种排序算法是稳定的；否则称为不稳定的.</p>
+<p><img src="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220325105005837.png" alt="image-20220325105005837"></p>
+<p><strong>常见排序算法</strong></p>
+<h5 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h5><p>思路：</p>
+<ol>
+<li>比较相邻的元素，如果第一个比第二个大，就交换他们两个，</li>
+<li>在每一对相邻的元素作同样的工作，</li>
+<li>针对所有元素重复以上步骤，直到没有任何一对数字需要比较</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从小到大</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; len - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j+<span class="number">1</span>]) &#123;        <span class="comment">// 相邻元素两两对比</span></span><br><span class="line">                <span class="keyword">var</span> temp = arr[j+<span class="number">1</span>];        <span class="comment">// 元素交换</span></span><br><span class="line">                arr[j+<span class="number">1</span>] = arr[j];</span><br><span class="line">                arr[j] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h5><p>无论什么数据进去都是O（n2）的复杂度，所以使用它时，数据规模越小越好，唯一的好处是不占用额外的内存存储空间</p>
+<p>思路：</p>
+<ol>
+<li>在未排序的序列中找到最大（小）存放在排序序列的起始位置；</li>
+<li>从剩余未排序元素中继续寻找最大（小）的元素，然后放到已排序的序列末尾；</li>
+<li>重复第二步。直到排序完成</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectionSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> len = arr.length;</span><br><span class="line">    <span class="keyword">var</span> minIndex, temp;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        minIndex = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = i + <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[minIndex]) &#123;     <span class="comment">// 寻找最小的数</span></span><br><span class="line">                minIndex = j;                 <span class="comment">// 将最小数的索引保存</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        temp = arr[i];</span><br><span class="line">        arr[i] = arr[minIndex];</span><br><span class="line">        arr[minIndex] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h5><p>通过构建有序序列，对于未排序序列，在已排序序列中从后向前扫描，找到相应位置插入</p>
+<p>思路：</p>
+<ol>
+<li>把待排序的数组分成已排序和未排序两个部分，</li>
+<li>初始的时候把第一个元素认为是已排好序的，第一个元素至末尾都是魏排序数组，在未排序序列中选出第一个元素在已排序序列中进行比较，找到合适的位置并插入该位置（如果已经有相同元素，则插在相同元素后面）；</li>
+<li>重复动作直至之后一个元素被插入</li>
+</ol>
+<h5 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h5><p>采用分治法。将已有序的子序列合并，得到完全有序的序列，即先使每个子序列有序，再使子序列段有序。</p>
+<p>思路：</p>
+<ol>
+<li>申请空间，使其大小魏两个已经排序序列之和，该空间用来存放合并后的序列</li>
+<li>设定两个指针，最初位置分别为两个已经排序序列的其实位置</li>
+<li>比较两个指针所指向的元素，选择相对较小的元素放入到合并空间，并移动指针到下一位置</li>
+<li>重复步骤三直到某一指针到达序列尾</li>
+<li>将另一序列剩下的所有元素直接1赋值到合并序列</li>
+</ol>
+<h5 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h5><p>对冒泡排序的一种改进，基本思想是通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据比另一部分的所有数据要小，再按这种方法对这两部分数据分别进行跨苏排序，整个拍戏过程可以地柜进行。</p>
+<ul>
+<li>从数列中挑出一个元素，称为”基准”（pivot）</li>
+<li>重新排序数列，所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任何一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作</li>
+<li>递归地（recursively）把小于基准值元素的子数列和大于基准值元素的子数列排序</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> rec = <span class="function">(<span class="params">arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) &#123; <span class="keyword">return</span> arr; &#125;</span><br><span class="line">    <span class="keyword">const</span> left = [];</span><br><span class="line">    <span class="keyword">const</span> right = [];</span><br><span class="line">    <span class="keyword">const</span> mid = arr[<span class="number">0</span>]; <span class="comment">// 基准元素</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[i] &lt; mid) &#123;</span><br><span class="line">        left.push(arr[i]);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        right.push(arr[i]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [...rec(left), mid, ...rec(right)]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res(arr)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -311,7 +386,7 @@
     </a>
   
   
-    <a href="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">计算机网路</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -479,6 +554,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
               </li>
             
             <div class="clearfix"></div>
