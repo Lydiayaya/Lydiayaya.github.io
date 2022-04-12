@@ -152,6 +152,384 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-实习月志（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/08/%E5%AE%9E%E4%B9%A0%E6%9C%88%E5%BF%97%EF%BC%88%E4%BA%8C%EF%BC%89/">实习月志（二）</a>
+    </h1>
+  
+
+        
+        <a href="/2021/08/08/%E5%AE%9E%E4%B9%A0%E6%9C%88%E5%BF%97%EF%BC%88%E4%BA%8C%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2021-08-08T14:43:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    老实说，这个月我过的很不踏实，因为我感觉自己拿着公司给的钱但根本没做啥，虽然我自己确实是学习到了很多东西，但是我实际上写一个需求都要抓耳挠腮好久救命。这一个月我就写了一个需求，从重构组件到组件与业务联调，从简单得代码实现到考虑代码的复用性，代码的性能。磨得我人都傻了说实话，每天早上我都很害怕听见主管问我这边得情况怎么样了呜呜呜。</p>
+<p>​      在完成一个折叠展开组件得时候我发现，完成需求的方法有很多种，但是不是每一种都适用于当前当下，在写回答字数折叠组件时，采用了多种方法，纯JS，纯CSS，JS与CSS混合，在陈灿冰老师的耐心指导下最终写成了最终的样子。但是因为使用了CSS会对组件中的其他内容造成一定的i影响，例弹窗位置变化这样的问题，目前已经解决了，但是新的问题又出现了，组件库与mp4.0联合调试时发现在组件库中写的方法，在MP4里面失效了，还有就是组件的展开折叠还存在用户修改答案，组件未更新的情况，前端真的是一点也不简单。</p>
+<p>​    解决bug，优化代码，把功能实现是我能做到，但是把代码写的符合规范，复用性强以及性能优秀是我当前遇到的最大的问题。总的来说，我的知识储备量太低了，没法快速想到解决问题的另一种方法，总在一个方法上磨，这样既浪费时间也搞人心态，会增加一些没必要的负担，不过我有在好好学习，也还有机会好好学习，明天又是勇敢的小魏！</p>
+<p>​      </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实习心得</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/08/%E5%AE%9E%E4%B9%A0%E6%9C%88%E5%BF%97%EF%BC%88%E4%BA%8C%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-调试方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/02/%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/">调试方法</a>
+    </h1>
+  
+
+        
+        <a href="/2021/08/02/%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2021-08-02T01:48:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="console"><a href="#console" class="headerlink" title="console"></a>console</h5><h6 id="log"><a href="#log" class="headerlink" title="log"></a>log</h6><p>常用打印</p>
+<h6 id="dir"><a href="#dir" class="headerlink" title="dir"></a>dir</h6><p>加上（对象）数据类型的打印</p>
+<h6 id="table"><a href="#table" class="headerlink" title="table"></a>table</h6><p>表格形式打印</p>
+<h5 id="debugger"><a href="#debugger" class="headerlink" title="debugger"></a>debugger</h5><p>​       代码停在当前debugger设置的点，然后习性控制执行</p>
+<h5 id="time-amp-timeEnd"><a href="#time-amp-timeEnd" class="headerlink" title="time&amp; timeEnd"></a>time&amp; timeEnd</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">&quot;time1&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//需要测试时间的代码</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">&quot;time1&quot;</span>)</span><br><span class="line"><span class="comment">//输出time1:时间 ms</span></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/02/%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-XD-MP-MINI4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/16/XD-MP-MINI4/">xd-mp-mini4一些源码解读</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/16/XD-MP-MINI4/" class="archive-article-date">
+  	<time datetime="2021-07-16T10:23:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="umi-dva-react-ts"><a href="#umi-dva-react-ts" class="headerlink" title="umi+dva+react+ts"></a><code>umi+dva+react+ts</code></h3><p>单页应用,页面地址的跳转都是在浏览器端完成的,不会重新请求服务器端获取<code>HTML,html</code>旨在应用初始化时加载一次.所有页面由不同的租价构成,页面的切换其实就是不同组件的切换,只需要在配置中把不同的路由和对应得组件关联上.</p>
+<h3 id="config"><a href="#config" class="headerlink" title="config"></a><code>config</code></h3><p>通用配置文件</p>
+<h3 id="public-静态资源文件"><a href="#public-静态资源文件" class="headerlink" title="public-静态资源文件"></a>public-静态资源文件</h3><p>只放了几张图片</p>
+<h3 id="mock文件夹"><a href="#mock文件夹" class="headerlink" title="mock文件夹"></a>mock文件夹</h3><p>存储mock文件，此目录下所有<code>JS和t</code>s文件爱会被解析为mock文件。</p>
+<h3 id="src"><a href="#src" class="headerlink" title="src"></a><code>src</code></h3><p><code>.umi</code>目录，临时文件目录，比如入口文件（？），路由等，都会被临时生成到这里。不要提交<code>.umi</code>文件到git仓库，他们会在<code>umidev和 umi</code> build时被删除并重新生成</p>
+<h6 id="layout-index-tsx-约定式路由时的全局布局文件"><a href="#layout-index-tsx-约定式路由时的全局布局文件" class="headerlink" title="layout/index.tsx 约定式路由时的全局布局文件"></a><code>layout/index.tsx</code> 约定式路由时的全局布局文件</h6><p><code>routes.ts</code>是配置式路由,如果没有<code>route,Umi</code>会进入约定式路由模式然后分析<code>src/pages</code>目录拿到路由配置.约定式路由又叫文件路由,就是不需要手写配置,文件系统即路由,通过目录和文件极其命名分析出路由配置.</p>
+<p>动态路由<code>[name]=&gt;/:name</code></p>
+<p>动态可选路由 <code>[name$]=&gt;/:name?/</code></p>
+<h5 id="权限路由"><a href="#权限路由" class="headerlink" title="权限路由"></a>权限路由</h5><h4 id="umirc-ts"><a href="#umirc-ts" class="headerlink" title=".umirc.ts"></a><code>.umirc.ts</code></h4><p><code>.umirc.ts</code> 或者 <code>config/config.ts</code></p>
+<p>配置文件，包含 <code>umi</code> 内置功能和插件的配置。但是在这个项目中,项目配置卸载<code>config/config.ts</code>中的,并把配置的路由拆分成了单独的<code>routes.ts.</code></p>
+<h5 id="本地临时配置"><a href="#本地临时配置" class="headerlink" title="本地临时配置"></a>本地临时配置</h5><p><code>.umirc.local.ts</code> 或者 <code>config/config.local.ts</code></p>
+<p><code>.local.ts</code>是本地验证使用的临时配置需要将其添加到.<code>gitignore</code>,务必不要提交到git仓库中.</p>
+<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a><code>package.json</code></h4><h4 id="babel转码器"><a href="#babel转码器" class="headerlink" title="babel转码器"></a>babel转码器</h4>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实习心得</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/16/XD-MP-MINI4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-react" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/10/react/">react的指向</a>
+    </h1>
+  
+
+        
+        <a href="/2021/07/10/react/" class="archive-article-date">
+  	<time datetime="2021-07-10T14:23:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>​    声明式javascript库</p>
+<p>​    被视为JS一等公民中的对象，因此可以React元素在应用程序中当作参数来传递。在react中，我们还可以使用react元素的数组来渲染多个元素。</p>
+<p>​    流程：react jsx-&gt;render函数-&gt;生成Vnode-&gt;当有变化时，新老Vnode diff -&gt;diff 算法对比，并真正去更新真实DOM。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li><p>数据不可变，需要setstate驱动新的state替换老的State。</p>
+</li>
+<li><p>当数据改变时，以组件为根目录，默认全部重新渲染</p>
+</li>
+<li><p>生命周期</p>
+</li>
+<li><p>单向数据流：props，主要通过onchage/setstate的形式更新数据（受控组件！！）</p>
+</li>
+<li><p>组件通信：props,context,redux</p>
+</li>
+<li><p>组件嵌套:props.children</p>
+</li>
+<li><p>class组件下的this是不存在的，需要手动为方法绑定this才能在回调函数里使用方法。</p>
+<h6 id="方法一：在构造函数里使用this-fun-this-fun-bind-this"><a href="#方法一：在构造函数里使用this-fun-this-fun-bind-this" class="headerlink" title="方法一：在构造函数里使用this.fun=this.fun.bind(this)"></a>方法一：在构造函数里使用this.fun=this.fun.bind(this)</h6><h6 id="方法二：在回调函数里使用时直接用this-fun-bind-this"><a href="#方法二：在回调函数里使用时直接用this-fun-bind-this" class="headerlink" title="方法二：在回调函数里使用时直接用this.fun.bind(this)"></a>方法二：在回调函数里使用时直接用this.fun.bind(this)</h6><h6 id="方法三：使用箭头函数：（）-gt-this-fun-箭头函数会继承父作用域的this"><a href="#方法三：使用箭头函数：（）-gt-this-fun-箭头函数会继承父作用域的this" class="headerlink" title="方法三：使用箭头函数：（）=&gt;this.fun()箭头函数会继承父作用域的this"></a>方法三：使用箭头函数：（）=&gt;this.fun()箭头函数会继承父作用域的this</h6></li>
+</ul>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><h4 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h4><p>​    ES6——&gt;es5</p>
+<p>​    JSX——&gt;JS</p>
+<h4 id="react-development"><a href="#react-development" class="headerlink" title="react-development"></a>react-development</h4><p>​    react 核心库</p>
+<h4 id="react-DOM-development"><a href="#react-DOM-development" class="headerlink" title="react-DOM-development"></a>react-DOM-development</h4><p>​    扩展库</p>
+<h3 id="一些名词"><a href="#一些名词" class="headerlink" title="一些名词"></a>一些名词</h3><h4 id="React-Component"><a href="#React-Component" class="headerlink" title="React.Component"></a>React.Component</h4><p>组件</p>
+<h4 id="jsx"><a href="#jsx" class="headerlink" title="jsx"></a>jsx</h4><p>一种新的更容易用于写react代码的语法，在JSX里可以写JS代码，但是需要用大括号括起来。</p>
+<h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><ol>
+<li>render(),当render被调用时，它会检查this.props和this.state的变化并返回要渲染的数据类型</li>
+<li>constructor()，如果不初始化state或不进行方法绑定，则不需要为react组件实现构造函数</li>
+<li></li>
+</ol>
+<h4 id="组件编写方式"><a href="#组件编写方式" class="headerlink" title="组件编写方式"></a>组件编写方式</h4><h5 id="class"><a href="#class" class="headerlink" title="class"></a>class</h5><p>创建一个class类并且让他继承React.Componet，同时通过构建函数处理props，将props挂载到super上，并且声明state状态初始化一个对象，可以添加一些自定义方法，在Render方法中return出JSX的模板。</p>
+<h5 id="function"><a href="#function" class="headerlink" title="function"></a>function</h5><p>函数组件，组件中只包含一个render方法。不需要定义一个继承于React.Componet的类，直接定义函数，这个函数接收一些参数，然后返回需要渲染的元素。</p>
+<p>有的export default 组件是啥意思</p>
+<h4 id="组件传值"><a href="#组件传值" class="headerlink" title="组件传值"></a><u>组件传值</u></h4><p>1.在父组件使用子组件的时候绑定定义一个方法,使用这个方法的时候传递参数，在函数里面通过<code>value&#123;sth&#125;</code>接收参数,然后在子组件中通过<code>this.props.value</code>接受参数。</p>
+<p>2.在需要同时获取多个子组件数据，或者两个组件之间需要相互通讯的情况是，需要把子组件的state数据提升至其共同的父组件当中保存。之后父组件可以通过props价格状态数据传递到子组件当中。这样应用当中所有组件的状态数据就能够更方便地同步共享了。</p>
+<h4 id="props"><a href="#props" class="headerlink" title="props"></a>props</h4><p>参数</p>
+<h4 id="state"><a href="#state" class="headerlink" title="state"></a>state</h4><p>在react组件的构造函数中设置this.state来初始化state。改变state里面的值来设置不同的状态。</p>
+<p>state对于每个组件来说是私有的，因此不能直接通过其余组件来改变目标组件的state</p>
+<h4 id="setState"><a href="#setState" class="headerlink" title="setState"></a>setState</h4><p>每次在组件中调用setState时，react都会自动更新其子组件，setstate它用来改变state里面的值。</p>
+<h4 id="super"><a href="#super" class="headerlink" title="super"></a>super</h4><p>在javaScript class中，每次定义其子类的构造函数时都需要调用super方法，所以在所有含有构造函数的Reat组件中，构造函数必须以super(props)开头</p>
+<h4 id="on-event"><a href="#on-event" class="headerlink" title="on[event]"></a>on[event]</h4><p>在react中，有一个命名规范，通常会将待变事件的监听prop命名魏on[event]，将处理事件的监听方法命名为handle[event]</p>
+<h4 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h4><p>react使用三目表达式来实现vue中的v-if和v-show</p>
+<h6 id="value-lt-span-gt-true-lt-span-gt-lt-span-gt-false-lt-span-gt-通过设置value的真假控制DOM的显示"><a href="#value-lt-span-gt-true-lt-span-gt-lt-span-gt-false-lt-span-gt-通过设置value的真假控制DOM的显示" class="headerlink" title="{value ? &lt;span&gt;true&lt;/span&gt; : &lt;span&gt;false&lt;/span&gt;}通过设置value的真假控制DOM的显示"></a><code>&#123;value ? &lt;span&gt;true&lt;/span&gt; : &lt;span&gt;false&lt;/span&gt;&#125;</code>通过设置value的真假控制DOM的显示</h6><h4 id="列表循环"><a href="#列表循环" class="headerlink" title="列表循环"></a>列表循环</h4><p>使用map方法来处理列表：</p>
+<p>就是定义一个数组对象，然后使用数组.map((item)=&gt;)</p>
+<h4 id="不可变性与可变性"><a href="#不可变性与可变性" class="headerlink" title="不可变性与可变性"></a>不可变性与可变性</h4><p>改变数据有两种方式：直接修改变量的值/使用新的一份·数据替换旧数据。</p>
+<p>不直接修改数据的好处：</p>
+<p>1.简化复杂的功能</p>
+<p>2.跟踪数据的改变</p>
+<p>3.确定在react中何时渲染（帮助在React中创建Pure Componets，可以更轻松的确定不可变数据是否发生了改变从而而确定合适对组件进行重新渲染）</p>
+<h4 id="组件插槽"><a href="#组件插槽" class="headerlink" title="组件插槽"></a><u>组件插槽</u></h4><h4 id="key"><a href="#key" class="headerlink" title="key"></a>key</h4><p>当我们需要渲染一个列表的时候，react会存储这个列表每一项的相关信息。当我们要更新这个列表时，react需要确定哪些项发生了改变。key属性用来区分不同的列表项和他们的同级兄弟列表项。每当一个列表重新渲染是，react会根据每一项列表元素的Key来检索上一次渲染时与每个Key所匹配的列表项。如果react发现当前的列表有一个之前不存在的key，那么就会创建出一个新的组件。如果react发下和之前对比少了一个key，那么就会销毁之前对应的组件。如果一个组件的key发生了变化，这个组件会被销毁，然后使用心得state重新创建一份。</p>
+<p>当react圆度被创建出来的hi后，react会提取出key属性，然后把key直接存储在返回的元素上。key不能通过this.props.key来获取，react会通过key来自动判断哪些组件需要更新。组件是不能访问到他的key的。</p>
+<h5 id="每次构建动态列表时，都建议指定一个合适的key。"><a href="#每次构建动态列表时，都建议指定一个合适的key。" class="headerlink" title="每次构建动态列表时，都建议指定一个合适的key。"></a>每次构建动态列表时，都建议指定一个合适的key。</h5><p>如果没有指定key，react会发出警告并把数组的索引当作默认的key，但是此时如果想要对列表进行重新排序，新增，删除操作，是会存在问题的，但是如果不需要这些操作就可以使用数组索引。</p>
+<h5 id="组件的key并不需要在全局保证唯一，只需要在当前的同一级元素之前保证唯一就可以了"><a href="#组件的key并不需要在全局保证唯一，只需要在当前的同一级元素之前保证唯一就可以了" class="headerlink" title="组件的key并不需要在全局保证唯一，只需要在当前的同一级元素之前保证唯一就可以了"></a>组件的key并不需要在全局保证唯一，只需要在当前的同一级元素之前保证唯一就可以了</h5><h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><p>唯一，获取组件的饮用</p>
+<h4 id="数据请求"><a href="#数据请求" class="headerlink" title="数据请求"></a><u>数据请求</u></h4><h4 id="路由"><a href="#路由" class="headerlink" title="路由"></a><u>路由</u></h4><h3 id="脚手架"><a href="#脚手架" class="headerlink" title="脚手架"></a>脚手架</h3><h4 id="创建项目并启动"><a href="#创建项目并启动" class="headerlink" title="创建项目并启动"></a>创建项目并启动</h4><p>npx create-react-app name</p>
+<p>cd name</p>
+<p>npm start(启动)</p>
+<h4 id="组件化编码流程"><a href="#组件化编码流程" class="headerlink" title="组件化编码流程"></a>组件化编码流程</h4><ol>
+<li><p>拆分</p>
+</li>
+<li><p>静态组件</p>
+</li>
+<li><p>动态组件</p>
+<h6 id="数据（初始化，数据类型，保存在哪儿）"><a href="#数据（初始化，数据类型，保存在哪儿）" class="headerlink" title="数据（初始化，数据类型，保存在哪儿）"></a>数据（初始化，数据类型，保存在哪儿）</h6><h6 id="交互（从绑定事件监听开始）"><a href="#交互（从绑定事件监听开始）" class="headerlink" title="交互（从绑定事件监听开始）"></a>交互（从绑定事件监听开始）</h6></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/07/10/react/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-实习月志（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -788,11 +1166,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">

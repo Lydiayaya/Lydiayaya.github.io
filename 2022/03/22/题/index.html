@@ -21,12 +21,11 @@
 <meta property="og:image" content="http://example.com/2022/03/22/%E9%A2%98/image-20220322105138687.png">
 <meta property="og:image" content="http://example.com/2022/03/22/%E9%A2%98/image-20220322153134105.png">
 <meta property="og:image" content="http://example.com/2022/03/22/%E9%A2%98/image-20220322163250278.png">
-<meta property="og:image" content="http://example.com/2022/03/22/%E9%A2%98/image-20220322201521687.png">
 <meta property="og:image" content="http://example.com/2022/03/22/%E9%A2%98/image-20220322204849637.png">
 <meta property="og:image" content="http://example.com/2022/03/22/%E9%A2%98/image-20220322195834164.png">
 <meta property="og:image" content="http://example.com/2022/03/22/%E9%A2%98/image-20220322201900256.png">
 <meta property="article:published_time" content="2022-03-22T01:23:52.000Z">
-<meta property="article:modified_time" content="2022-03-26T12:59:53.898Z">
+<meta property="article:modified_time" content="2022-04-11T13:48:14.377Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
@@ -232,7 +231,7 @@
 <li>在函数作用域中可以访问到全局作用域的变量，在函数外无法访问到函数作用域内的变量</li>
 <li>在函数作用域中访问变量、函数时，会先在自身作用域中寻找，若没有找到，则回到函数的上一级作用域中寻找，一直到全局作用域。</li>
 </ul>
-<h6 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h6><h6 id="作用域的深层次理解"><a href="#作用域的深层次理解" class="headerlink" title="作用域的深层次理解"></a>作用域的深层次理解</h6><p><strong>执行上下文</strong></p>
+<h6 id="块级作用域-JS本身没有块级作用域，但是在ES6之后可以模仿块级作用域"><a href="#块级作用域-JS本身没有块级作用域，但是在ES6之后可以模仿块级作用域" class="headerlink" title="块级作用域(JS本身没有块级作用域，但是在ES6之后可以模仿块级作用域)"></a>块级作用域(JS本身没有块级作用域，但是在ES6之后可以模仿块级作用域)</h6><h6 id="作用域的深层次理解"><a href="#作用域的深层次理解" class="headerlink" title="作用域的深层次理解"></a>作用域的深层次理解</h6><p><strong>执行上下文</strong></p>
 <p>当函数在代码执行的前期，会创建一个执行器上下文的内部对象 AO  （作用域），这个内部的独享是预编译的时候创建出来的，因为当函数被调用的时候，会先进项预编译；在全局代码执行的亲戚会创建一个执行上下文的对象 GO</p>
 <p><strong>函数作用域编译</strong></p>
 <ol>
@@ -258,7 +257,7 @@
 <p><img src="/2022/03/22/%E9%A2%98/image-20220322163250278.png" alt="image-20220322163250278"></p>
 <h5 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h5><p><strong>当持续促发事件（键盘持续输入内容）  一定时间内没有再触发事件（一定时间内没有再输入）  事件处理函数才会执行一次 如果设定的事件到来之前 又一次触发了函数 就重新开始计时</strong></p>
 <p>比如一个定了一定时间的定时器，在这个定时器时间定完后才会执行事件函数，如果中途点击了这个定时器，那么时间就会重新计时，等重新计时完成才会执行时间函数(就像王者荣耀回城一样，只有在不被别人打断n秒后才能回去， 否则这期间有人打断就会重新计时。)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">functon <span class="function"><span class="title">debounce1</span>(<span class="params">delay,value</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="comment">//既然在计时之时再次输入内容，不能打印东西，那么就要清除以前触发的定时器</span></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer) <span class="comment">//错误  这里的timer是undefined 要使timer一直在内存中-&gt; 内存泄露 -&gt;闭包</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(value)</span><br><span class="line">    &#125;,delay)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//我需要的是输入框的结果只出现一次，是在我键盘抬起不在输入后的1秒之后</span></span><br><span class="line">input.addEventLinstener(<span class="string">&quot;keyup&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    debounce(<span class="number">1000</span>,e,target.value)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">functon <span class="function"><span class="title">debounce2</span>(<span class="params">delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">value</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(timer) </span><br><span class="line">        timer=<span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(value)</span><br><span class="line">        &#125;,delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> deFUnc=debounce2(<span class="number">1000</span>)</span><br><span class="line">input.addEventLinstener(<span class="string">&quot;keyup&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    deFUnc(e,target.value)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">functon <span class="function"><span class="title">debounce1</span>(<span class="params">delay,value</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="comment">//既然在计时之时再次输入内容，不能打印东西，那么就要清除以前触发的定时器</span></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer) <span class="comment">//错误  这里的timer是undefined 要使timer一直在内存中-&gt; 内存泄露 -&gt;闭包</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(value)</span><br><span class="line">    &#125;,delay)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//我需要的是输入框的结果只出现一次，是在我键盘抬起不在输入后的1秒之后</span></span><br><span class="line">input.addEventLinstener(<span class="string">&quot;keyup&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    debounce(<span class="number">1000</span>,e,target.value)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">functon <span class="function"><span class="title">debounce2</span>(<span class="params">delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="comment">//匿名函数实现闭包</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">value</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(timer) </span><br><span class="line">        timer=<span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(value)</span><br><span class="line">        &#125;,delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> deFUnc=debounce2(<span class="number">1000</span>)</span><br><span class="line">input.addEventLinstener(<span class="string">&quot;keyup&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    deFUnc(e,target.value)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>使用条件: 1,如果客户连续的操作会导致频繁的事件回调(可能引起页面卡顿). 2,客户只关心”<strong>最后一次</strong>“操作(也可以理解为停止连续操作后)所返回的结果. 例如:</p>
 <ul>
@@ -270,9 +269,8 @@
 <p>在一定时间之内，限制一个动作只执行一次</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">thro</span>(<span class="params">func,wait</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timerOut</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!timerOut)&#123;</span><br><span class="line">            timerOut=<span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                func()<span class="comment">//事件处理函数</span></span><br><span class="line">                timerOut=<span class="literal">null</span></span><br><span class="line">            &#125;,wait)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="comment">//需要的是哪怕是1秒内点击了100次，也只执行一次</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&quot;button&quot;</span>).onclick=thro(func ,<span class="number">2000</span>)</span><br></pre></td></tr></table></figure>
 
-<h5 id="setTimeOut与setInterval"><a href="#setTimeOut与setInterval" class="headerlink" title="setTimeOut与setInterval"></a>setTimeOut与setInterval</h5><p>用setTimerput实现setInterval</p>
-<h5 id="JS的事件循环机制"><a href="#JS的事件循环机制" class="headerlink" title="JS的事件循环机制"></a>JS的事件循环机制</h5><p>JS单线程语言，同步和异步执行模式。</p>
-<p>虽然浏览器是单线程执行js代码的，但是浏览器世纪是以多个线程协助操作来实现单线程异步模型的，具体线程组成如下：</p>
+<h5 id="setTimeOut与setInterval"><a href="#setTimeOut与setInterval" class="headerlink" title="setTimeOut与setInterval"></a>setTimeOut与setInterval</h5><p>用setTimerout实现setInterval</p>
+<h5 id="JS的事件循环机制"><a href="#JS的事件循环机制" class="headerlink" title="JS的事件循环机制"></a>JS的事件循环机制</h5><p>虽然浏览器是单线程执行js代码的，但是浏览器世纪是以多个线程协助操作来实现单线程异步模型的，具体线程组成如下：</p>
 <ol>
 <li>GUI渲染线程</li>
 <li>JS引擎线程</li>
@@ -280,7 +278,7 @@
 <li>HTTP请求线程</li>
 <li>其他线程</li>
 </ol>
-<p><strong>在JavaScript代码运⾏的过程中实际执⾏程序时同时只存在⼀个活动线程，这⾥实现同步异步就是靠</strong>多线程切换的形式来进⾏实现的**。</p>
+<p><strong>在JavaScript代码运⾏的过程中实际执⾏程序时同时只存在⼀个活动线程，这⾥实现同步异步就是靠</strong>多线程切换的形式来进⾏实现的。</p>
 <p>所以我们通常分析时，将上⾯的细分线程归纳为下列两条线程：</p>
 <ol>
 <li><p>【主线程】：这个线程⽤了执⾏⻚⾯的渲染，JavaScript代码的运⾏，事件的触发等等</p>
@@ -288,11 +286,6 @@
 <li><p>【⼯作线程】：这个线程是在幕后⼯作的，⽤来处理异步任务的执⾏来实现⾮阻塞的运⾏模式</p>
 </li>
 </ol>
-<p><img src="/2022/03/22/%E9%A2%98/image-20220322201521687.png"></p>
-<p><strong>事件循环机制由三部分组成</strong>：调用栈 微任务队列 消息队列</p>
-<p>event-loop开始的时候会全局一行一行的执行 遇到函数调用 会压到调用栈中 被压入的函数被称之为帧，当函数返回后会从调用栈中弹出</p>
-<p>JS中的异步操作 比如fetch setTimeout setIntrval  Ajax (等宏任务)压入到调用栈中的时候里面的消息会进入到消息队列中 消息队列中 会等到调用栈清空之后再执行</p>
-<p>promise async await（等微任务） 的异步操作的时候会加入到微任务中去 会在调用栈清空的时候立即执行 调用栈中加入的微任务会立马执行 </p>
 <p><strong>微任务是由ES6语法规定的，宏任务是由浏览器规定的</strong></p>
 <p>例题：</p>
 <ol>
@@ -618,11 +611,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -18,8 +18,11 @@
 <meta property="og:image" content="http://example.com/2022/03/23/%E7%AC%94%E8%AF%95/image-20220327211048695.png">
 <meta property="og:image" content="http://example.com/2022/03/23/%E7%AC%94%E8%AF%95/image-20220323220059462.png">
 <meta property="og:image" content="http://example.com/2022/03/23/%E7%AC%94%E8%AF%95/image-20220323220119915.png">
+<meta property="og:image" content="http://example.com/2022/03/23/%E7%AC%94%E8%AF%95/image-20220330165535420.png">
+<meta property="og:image" content="http://example.com/2022/03/23/%E7%AC%94%E8%AF%95/image-20220330171125055.png">
+<meta property="og:image" content="http://example.com/2022/03/23/%E7%AC%94%E8%AF%95/image-20220331210803264.png">
 <meta property="article:published_time" content="2022-03-23T09:38:58.000Z">
-<meta property="article:modified_time" content="2022-03-28T04:26:06.700Z">
+<meta property="article:modified_time" content="2022-04-12T01:51:44.898Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="春招">
 <meta name="twitter:card" content="summary">
@@ -202,10 +205,7 @@
 <h3 id="创维"><a href="#创维" class="headerlink" title="创维"></a>创维</h3><ol>
 <li><p>promise的执行,reject,resolve</p>
 </li>
-<li><p>var foo=function foo(){</p>
-<p>console.log(foo===foo)</p>
-<p>}</p>
-</li>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo=<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(foo===foo)</span><br><span class="line">&#125;<span class="comment">//true</span></span><br></pre></td></tr></table></figure></li>
 <li><p>(true +flase)&gt;2+true  打印false</p>
 </li>
 <li><p>JS编程范式： 命令式（简单的从上而下完成任务，流水账过程式编码风格）、面向对象（简单的从上而下完成任务，流水账过程式编码风格）、函数式</p>
@@ -259,22 +259,22 @@
 <li><p>给定一个包含非负整数的 M x N 迷宫，请找出一条从左上角到右下角的路径，使得路径上的数字总和最小。每次只能向下或者向右移动一步。</p>
 </li>
 <li></li>
-<li><p>```js<br>class<code> </code>A {</p>
-<pre><code>String i = ``&quot;op&quot;``;
-void` `func(String s) &#123;
-    s = ``&quot;&quot;``+``9``;
-    &#125;
-static` `void` `test() &#123;
-    A a = ``new` `A();
-    a.func(a.i);
-    &#125;
+<li><p>```js<br>class A {</p>
+<pre><code>String i = &quot;op&quot;;
+</code></pre>
+<p>void func(String s) {</p>
+<pre><code>s = &quot;&quot;+9;
+</code></pre>
+<p>}<br>}<br>static void test() {</p>
+<pre><code>A a = new A();
+a.func(a.i);
 </code></pre>
 <p>}</p>
 <ol>
 <li>i,s,a都在栈中，new出来的对象A在堆上。字符串变量i,s以及对象指针a都存在栈中，new出来的对象开辟内存存在堆上，对应地址是指针a存的内容</li>
 <li>执行完后a.i的值还是字符串op。a.func(a.i)这句执行函数，把a.i作为参数传递，该函数会复制一个变量，两个变量完全独立，所以在函数体里只是把复制的那个变量（一个新的局部变量）改变为’op9’,在函数体外的a.i并没有被改变</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">8. </span><br><span class="line"></span><br><span class="line">   ```js</span><br><span class="line">   // 定时器任务属于宏任务，并且需要先在任务队列等待，等到同步任务执行完，执行栈清空，才会在任务队列中按顺序选任务进去</span><br><span class="line">   setTimeout(() =&gt; console.``log``(``&#x27;a&#x27;``));``//4. 打印a</span><br><span class="line">   //Promise 属于异步微任务，在本轮同步任务结束之前执行</span><br><span class="line">   Promise.resolve().then(</span><br><span class="line">     // 1. 打印 b</span><br><span class="line">     () =&gt; console.``log``(``&#x27;b&#x27;``) ``// 单引号要改为&#x27;,然后去掉;号</span><br><span class="line">    ).then(</span><br><span class="line">     // 箭头函数的resolve传递的参数作为下一个then的参数</span><br><span class="line">     () =&gt; Promise.resolve(``&#x27;c&#x27;``).then(</span><br><span class="line">      // 执行箭头函数</span><br><span class="line">      (data) =&gt; &#123;</span><br><span class="line">       // 把定时器任务也放入任务队列中等待，在第一个定时器之后</span><br><span class="line">       setTimeout(() =&gt; console.``log``(``&#x27;d&#x27;``)); //5. 打印d</span><br><span class="line">          // 2.打印 f</span><br><span class="line">       console.``log``(``&#x27;f&#x27;``);</span><br><span class="line">       // 此时返回的 数据作为下一个then的参数</span><br><span class="line">       return` `data;</span><br><span class="line">      &#125;</span><br><span class="line">     )</span><br><span class="line">    ).then(data =&gt; console.``log``(data)); ``// 3.打印 c</span><br><span class="line">    `* `打印bfcad``</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">8. </span><br><span class="line"></span><br><span class="line">   ```js</span><br><span class="line">   // 定时器任务属于宏任务，并且需要先在任务队列等待，等到同步任务执行完，执行栈清空，才会在任务队列中按顺序选任务进去</span><br><span class="line">   setTimeout(() =&gt; console. log ( &#x27;a&#x27; )); //4. 打印a</span><br><span class="line">   //Promise 属于异步微任务，在本轮同步任务结束之前执行</span><br><span class="line">   Promise.resolve().then(</span><br><span class="line">       // 1. 打印 b</span><br><span class="line">       () =&gt; console. log ( &#x27;b&#x27; )  // 单引号要改为&#x27;,然后去掉;号</span><br><span class="line">   ).then(</span><br><span class="line">       // 箭头函数的resolve传递的参数作为下一个then的参数</span><br><span class="line">       () =&gt; Promise.resolve( &#x27;c&#x27; ).then(</span><br><span class="line">           // 执行箭头函数</span><br><span class="line">           (data) =&gt; &#123;</span><br><span class="line">               // 把定时器任务也放入任务队列中等待，在第一个定时器之后</span><br><span class="line">               setTimeout(() =&gt; console. log ( &#x27;d&#x27; )); //5. 打印d</span><br><span class="line">               // 2.打印 f</span><br><span class="line">               console. log ( &#x27;f&#x27; );</span><br><span class="line">               // 此时返回的 数据作为下一个then的参数</span><br><span class="line">               return data;</span><br><span class="line">           &#125;</span><br><span class="line">       )</span><br><span class="line">   ).then(data =&gt; console. log (data));  // 3.打印 c</span><br><span class="line">   //打印bfcad </span><br></pre></td></tr></table></figure>
 
 <ol start="9">
 <li></li>
@@ -284,11 +284,207 @@ static` `void` `test() &#123;
 <p><img src="/2022/03/23/%E7%AC%94%E8%AF%95/image-20220323220119915.png" alt="image-20220323220119915"></p>
 </li>
 </ol>
+<h3 id="有米科技笔试"><a href="#有米科技笔试" class="headerlink" title="有米科技笔试"></a>有米科技笔试</h3><ol>
+<li>数组扁平化</li>
+</ol>
+<p>用于将嵌套的数组”拉平“，变成一维的数组，该方法返回一个新数组，对原数据没有影响</p>
+<p>思路：在数组中找到是数组类型的元素，然后将其展开。</p>
+<ul>
+<li>第一步：遍历数组</li>
+</ul>
+<p>​        方法：for循环、for…of，for…in，foreach()、entries（）、keys（）、values（）、reduce（）、[ map() ] ( )</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]]], <span class="number">5</span>, <span class="string">&quot;string&quot;</span>, &#123; <span class="attr">name</span>: <span class="string">&quot;弹铁蛋同学&quot;</span> &#125;];</span><br><span class="line"><span class="comment">// 遍历数组的方法有太多，本文只枚举常用的几种</span></span><br><span class="line"><span class="comment">// for 循环</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// for...of</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// for...in</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// forEach 循环</span></span><br><span class="line">arr.forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// entries（）</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [index, value] <span class="keyword">of</span> arr.entries()) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// keys()</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> index <span class="keyword">of</span> arr.keys()) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr[index]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// values()</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> arr.values()) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// reduce()</span></span><br><span class="line">arr.reduce(<span class="function">(<span class="params">pre, cur</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(cur);</span><br><span class="line">&#125;, []);</span><br><span class="line"><span class="comment">// map()</span></span><br><span class="line">arr.map(<span class="function"><span class="params">value</span> =&gt;</span> <span class="built_in">console</span>.log(value));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>判断元素是数组的方式</p>
+<p>instanceof </p>
+<p>constructor</p>
+<p>Object.prototype.toString</p>
+<p>idArray</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>)</span><br><span class="line"><span class="keyword">if</span>(arr.conatructor===<span class="built_in">Array</span>)</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">Object</span>.prototype.soString.call(arr)===<span class="string">&#x27;[object Array]&#x27;</span>)</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">Array</span>.isArray(arr))<span class="comment">//最好</span></span><br><span class="line">    </span><br><span class="line">    </span><br></pre></td></tr></table></figure></li>
+<li><p>将数组的元素展开一层的方案</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">扩展运算符 + `concat`</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">concat` +`apply</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 扩展运算符 + concat</span></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]]], <span class="number">5</span>, <span class="string">&quot;string&quot;</span>, &#123; <span class="attr">name</span>: <span class="string">&quot;弹铁蛋同学&quot;</span> &#125;];</span><br><span class="line">[].concat(…arr)<span class="comment">//contact（）用于合并两个或多个数组</span></span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 1, 2, 3, [1, 2, 3, [1, 2, 3]], 5, &quot;string&quot;, &#123; name: &quot;弹铁蛋同学&quot; &#125;];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// concat + apply，利用apply在绑定作用于时，传入的第二个参数是一个数组或者类数组对象，其中的数组元素将作为单独的参数穿给func函数。也就是在调用apply函数的过程中，会将传入的数组一个一个的传入打要执行的函数中，也就是相当于对数组进行了一层的展开。</span></span><br><span class="line">[].concat.apply([], arr);</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 1, 2, 3, [1, 2, 3, [1, 2, 3]], 5, &quot;string&quot;, &#123; name: &quot;弹铁蛋同学&quot; &#125;];</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr2 =[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]]]]</span><br><span class="line">arr2.toString().split(<span class="string">&#x27;,&#x27;</span>).map(<span class="function"><span class="params">v</span>=&gt;</span><span class="built_in">parseInt</span>(v))</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 1, 2, 3, 1, 2, 3, 1, 2, 3]</span></span><br><span class="line"><span class="comment">//不推荐使用 toString + split 方法，因为操作字符串是和危险的事情，在上一文章中我做了一个操作字符串的案例还被许多小伙伴们批评了。如果数组中的元素所有都是数字的话，toString +split 是可行的，并且是一步搞定。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//总结如下：</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span> (<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arr2=[]</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> arr)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Array</span>.isArray(value))&#123;</span><br><span class="line">            arr2=arr2.concat(flat(value))  </span><br><span class="line">            <span class="comment">//arr2 = arr2.concat(...value)</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            arr2.push(item)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>ES6操作数组的新方法</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="http://www.codebaoku.com/it-js/it-js-242621.html">关于ES6中数组新增的方法详解 - 编程宝库 (codebaoku.com)</a></p>
+<ul>
+<li>Array,find(（item,index）=&gt;{}) 参数为回调函数，对所有元素执行该回调函数，返回第一个为true的成员，如果没有符合的则返回undefined</li>
+<li>Array,findindex(（item,index）=&gt;{}) 同上，但是返回的是元素位置下标，如果没有则返回-1</li>
+<li>Array.flat()用于拉平嵌套的数组</li>
+<li>Array.at()返回数组对应下标的值，支持负索引，如果参数位置超出了数组范围，at()返回undefined。</li>
+<li>Array.from()一个类似数组的对象，将他转换成真正的数组，需要注意的是:这个类似数组的对象必须要有length属性才可以，转为数组。否者将会转为为一个空数组</li>
+<li>Array.includes()，返回布尔值，表示数组中是否包含给定的值</li>
+</ul>
+<p>在有includes之前，使用indexOf进行判断，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(arr.indexOf(el)!==-<span class="number">1</span>)&#123;<span class="comment">//有这个值&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>扩展运算符</li>
+</ul>
+<p>将一个数组转为用逗号分隔的参数序列</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(...[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="comment">// 1 2 3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>, ...[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], <span class="number">5</span>)</span><br><span class="line"><span class="comment">// 1 2 3 4 5</span></span><br><span class="line"></span><br><span class="line">es5的合并</span><br><span class="line">arr=arr1.concat(arr2)</span><br><span class="line">es6的合并</span><br><span class="line">arr=[...arr1,...arr2]</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>浏览器的强缓存和协商缓存</li>
+</ol>
+<p>浏览器缓存（Brower Caching）是浏览器对之前请求过的文件进行缓存，以便下一次访问时重复使用，节省带宽，提高访问速度，降低服务器压力。</p>
+<p><strong>强缓存</strong>：浏览器不会向服务器发送任何请求，直接从本地缓存中，读取文件并返回Status Code 200 OK</p>
+<p><img src="/2022/03/23/%E7%AC%94%E8%AF%95/image-20220330165535420.png" alt="image-20220330165535420"></p>
+<p>from memory cache:不访问服务器，一般已经加载过该资源且缓存在了内存中，直接从内存中读取缓存，浏览器关闭后，数据将不再出现，再次打开相同的页面不会出现from memory cache。</p>
+<p>from disk cache:不访问服务器，已经在之前的某个时间加载过该资源，直接从硬盘中读取缓存，关闭浏览器后，数据依然存在，此资源不会随着该页面的关闭而释放掉，下次打开还是from disk cache</p>
+<p>优先访问memory cache,其次是disk cache，最后是请求网络资源</p>
+<p><strong>协商缓存</strong>：向服务器发送请求，服务器会根据这个请求的request header的一些参数来判断是命中协商缓存，如果命中，则返回304状态码并带上新的rsponse header 通知浏览器从缓存中读取资源。</p>
+<p><img src="/2022/03/23/%E7%AC%94%E8%AF%95/image-20220330171125055.png" alt="image-20220330171125055"></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903838768431118">https://juejin.cn/post/6844903838768431118</a></p>
+<ol start="3">
+<li>ES 6的模块机制与CommonJS的模块化</li>
+</ol>
+<p>模块化：将独立的功能代码封装成一个独立的文件，其他模块需要使用，再进行引用。</p>
+<p>模块化有利于代码的拆分和架构上的解耦。</p>
+<p><strong>commonJS</strong></p>
+<p>commonJs规范应用与nodeJS应用中，在node中每一个文件就是一个模块，拥有自己作用域，文件中的变量、函数都是私有的，与其他文件相隔离。</p>
+<p>ES6模块化</p>
+<p>使用export导出，import导入</p>
+<p><strong>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口</strong></p>
+<p>运行时加载: CommonJS 模块就是对象；即在输入时是先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载”。</p>
+<p>编译时加载: ES6 模块不是对象，而是通过 export 命令显式指定输出的代码，import时采用静态命令的形式。即在import时可以指定加载某个输出值，而不是加载整个模块，这种加载称为“编译时加载”。</p>
+<ol start="4">
+<li>nodeJS是单线程</li>
+</ol>
+<p>采用单线程异步非阻塞模式。Node.js采用事件驱动和异步I/O的方式，实现了一个单线程、<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E9%AB%98%E5%B9%B6%E5%8F%91&spm=1001.2101.3001.7020">高并发</a>的运行时环境，而单线程就意味着同一时间只能做一件事。</p>
+<ol start="5">
+<li>浏览器的事件循环机制</li>
+</ol>
+<p>JS是一门单线程的语言，同一时间就只能做一件事情，所以，为了实现单线程任务不阻塞的方法就是事件循环。js的任务有两种，同步任务和异步任务，同步任务就是立即执行的任务，异步任务就是异步执行的任务，比如ajax请求，setTimout定时函数。任务进入到执行栈之后，就会判断他是同步任务还是异步任务，如果是同步任务，就会进入到主线程里面，如果是异步任务就会进入到任务队列里面，主线程里面的同步任务执行为空，就会去任务列队读取对应的异步任务，再推入到主线程执行。这个过程的不断重复就是事件循环。</p>
+<p>这里面关于异步任务的执行，还可以细分为微任务和宏任务</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//宏任务</span></span><br><span class="line">script(整体代码)</span><br><span class="line"><span class="built_in">setTimeout</span></span><br><span class="line"><span class="built_in">setInterval</span></span><br><span class="line">I/O</span><br><span class="line">UI交互事件</span><br><span class="line">postMessage</span><br><span class="line">MessageChannel</span><br><span class="line">setImmediate(Node.js 环境)</span><br><span class="line"><span class="comment">//微任务</span></span><br><span class="line"><span class="built_in">Promise</span>.then</span><br><span class="line"><span class="built_in">Object</span>.observe</span><br><span class="line">MutationObserver</span><br><span class="line">process.nextTick(Node.js 环境)</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>set、map、weakset和weakmap</li>
+</ol>
+<p>Set</p>
+<ol>
+<li><p>成员不能重复</p>
+</li>
+<li><p>只有健值，没有健名，有点类似数组。</p>
+</li>
+<li><p>可以遍历，方法有add, delete,has</p>
+</li>
+</ol>
+<p>weakSet</p>
+<ol>
+<li>成员都是对象</li>
+<li>成员都是弱引用，随时可以消失。 可以用来保存DOM节点，不容易造成内存泄漏</li>
+<li>不能遍历，方法有add, delete,has</li>
+</ol>
+<p>Map</p>
+<ol>
+<li>本质上是健值对的集合，类似集合</li>
+<li>可以遍历，方法很多，可以跟各种数据格式转换</li>
+</ol>
+<p>weakMap</p>
+<ol>
+<li>直接受对象作为健名（null除外），不接受其他类型的值作为健名</li>
+<li>健名所指向的对象，不计入垃圾回收机制</li>
+<li>不能遍历，方法同get,set,has,delete</li>
+</ol>
+<h3 id="多益笔试"><a href="#多益笔试" class="headerlink" title="多益笔试"></a>多益笔试</h3><ol>
+<li>symbol </li>
+</ol>
+<p>ES6 引入了一种新的原始数据类型 Symbol ，表示独一无二的值，最大的用法是用来定义对象的唯一属性名。</p>
+<p>Symbol 函数栈不能用 new 命令，因为 Symbol 是原始数据类型，不是对象。</p>
+<p>由于每一个 Symbol 的值都是不相等的，所以 Symbol 作为对象的属性名，可以保证属性不重名。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sy = <span class="built_in">Symbol</span>(<span class="string">&quot;KK&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sy);   <span class="comment">// Symbol(KK)</span></span><br><span class="line"><span class="keyword">typeof</span>(sy);        <span class="comment">// &quot;symbol&quot;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// 相同参数 Symbol() 返回的值不相等</span></span><br><span class="line"><span class="keyword">let</span> sy1 = <span class="built_in">Symbol</span>(<span class="string">&quot;kk&quot;</span>); </span><br><span class="line">sy === sy1;       <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>js</code>引擎执行<code>0.1+0.2==0.3</code>返回<code>false</code>，为什么？请给出解决办法</li>
+</ol>
+<p>在JavaScript中，<code>0.1 + 0.2 = 0.3000000000000000444089209850062616169452667236328125000000000000</code>，<code>0.1 + 0.2 - 0.3 = 5.551115123125783e-17</code></p>
+<p>造成这个问题主要是因为十进制与二进制在转换中出现精度问题</p>
+<ol start="3">
+<li><p>实现一个单选框</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单选框</span></span><br><span class="line">&lt;label&gt; <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">vlaue</span>=<span class="string">&quot;男生&quot;</span>&gt;</span>男生<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span></span><br><span class="line"><span class="comment">//多选框</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;like&quot;</span> <span class="attr">value</span>=<span class="string">&quot;0&quot;</span>&gt;</span>选项1<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+<li><p>斐波那契编程</p>
+</li>
+<li><p>单链表后插入一个节点</p>
+</li>
+<li><p>写一个正则表达式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 去掉空格</span></span><br><span class="line"> /(^\s+)|(\s+$)/g</span><br><span class="line"><span class="comment">//2. 所有空格</span></span><br><span class="line"> /\s*/g</span><br><span class="line"><span class="comment">//3. 乱写一个 第一个数字00不为0的</span></span><br><span class="line"> /[<span class="number">1</span>-<span class="number">9</span>].+\s*/</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>立即执行函数</p>
+</li>
+<li><p>轮询长轮询，websoket</p>
+</li>
+<li><p>readonly和disabled</p>
+</li>
+<li><p>new操作符的作用</p>
+<p>通过构造函数来创建一个实例对象。</p>
+<p>创建原型链</p>
+<p>改变构造函数的this指向</p>
+<p>会对构造函数的返回值做一些判断</p>
+</li>
+<li><p>dispaly，visibility,opcity的重绘重排</p>
+</li>
+<li><p>bundler</p>
+</li>
+<li><p>在数组指定位置插入元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">操作字符串的方法和操作数组的方法</span><br><span class="line">字符串：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">数组：</span><br><span class="line">push()尾部添加 pop()尾部删除</span><br><span class="line">unshift()头部添加 shift()头部删除</span><br><span class="line"></span><br><span class="line"><span class="comment">//在数组指定位置插入</span></span><br><span class="line"><span class="keyword">var</span> fruits = [<span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Mango&quot;</span>];</span><br><span class="line">fruits.splice(<span class="number">2</span>, <span class="number">0</span>, <span class="string">&quot;Lemon&quot;</span>, <span class="string">&quot;Kiwi&quot;</span>);</span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line"><span class="comment">//Banana, Orange, Lemon, Kiwi, Apple, Mango</span></span><br><span class="line">index    必需。规定从何处添加/删除元素。</span><br><span class="line">该参数是开始插入和（或）删除的数组元素的下标，必须是数字。</span><br><span class="line">howmany    必需。规定应该删除多少元素。必须是数字，但可以是 <span class="string">&quot;0&quot;</span>。如果未规定此参数，则删除从 index 开始到原数组结尾的所有元素。</span><br><span class="line">item1, ..., itemX    可选。要添加到数组的新元素</span><br><span class="line">返回值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>+“1e”=parseInt(“1e”)   不理解这个题是什么意思，但是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parseInt：解析一个字符串并返回指定基数的十进制整数（默认）</span><br></pre></td></tr></table></figure></li>
+<li><p>rem与em的区别</p>
+</li>
+<li></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- &lt;!DOCTYPE&gt; 声明不是 HTML 标签；</span></span><br><span class="line"><span class="comment">它是指示 web 浏览器关于页面使用哪个 HTML 版本进行编写的指令</span></span><br><span class="line"><span class="comment">。以上是H5声明的方式在更老的文档中 声明必须引用 DTD (Document Type Definition)--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 元素语言的定义 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 规定 HTML 文档的字符编码： --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="17">
+<li>script标签的位置以及属性</li>
+</ol>
+<ul>
+<li>放在<head>标签内部时，浏览器解析HTML标签，发现script标签时，会先下载完所有的script，再往下解析其他的HTML。——容易出现滞后</head></li>
+<li>放在<body>外部 不标准</body></li>
+<li>放在body内部 对于高度依赖JS的页面加载缓慢 </li>
+</ul>
+<h3 id="ZUvi原里笔试"><a href="#ZUvi原里笔试" class="headerlink" title="ZUvi原里笔试"></a>ZUvi原里笔试</h3><p>只有45分钟，时间过得的太快了有点忘了</p>
+<ol>
+<li>写出5重加快H5加载的方法</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://www.pkak.cn/wt/7296.html">https://www.pkak.cn/wt/7296.html</a></p>
+<ol>
+<li>循环链表插入的方法</li>
+<li>dispaly的重绘重排</li>
+<li>输入一个数组和一个数，找到这个数组中相加等于这个数的，输出他们三个，如果同时有多对，那么输出成绩最小的。</li>
+<li>CSS样式权重</li>
+</ol>
+<p><img src="/2022/03/23/%E7%AC%94%E8%AF%95/image-20220331210803264.png" alt="image-20220331210803264"></p>
+<h3 id="赛意信息"><a href="#赛意信息" class="headerlink" title="赛意信息"></a>赛意信息</h3><ol>
+<li>vue中每个data使用function (){return }是为了</li>
+<li>CSS样式权重</li>
+<li>不属于数组的方法</li>
+<li>块级标签，display的值</li>
+</ol>
+<p>list-item,table,none,block,inline-block,table-cell,inherit</p>
+<ol start="5">
+<li>为什么使用DIV+CSS布局</li>
+</ol>
+<p>div+css页面增加网页打开速度</p>
+<p>重构页面修改方便</p>
+<p>divcss有利于搜索引擎爬虫</p>
 <h3 id="其他模拟笔试"><a href="#其他模拟笔试" class="headerlink" title="其他模拟笔试"></a>其他模拟笔试</h3><ol>
 <li><p>已知，1000个硬币里有10个金币。随机的取出n个硬币，则取出硬币里有金币的概率是多少？</p>
-<p>思路：如果n&gt;990，则一定会取到金币</p>
-</li>
-<li><p>当padding/margin为百分比时，无论top/bottom还是left/right，对应的都是父类的width</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">思路：如果n&gt;<span class="number">990</span>，则一定会取到金币</span><br></pre></td></tr></table></figure></li>
+<li><p>当padding/margin为百分比时，无论-top/-bottom还是left/right，对应的都是父类的width</p>
 </li>
 <li><p>1.匹配相关：与正则表达式配合使用</p>
 <p>（1）str.match(RegExp):匹配指定字符串</p>
@@ -334,7 +530,11 @@ static` `void` `test() &#123;
 <p> sprintf   和printf()一样，有格式化字符串攻击的可能</p>
 <p> strcmp  比较两个string长度，无危害</p>
 </li>
+<li></li>
 </ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>].splice(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>));</span><br><span class="line"><span class="built_in">console</span>.log([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>].slice(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>));</span><br><span class="line"><span class="comment">//输出什么？</span></span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>]和[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//为什么</span></span><br><span class="line"><span class="attr">splice</span> :删除数组中制定位置的元素并返回该元素，第三个参数至后面所有参数表示从删除元素的位置开始插入这些参数。该方法会改变原数组。</span><br><span class="line">所以[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>].splice(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)的意思是，从序号<span class="number">1</span>开始删除<span class="number">2</span>个元素，并且将<span class="number">3.4</span><span class="number">.5</span>插入序号<span class="number">1</span>的位置，返回[<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="attr">slice</span>:只有两个参数</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30500105/article/details/101064944012">https://blog.csdn.net/weixin_30500105/article/details/101064944012</a></p>
 
       
 
@@ -600,11 +800,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">

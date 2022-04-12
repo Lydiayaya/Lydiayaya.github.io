@@ -152,6 +152,292 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-红松学堂" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/12/%E7%BA%A2%E6%9D%BE%E5%AD%A6%E5%A0%82/">红松学堂</a>
+    </h1>
+  
+
+        
+        <a href="/2022/04/12/%E7%BA%A2%E6%9D%BE%E5%AD%A6%E5%A0%82/" class="archive-article-date">
+  	<time datetime="2022-04-12T14:48:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em><strong>*红松2022年校园招聘-前端笔试*</strong></em></p>
+<p><em><strong>*单选题*</strong></em></p>
+<ol>
+<li>如下js代码会输出什么？（ A  ） C</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">6</span>);</span><br><span class="line">    <span class="keyword">await</span> fun2();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">7</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;  </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">9</span>);</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fun2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">    resolve(<span class="number">3</span>)    </span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">4</span>);</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">  &#125;).then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;    </span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">  &#125;).then(() = &gt;&#123;    </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">5</span>);  </span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">fun1();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">8</span>);</span><br><span class="line"><span class="comment">//为什么 7要比3后  </span></span><br></pre></td></tr></table></figure>
+
+<p>选项：</p>
+<p>A、1 6 2 8 3 5 7 9 4</p>
+<p>B、1 6 2 3 5 8 7 9 4</p>
+<p>C、1 6 2 8 3 7 5 9 4</p>
+<p>D、1 6 2 7 8 3 5 9 4</p>
+<ol start="2">
+<li>以下代码执行的结果是（ D  ）</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">JavaScript</span><br><span class="line"><span class="keyword">var</span> arr = [&#123;<span class="attr">old</span>: <span class="string">&#x27;old&#x27;</span>&#125;, [<span class="string">&#x27;old&#x27;</span>], <span class="string">&#x27;old&#x27;</span>];</span><br><span class="line"><span class="keyword">var</span> new_arr = arr.concat();</span><br><span class="line">arr[<span class="number">0</span>].old = <span class="string">&#x27;new&#x27;</span>;</span><br><span class="line">arr[<span class="number">1</span>][<span class="number">0</span>] = <span class="string">&#x27;new&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br><span class="line"><span class="built_in">console</span>.log(new_arr);</span><br></pre></td></tr></table></figure>
+
+<p>选项：</p>
+<p>A、[{old: ‘old’}, [‘old’], ‘old’], [{old: ‘old’}, [‘old’], ‘old’]</p>
+<p>B、[{old: ‘old’}, [‘old’], ‘new’], [{old: ‘new’}, [‘new’], ‘new’]</p>
+<p>C、[{old: ‘new’}, [‘new’], ‘new’], [{old: ‘new’}, [‘new’], ‘new’]</p>
+<p>D、[{old: ‘new’}, [‘new’], ‘old’], [{old: ‘new’}, [‘new’], ‘old’]</p>
+<p>\3. 分别以下列序列构造二叉排序树，层次遍历序列与用其它三个结果不同的是（D）</p>
+<p>A、（100，80，90，140，50，120，160)</p>
+<p>B、（100，140，160，120，80，50，90）</p>
+<p>C、（100，80，50，90，140，160，120）</p>
+<p>D、（100，50，90，80，120，140，160）</p>
+<p>二叉排序树：左边孩子必须小于根节点，右边孩子必须大于根节点；孩子也是二叉排序树；依次排列小于根节点和大于根节点的。</p>
+<p>\4. 以下代码的执行结果是（ C） B</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">Animal.price = <span class="number">1000</span>;</span><br><span class="line">Animal.prototype.price = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> Dog = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">Dog.prototype = <span class="keyword">new</span> Animal();</span><br><span class="line"><span class="keyword">var</span> cat = Animal;</span><br><span class="line"><span class="keyword">var</span> dog = <span class="keyword">new</span> Dog();</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.dir(dog.price);</span><br><span class="line"><span class="built_in">console</span>.log(cat.price);</span><br><span class="line"><span class="comment">//画原型图</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> animal = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> dog = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">animal.prototype.price = <span class="number">20</span>;</span><br><span class="line">animal.price = <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">dog.prototype = animal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> animal();</span><br><span class="line"><span class="keyword">var</span> tidy = <span class="keyword">new</span> dog();</span><br><span class="line"><span class="comment">// 下面两行分别输出什么？</span></span><br><span class="line"><span class="built_in">console</span>.log(cat.price);<span class="comment">//20</span></span><br><span class="line"><span class="built_in">console</span>.log(tidy.price);<span class="comment">//1000</span></span><br></pre></td></tr></table></figure>
+
+<p>A、20, 20</p>
+<p>B、20, 1000</p>
+<p>C、1000, 1000</p>
+<p>D、1000, 20</p>
+<p>\5. 设有4个同时到达的作业A1，A2，A3和A4，各作业所需要的执行时间分别是S1，S2，S3和S4，且S1&lt;S2&lt;S3&lt;S4,若系统采用单道方式运行且采用短作业优先调度算法，则平均周转时间是（ D  ）。</p>
+<p>A、S1+S2+S3+S4</p>
+<p>B、(S1+2S2+3S3+4S4)/4</p>
+<p>C、(S1+S2+S3+S4)/4</p>
+<p>D、(4S1+3S2+2S3+S4)/4</p>
+<p>根据短作业优先调度算法，可以知道调度顺序是J1, J2, J3因此J1先执行, J2, J3等待T1的时间；然后J2执行，J3继续等待T2的时间；最后J3执行T3时间。因此J1的周转时间为T1，J2的周转时间为T1 + T2，J3的周转时间为T1 + T2 + T3；平均周转时间为三者只和的平均值，即(3T1 + 2T2 +T3) / 3</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mrmrwjk/p/14697787.html">通过几个例题理解进程周转时间问题 - JK~ - 博客园 (cnblogs.com)</a></p>
+<p>\6. 执行以下代码，最终son盒子的width值是（D）px</p>
+<p>深入理解父元素与子元素的width关系</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.father &#123;</span><br><span class="line">    <span class="attr">width</span>: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    background-color: pink;</span><br><span class="line">&#125;</span><br><span class="line">.son &#123;</span><br><span class="line">    <span class="attr">margin</span>:<span class="number">0</span> -5px;</span><br><span class="line">    padding:<span class="number">0</span> 10px;</span><br><span class="line">    height:100px;<span class="comment">//设置高度未设置宽度，子元素的宽度为父元素的100%，块级元素，子元素的宽度默认为父元素的100%</span></span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;father&quot;</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;son&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>A、200</p>
+<p>B、190</p>
+<p>C、170</p>
+<p>D、210</p>
+<p>\7. 根据以下html和css代码，son盒子所属的包含块是（D）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.grandfather &#123;</span><br><span class="line">     position:relative;</span><br><span class="line">     top:50px;</span><br><span class="line">     left:50px;</span><br><span class="line">     width:200px;</span><br><span class="line">     height:200px;</span><br><span class="line">     background-color: pink;</span><br><span class="line">&#125;</span><br><span class="line">.father &#123;</span><br><span class="line">     position:relative;</span><br><span class="line">     width:100px;</span><br><span class="line">     height:100px;</span><br><span class="line">     background-color: red;</span><br><span class="line">&#125;</span><br><span class="line">.son &#123;</span><br><span class="line">    position:fixed;</span><br><span class="line">    width:50px;</span><br><span class="line">    height: 50px;</span><br><span class="line">    left:10px;</span><br><span class="line">    top:10px;</span><br><span class="line">    background-color: green;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grandfather&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;father&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;son&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>A、grandfather盒子  </p>
+<p>B、father盒子 </p>
+<p>C、son盒子 </p>
+<p>D、viewport（当前可视窗口）</p>
+<p>\8. 以下选项中，不符合HTML5代码要求的是（C）</p>
+<p>A、<div>这里是div盒子</div></p>
+<p>B、&lt;inputtype=”text”  readonly&gt;</p>
+<p>C、<div class="box" wrapper> 但是这个是错的啊</div></p>
+<p>D、<div class="div"></div></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/html/html5-syntax.html">HTML(5) 代码规范 | 菜鸟教程 (runoob.com)</a></p>
+<p>\9. 假设有一个箱子，箱子里面有10个乒乓球，其中有4个是黄球，6个是白球，从中任取两个球，已知两个球中有一个球为黄球，那么另一个球也是黄球的概率为（A）C</p>
+<p>A、1/2</p>
+<p>B、2/3</p>
+<p>C、1/5</p>
+<p>D、2/5</p>
+<p><img src="/2022/04/12/%E7%BA%A2%E6%9D%BE%E5%AD%A6%E5%A0%82/wps1.jpg" alt="img"> </p>
+<p><strong>多选题</strong> </p>
+<ol start="10">
+<li>下面说法正确的是（BC） ABD</li>
+</ol>
+<p>A、样式文件的加载会阻塞脚本的执行</p>
+<p>B、iframe 会阻塞主页面的 load 事件</p>
+<p>C、<audio>、<img> 中的资源下载会阻塞页面解析</audio></p>
+<p>D、页面文档完全加载并解析完毕之后会触发 DOMContentLoaded 事件</p>
+<p><strong>当初始HTML文档已完全加载和解析时，将触发DOMContentLoaded事件，而不需要等待样式表，图像和子框架页面加载（事件可以用来检测HTML页面是否完全加载完毕(fully-loaded)）。</strong></p>
+<p>\11. 下列说法错误的是（AB）</p>
+<p>A、当前域的 cookie 都可以通过 js 在当前域下获取</p>
+<p><strong>对于一些保密性较高的 cookie 后端可以通过设置 HttpOnly 标记 cookie 只能通过 http 传递，前端 js 无法读取，这样可以防范xss攻击。</strong></p>
+<p>B、 JSONP 是 XMLHttpRequest 中的一种</p>
+<p><strong>JSONP 用的是 html 的 script 标签，xmlhttprequest 是浏览器内置的 HTTP 相关对象，两者不同。</strong></p>
+<p>C、同源策略是浏览器的安全策略</p>
+<p>D、localStorage API 不支持设置过期时间</p>
+<p>\12. 下列说法正确的是（A,D）ACD</p>
+<p>A、requestAnimationFrame(foo) 确保使浏览器在下一次重绘之前调用 foo 方法<strong>window.requestAnimationFrame() 方法告诉浏览器您希望执行动画并请求浏览器在下一次重绘之前调用指定的函数来更新动画。该方法使用一个回调函数作为参数，这个回调函数会在浏览器重绘之前调用。</strong></p>
+<p>B、在 addEventListener 的处理方法中使用 e.preventDefault() 可以阻止事件冒泡</p>
+<p><strong>e.stopPropagation()，阻止事件冒泡</strong></p>
+<p>C、 把 <script> 标签的引入放在文档末尾可以确保脚本下载和执行均在文档解析完成后发生</p>
+<p>D、多个 <script> 标签使用 defer 属性引入脚本时，可以确保脚本的执行是按照其被引入的顺序的</p>
+<p><strong>所有<script>标签引进的 JavaScript 会按照他们引入的顺序依次被解析，在没有使用 defer 或者 async 的情况下，只有在解析完前面<script>元素中的代码之后，才会开始解析后面<script>元素中的代码。由于浏览器会先解析完不使用 defer 属性的<script>元素中的代码，然后再解析后面的内容，所以一般应该把<script>元素放在页面最后，即主要内容后面，</body>标签前面。</strong></p>
+<p><strong>使用 defer 属性可以让脚本在文档完全呈现之后再执行，延迟脚本总是按照它们指定的顺序执行。</strong></p>
+<p><strong>使用 async 属性可以表示当前脚本不必等待其他脚本，也不必阻塞文档呈现。不能保证异步脚本按照它们在页面中出现的顺序执行。</strong></p>
+<p><strong>编程题</strong></p>
+<ol start="13">
+<li>给你一个整数数组 nums 和一个整数 k ，请你返回其中出现频率前 k 高的元素。你可以按 <strong>任意顺序</strong> 返回答案。</li>
+</ol>
+<p>示例 1:</p>
+<p>输入: nums = [1,1,1,2,2,3], k = 2</p>
+<p>输出: [1,2]</p>
+<p>示例 2:</p>
+<p>输入: nums = [1], k = 1</p>
+<p>输出: [1]</p>
+<p>提示：</p>
+<p>• 1 &lt;= nums.length &lt;= 105</p>
+<p>• k 的取值范围是 [1, 数组中不相同的元素的个数]</p>
+<p>• 题目数据保证答案唯一，换句话说，数组中前 k 个高频元素的集合是唯一的</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/402908025">小红书——前端笔试试题 - 知乎 (zhihu.com)</a></p>
+</script></p>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">春招</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/04/12/%E7%BA%A2%E6%9D%BE%E5%AD%A6%E5%A0%82/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-未知" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Webpack</p>
+<p>跨域</p>
+<p>AJax原理</p>
+<p>继承</p>
+<p>常⻅web安全及防护原理</p>
+<p>事件的各个阶段</p>
+<p>怎样添加、移除、移动、复制、创建和查找节点 </p>
+<p>正则表达式</p>
+<p>小程序的生命周期</p>
+<p>vue生命周期</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/04/06/%E6%9C%AA%E7%9F%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-leecode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/31/leecode/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-游乡里" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -172,15 +458,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>  uni-app+云开发  微信小程序</p>
-<p>主要技术点：</p>
-<h5 id="搜索和搜索记录："><a href="#搜索和搜索记录：" class="headerlink" title="搜索和搜索记录："></a>搜索和搜索记录：</h5><h5 id="定位与搜索定位："><a href="#定位与搜索定位：" class="headerlink" title="定位与搜索定位："></a>定位与搜索定位：</h5><p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327230315354.png" alt="image-20220327230315354"></p>
+        <h4 id="简单介绍一下项目"><a href="#简单介绍一下项目" class="headerlink" title="简单介绍一下项目"></a>简单介绍一下项目</h4><p>（项目意义+项目技术栈（vue轻量灵活，而且大部分对框架的要求都是vue，））</p>
+<h4 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">-- common公用方法和样式</span><br><span class="line">  -- cloudfun.js封装数据请求</span><br><span class="line">  -- list封装公用数据比如定位，用户登录信息</span><br><span class="line">  -- util.js封装时间格式转换</span><br><span class="line">-- components 公共组件插件</span><br><span class="line">-- element组件封装</span><br><span class="line">  -- homeload</span><br><span class="line">  -- loading 加载中组件</span><br><span class="line">  -- modal模态框组件</span><br><span class="line">  -- none 没有数据提示组件</span><br><span class="line">-- node-moudle依赖包</span><br><span class="line">-- pages 页面文件</span><br><span class="line">  -- attractionDetails景点详情页面</span><br><span class="line">    -- components 组件</span><br><span class="line">      -- </span><br><span class="line">  -- catogory 景点卡片页面</span><br><span class="line">  -- city 城市定位于搜索定位</span><br><span class="line">  --index 首页</span><br><span class="line">    -- components 组件</span><br><span class="line">  -- my 个人中心</span><br><span class="line">  -- mycollect 我的收藏</span><br><span class="line">  -- search 搜索页面</span><br><span class="line">  -- store 数据仓库</span><br><span class="line">  -- strategy 游记总页面</span><br><span class="line">    -- components 组件</span><br><span class="line">      --</span><br><span class="line">  -- details 游记详情</span><br><span class="line">  -- travel 发表游记</span><br><span class="line">  </span><br><span class="line">  --static 静态文件</span><br><span class="line">    --tab 一些小图标tab啊或者分类的用到的小图标</span><br><span class="line">-- uni_moudles ?不知道这个文件是干啥的</span><br><span class="line">-- unpackage ?不知道干啥</span><br><span class="line">-- APP.vue</span><br><span class="line">--main.js</span><br><span class="line">--mainifest.json</span><br><span class="line">--package-lock.json</span><br><span class="line">-- pages.json</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="项目亮点"><a href="#项目亮点" class="headerlink" title="项目亮点"></a>项目亮点</h4><p>开发购物车功能</p>
+<h5 id="第三方AI平台交互"><a href="#第三方AI平台交互" class="headerlink" title="第三方AI平台交互"></a>第三方AI平台交互</h5><p>前端（调用）云函数（使用）百度自然语言处理（使）机器处理评论返回好差评标签（上传至）云数据库（返回）评论</p>
+<p>云函数基于node.js</p>
+<p>aeync/await 异步编程同步化</p>
+<h4 id="项目难点"><a href="#项目难点" class="headerlink" title="项目难点"></a>项目难点</h4><p>（发现问题-解决思路-解决办法）</p>
+<p>购物车</p>
+<p>评论：</p>
+<p>上拉加载：</p>
+<h5 id="搜索和搜索记录：关键字模糊查询，用的是本地存储，用户不主动删除就会永远存在的一个数据"><a href="#搜索和搜索记录：关键字模糊查询，用的是本地存储，用户不主动删除就会永远存在的一个数据" class="headerlink" title="搜索和搜索记录：关键字模糊查询，用的是本地存储，用户不主动删除就会永远存在的一个数据"></a>搜索和搜索记录：关键字模糊查询，用的是本地存储，用户不主动删除就会永远存在的一个数据</h5><h5 id="定位与搜索定位："><a href="#定位与搜索定位：" class="headerlink" title="定位与搜索定位："></a>定位与搜索定位：</h5><p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327230315354.png" alt="image-20220327230315354"></p>
 <p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327230613883.png" alt="image-20220327230613883"></p>
 <h5 id="组件封装："><a href="#组件封装：" class="headerlink" title="组件封装："></a>组件封装：</h5><ol>
 <li>（模态登录授权框）</li>
 </ol>
 <p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327230836506.png" alt="image-20220327230836506"></p>
-<p>​    </p>
 <h5 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h5><ol>
 <li><p>云开发请求操作数据库</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> db=wx.cloud.database()</span><br><span class="line"><span class="keyword">const</span> banner=db.collection(<span class="string">&quot;目标数据库&quot;</span>)</span><br><span class="line">banner.get()</span><br><span class="line">    .then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line">    .catch(<span class="function">(<span class="params">error</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
@@ -312,10 +608,7 @@
 <h3 id="创维"><a href="#创维" class="headerlink" title="创维"></a>创维</h3><ol>
 <li><p>promise的执行,reject,resolve</p>
 </li>
-<li><p>var foo=function foo(){</p>
-<p>console.log(foo===foo)</p>
-<p>}</p>
-</li>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo=<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(foo===foo)</span><br><span class="line">&#125;<span class="comment">//true</span></span><br></pre></td></tr></table></figure></li>
 <li><p>(true +flase)&gt;2+true  打印false</p>
 </li>
 <li><p>JS编程范式： 命令式（简单的从上而下完成任务，流水账过程式编码风格）、面向对象（简单的从上而下完成任务，流水账过程式编码风格）、函数式</p>
@@ -369,22 +662,22 @@
 <li><p>给定一个包含非负整数的 M x N 迷宫，请找出一条从左上角到右下角的路径，使得路径上的数字总和最小。每次只能向下或者向右移动一步。</p>
 </li>
 <li></li>
-<li><p>```js<br>class<code> </code>A {</p>
-<pre><code>String i = ``&quot;op&quot;``;
-void` `func(String s) &#123;
-    s = ``&quot;&quot;``+``9``;
-    &#125;
-static` `void` `test() &#123;
-    A a = ``new` `A();
-    a.func(a.i);
-    &#125;
+<li><p>```js<br>class A {</p>
+<pre><code>String i = &quot;op&quot;;
+</code></pre>
+<p>void func(String s) {</p>
+<pre><code>s = &quot;&quot;+9;
+</code></pre>
+<p>}<br>}<br>static void test() {</p>
+<pre><code>A a = new A();
+a.func(a.i);
 </code></pre>
 <p>}</p>
 <ol>
 <li>i,s,a都在栈中，new出来的对象A在堆上。字符串变量i,s以及对象指针a都存在栈中，new出来的对象开辟内存存在堆上，对应地址是指针a存的内容</li>
 <li>执行完后a.i的值还是字符串op。a.func(a.i)这句执行函数，把a.i作为参数传递，该函数会复制一个变量，两个变量完全独立，所以在函数体里只是把复制的那个变量（一个新的局部变量）改变为’op9’,在函数体外的a.i并没有被改变</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">8. </span><br><span class="line"></span><br><span class="line">   ```js</span><br><span class="line">   // 定时器任务属于宏任务，并且需要先在任务队列等待，等到同步任务执行完，执行栈清空，才会在任务队列中按顺序选任务进去</span><br><span class="line">   setTimeout(() =&gt; console.``log``(``&#x27;a&#x27;``));``//4. 打印a</span><br><span class="line">   //Promise 属于异步微任务，在本轮同步任务结束之前执行</span><br><span class="line">   Promise.resolve().then(</span><br><span class="line">     // 1. 打印 b</span><br><span class="line">     () =&gt; console.``log``(``&#x27;b&#x27;``) ``// 单引号要改为&#x27;,然后去掉;号</span><br><span class="line">    ).then(</span><br><span class="line">     // 箭头函数的resolve传递的参数作为下一个then的参数</span><br><span class="line">     () =&gt; Promise.resolve(``&#x27;c&#x27;``).then(</span><br><span class="line">      // 执行箭头函数</span><br><span class="line">      (data) =&gt; &#123;</span><br><span class="line">       // 把定时器任务也放入任务队列中等待，在第一个定时器之后</span><br><span class="line">       setTimeout(() =&gt; console.``log``(``&#x27;d&#x27;``)); //5. 打印d</span><br><span class="line">          // 2.打印 f</span><br><span class="line">       console.``log``(``&#x27;f&#x27;``);</span><br><span class="line">       // 此时返回的 数据作为下一个then的参数</span><br><span class="line">       return` `data;</span><br><span class="line">      &#125;</span><br><span class="line">     )</span><br><span class="line">    ).then(data =&gt; console.``log``(data)); ``// 3.打印 c</span><br><span class="line">    `* `打印bfcad``</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">8. </span><br><span class="line"></span><br><span class="line">   ```js</span><br><span class="line">   // 定时器任务属于宏任务，并且需要先在任务队列等待，等到同步任务执行完，执行栈清空，才会在任务队列中按顺序选任务进去</span><br><span class="line">   setTimeout(() =&gt; console. log ( &#x27;a&#x27; )); //4. 打印a</span><br><span class="line">   //Promise 属于异步微任务，在本轮同步任务结束之前执行</span><br><span class="line">   Promise.resolve().then(</span><br><span class="line">       // 1. 打印 b</span><br><span class="line">       () =&gt; console. log ( &#x27;b&#x27; )  // 单引号要改为&#x27;,然后去掉;号</span><br><span class="line">   ).then(</span><br><span class="line">       // 箭头函数的resolve传递的参数作为下一个then的参数</span><br><span class="line">       () =&gt; Promise.resolve( &#x27;c&#x27; ).then(</span><br><span class="line">           // 执行箭头函数</span><br><span class="line">           (data) =&gt; &#123;</span><br><span class="line">               // 把定时器任务也放入任务队列中等待，在第一个定时器之后</span><br><span class="line">               setTimeout(() =&gt; console. log ( &#x27;d&#x27; )); //5. 打印d</span><br><span class="line">               // 2.打印 f</span><br><span class="line">               console. log ( &#x27;f&#x27; );</span><br><span class="line">               // 此时返回的 数据作为下一个then的参数</span><br><span class="line">               return data;</span><br><span class="line">           &#125;</span><br><span class="line">       )</span><br><span class="line">   ).then(data =&gt; console. log (data));  // 3.打印 c</span><br><span class="line">   //打印bfcad </span><br></pre></td></tr></table></figure>
 
 <ol start="9">
 <li></li>
@@ -394,11 +687,207 @@ static` `void` `test() &#123;
 <p><img src="/2022/03/23/%E7%AC%94%E8%AF%95/image-20220323220119915.png" alt="image-20220323220119915"></p>
 </li>
 </ol>
+<h3 id="有米科技笔试"><a href="#有米科技笔试" class="headerlink" title="有米科技笔试"></a>有米科技笔试</h3><ol>
+<li>数组扁平化</li>
+</ol>
+<p>用于将嵌套的数组”拉平“，变成一维的数组，该方法返回一个新数组，对原数据没有影响</p>
+<p>思路：在数组中找到是数组类型的元素，然后将其展开。</p>
+<ul>
+<li>第一步：遍历数组</li>
+</ul>
+<p>​        方法：for循环、for…of，for…in，foreach()、entries（）、keys（）、values（）、reduce（）、[ map() ] ( )</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]]], <span class="number">5</span>, <span class="string">&quot;string&quot;</span>, &#123; <span class="attr">name</span>: <span class="string">&quot;弹铁蛋同学&quot;</span> &#125;];</span><br><span class="line"><span class="comment">// 遍历数组的方法有太多，本文只枚举常用的几种</span></span><br><span class="line"><span class="comment">// for 循环</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// for...of</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// for...in</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// forEach 循环</span></span><br><span class="line">arr.forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// entries（）</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [index, value] <span class="keyword">of</span> arr.entries()) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// keys()</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> index <span class="keyword">of</span> arr.keys()) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr[index]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// values()</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> arr.values()) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// reduce()</span></span><br><span class="line">arr.reduce(<span class="function">(<span class="params">pre, cur</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(cur);</span><br><span class="line">&#125;, []);</span><br><span class="line"><span class="comment">// map()</span></span><br><span class="line">arr.map(<span class="function"><span class="params">value</span> =&gt;</span> <span class="built_in">console</span>.log(value));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>判断元素是数组的方式</p>
+<p>instanceof </p>
+<p>constructor</p>
+<p>Object.prototype.toString</p>
+<p>idArray</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>)</span><br><span class="line"><span class="keyword">if</span>(arr.conatructor===<span class="built_in">Array</span>)</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">Object</span>.prototype.soString.call(arr)===<span class="string">&#x27;[object Array]&#x27;</span>)</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">Array</span>.isArray(arr))<span class="comment">//最好</span></span><br><span class="line">    </span><br><span class="line">    </span><br></pre></td></tr></table></figure></li>
+<li><p>将数组的元素展开一层的方案</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">扩展运算符 + `concat`</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">concat` +`apply</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 扩展运算符 + concat</span></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]]], <span class="number">5</span>, <span class="string">&quot;string&quot;</span>, &#123; <span class="attr">name</span>: <span class="string">&quot;弹铁蛋同学&quot;</span> &#125;];</span><br><span class="line">[].concat(…arr)<span class="comment">//contact（）用于合并两个或多个数组</span></span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 1, 2, 3, [1, 2, 3, [1, 2, 3]], 5, &quot;string&quot;, &#123; name: &quot;弹铁蛋同学&quot; &#125;];</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// concat + apply，利用apply在绑定作用于时，传入的第二个参数是一个数组或者类数组对象，其中的数组元素将作为单独的参数穿给func函数。也就是在调用apply函数的过程中，会将传入的数组一个一个的传入打要执行的函数中，也就是相当于对数组进行了一层的展开。</span></span><br><span class="line">[].concat.apply([], arr);</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 1, 2, 3, [1, 2, 3, [1, 2, 3]], 5, &quot;string&quot;, &#123; name: &quot;弹铁蛋同学&quot; &#125;];</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr2 =[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]]]]</span><br><span class="line">arr2.toString().split(<span class="string">&#x27;,&#x27;</span>).map(<span class="function"><span class="params">v</span>=&gt;</span><span class="built_in">parseInt</span>(v))</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 1, 2, 3, 1, 2, 3, 1, 2, 3]</span></span><br><span class="line"><span class="comment">//不推荐使用 toString + split 方法，因为操作字符串是和危险的事情，在上一文章中我做了一个操作字符串的案例还被许多小伙伴们批评了。如果数组中的元素所有都是数字的话，toString +split 是可行的，并且是一步搞定。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//总结如下：</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span> (<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> arr2=[]</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> arr)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Array</span>.isArray(value))&#123;</span><br><span class="line">            arr2=arr2.concat(flat(value))  </span><br><span class="line">            <span class="comment">//arr2 = arr2.concat(...value)</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            arr2.push(item)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>ES6操作数组的新方法</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="http://www.codebaoku.com/it-js/it-js-242621.html">关于ES6中数组新增的方法详解 - 编程宝库 (codebaoku.com)</a></p>
+<ul>
+<li>Array,find(（item,index）=&gt;{}) 参数为回调函数，对所有元素执行该回调函数，返回第一个为true的成员，如果没有符合的则返回undefined</li>
+<li>Array,findindex(（item,index）=&gt;{}) 同上，但是返回的是元素位置下标，如果没有则返回-1</li>
+<li>Array.flat()用于拉平嵌套的数组</li>
+<li>Array.at()返回数组对应下标的值，支持负索引，如果参数位置超出了数组范围，at()返回undefined。</li>
+<li>Array.from()一个类似数组的对象，将他转换成真正的数组，需要注意的是:这个类似数组的对象必须要有length属性才可以，转为数组。否者将会转为为一个空数组</li>
+<li>Array.includes()，返回布尔值，表示数组中是否包含给定的值</li>
+</ul>
+<p>在有includes之前，使用indexOf进行判断，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(arr.indexOf(el)!==-<span class="number">1</span>)&#123;<span class="comment">//有这个值&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>扩展运算符</li>
+</ul>
+<p>将一个数组转为用逗号分隔的参数序列</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(...[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"><span class="comment">// 1 2 3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>, ...[<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], <span class="number">5</span>)</span><br><span class="line"><span class="comment">// 1 2 3 4 5</span></span><br><span class="line"></span><br><span class="line">es5的合并</span><br><span class="line">arr=arr1.concat(arr2)</span><br><span class="line">es6的合并</span><br><span class="line">arr=[...arr1,...arr2]</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>浏览器的强缓存和协商缓存</li>
+</ol>
+<p>浏览器缓存（Brower Caching）是浏览器对之前请求过的文件进行缓存，以便下一次访问时重复使用，节省带宽，提高访问速度，降低服务器压力。</p>
+<p><strong>强缓存</strong>：浏览器不会向服务器发送任何请求，直接从本地缓存中，读取文件并返回Status Code 200 OK</p>
+<p><img src="/2022/03/23/%E7%AC%94%E8%AF%95/image-20220330165535420.png" alt="image-20220330165535420"></p>
+<p>from memory cache:不访问服务器，一般已经加载过该资源且缓存在了内存中，直接从内存中读取缓存，浏览器关闭后，数据将不再出现，再次打开相同的页面不会出现from memory cache。</p>
+<p>from disk cache:不访问服务器，已经在之前的某个时间加载过该资源，直接从硬盘中读取缓存，关闭浏览器后，数据依然存在，此资源不会随着该页面的关闭而释放掉，下次打开还是from disk cache</p>
+<p>优先访问memory cache,其次是disk cache，最后是请求网络资源</p>
+<p><strong>协商缓存</strong>：向服务器发送请求，服务器会根据这个请求的request header的一些参数来判断是命中协商缓存，如果命中，则返回304状态码并带上新的rsponse header 通知浏览器从缓存中读取资源。</p>
+<p><img src="/2022/03/23/%E7%AC%94%E8%AF%95/image-20220330171125055.png" alt="image-20220330171125055"></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903838768431118">https://juejin.cn/post/6844903838768431118</a></p>
+<ol start="3">
+<li>ES 6的模块机制与CommonJS的模块化</li>
+</ol>
+<p>模块化：将独立的功能代码封装成一个独立的文件，其他模块需要使用，再进行引用。</p>
+<p>模块化有利于代码的拆分和架构上的解耦。</p>
+<p><strong>commonJS</strong></p>
+<p>commonJs规范应用与nodeJS应用中，在node中每一个文件就是一个模块，拥有自己作用域，文件中的变量、函数都是私有的，与其他文件相隔离。</p>
+<p>ES6模块化</p>
+<p>使用export导出，import导入</p>
+<p><strong>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口</strong></p>
+<p>运行时加载: CommonJS 模块就是对象；即在输入时是先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载”。</p>
+<p>编译时加载: ES6 模块不是对象，而是通过 export 命令显式指定输出的代码，import时采用静态命令的形式。即在import时可以指定加载某个输出值，而不是加载整个模块，这种加载称为“编译时加载”。</p>
+<ol start="4">
+<li>nodeJS是单线程</li>
+</ol>
+<p>采用单线程异步非阻塞模式。Node.js采用事件驱动和异步I/O的方式，实现了一个单线程、<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E9%AB%98%E5%B9%B6%E5%8F%91&spm=1001.2101.3001.7020">高并发</a>的运行时环境，而单线程就意味着同一时间只能做一件事。</p>
+<ol start="5">
+<li>浏览器的事件循环机制</li>
+</ol>
+<p>JS是一门单线程的语言，同一时间就只能做一件事情，所以，为了实现单线程任务不阻塞的方法就是事件循环。js的任务有两种，同步任务和异步任务，同步任务就是立即执行的任务，异步任务就是异步执行的任务，比如ajax请求，setTimout定时函数。任务进入到执行栈之后，就会判断他是同步任务还是异步任务，如果是同步任务，就会进入到主线程里面，如果是异步任务就会进入到任务队列里面，主线程里面的同步任务执行为空，就会去任务列队读取对应的异步任务，再推入到主线程执行。这个过程的不断重复就是事件循环。</p>
+<p>这里面关于异步任务的执行，还可以细分为微任务和宏任务</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//宏任务</span></span><br><span class="line">script(整体代码)</span><br><span class="line"><span class="built_in">setTimeout</span></span><br><span class="line"><span class="built_in">setInterval</span></span><br><span class="line">I/O</span><br><span class="line">UI交互事件</span><br><span class="line">postMessage</span><br><span class="line">MessageChannel</span><br><span class="line">setImmediate(Node.js 环境)</span><br><span class="line"><span class="comment">//微任务</span></span><br><span class="line"><span class="built_in">Promise</span>.then</span><br><span class="line"><span class="built_in">Object</span>.observe</span><br><span class="line">MutationObserver</span><br><span class="line">process.nextTick(Node.js 环境)</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>set、map、weakset和weakmap</li>
+</ol>
+<p>Set</p>
+<ol>
+<li><p>成员不能重复</p>
+</li>
+<li><p>只有健值，没有健名，有点类似数组。</p>
+</li>
+<li><p>可以遍历，方法有add, delete,has</p>
+</li>
+</ol>
+<p>weakSet</p>
+<ol>
+<li>成员都是对象</li>
+<li>成员都是弱引用，随时可以消失。 可以用来保存DOM节点，不容易造成内存泄漏</li>
+<li>不能遍历，方法有add, delete,has</li>
+</ol>
+<p>Map</p>
+<ol>
+<li>本质上是健值对的集合，类似集合</li>
+<li>可以遍历，方法很多，可以跟各种数据格式转换</li>
+</ol>
+<p>weakMap</p>
+<ol>
+<li>直接受对象作为健名（null除外），不接受其他类型的值作为健名</li>
+<li>健名所指向的对象，不计入垃圾回收机制</li>
+<li>不能遍历，方法同get,set,has,delete</li>
+</ol>
+<h3 id="多益笔试"><a href="#多益笔试" class="headerlink" title="多益笔试"></a>多益笔试</h3><ol>
+<li>symbol </li>
+</ol>
+<p>ES6 引入了一种新的原始数据类型 Symbol ，表示独一无二的值，最大的用法是用来定义对象的唯一属性名。</p>
+<p>Symbol 函数栈不能用 new 命令，因为 Symbol 是原始数据类型，不是对象。</p>
+<p>由于每一个 Symbol 的值都是不相等的，所以 Symbol 作为对象的属性名，可以保证属性不重名。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sy = <span class="built_in">Symbol</span>(<span class="string">&quot;KK&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sy);   <span class="comment">// Symbol(KK)</span></span><br><span class="line"><span class="keyword">typeof</span>(sy);        <span class="comment">// &quot;symbol&quot;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// 相同参数 Symbol() 返回的值不相等</span></span><br><span class="line"><span class="keyword">let</span> sy1 = <span class="built_in">Symbol</span>(<span class="string">&quot;kk&quot;</span>); </span><br><span class="line">sy === sy1;       <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>js</code>引擎执行<code>0.1+0.2==0.3</code>返回<code>false</code>，为什么？请给出解决办法</li>
+</ol>
+<p>在JavaScript中，<code>0.1 + 0.2 = 0.3000000000000000444089209850062616169452667236328125000000000000</code>，<code>0.1 + 0.2 - 0.3 = 5.551115123125783e-17</code></p>
+<p>造成这个问题主要是因为十进制与二进制在转换中出现精度问题</p>
+<ol start="3">
+<li><p>实现一个单选框</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单选框</span></span><br><span class="line">&lt;label&gt; <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">vlaue</span>=<span class="string">&quot;男生&quot;</span>&gt;</span>男生<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span></span><br><span class="line"><span class="comment">//多选框</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;like&quot;</span> <span class="attr">value</span>=<span class="string">&quot;0&quot;</span>&gt;</span>选项1<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+<li><p>斐波那契编程</p>
+</li>
+<li><p>单链表后插入一个节点</p>
+</li>
+<li><p>写一个正则表达式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 去掉空格</span></span><br><span class="line"> /(^\s+)|(\s+$)/g</span><br><span class="line"><span class="comment">//2. 所有空格</span></span><br><span class="line"> /\s*/g</span><br><span class="line"><span class="comment">//3. 乱写一个 第一个数字00不为0的</span></span><br><span class="line"> /[<span class="number">1</span>-<span class="number">9</span>].+\s*/</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>立即执行函数</p>
+</li>
+<li><p>轮询长轮询，websoket</p>
+</li>
+<li><p>readonly和disabled</p>
+</li>
+<li><p>new操作符的作用</p>
+<p>通过构造函数来创建一个实例对象。</p>
+<p>创建原型链</p>
+<p>改变构造函数的this指向</p>
+<p>会对构造函数的返回值做一些判断</p>
+</li>
+<li><p>dispaly，visibility,opcity的重绘重排</p>
+</li>
+<li><p>bundler</p>
+</li>
+<li><p>在数组指定位置插入元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">操作字符串的方法和操作数组的方法</span><br><span class="line">字符串：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">数组：</span><br><span class="line">push()尾部添加 pop()尾部删除</span><br><span class="line">unshift()头部添加 shift()头部删除</span><br><span class="line"></span><br><span class="line"><span class="comment">//在数组指定位置插入</span></span><br><span class="line"><span class="keyword">var</span> fruits = [<span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Mango&quot;</span>];</span><br><span class="line">fruits.splice(<span class="number">2</span>, <span class="number">0</span>, <span class="string">&quot;Lemon&quot;</span>, <span class="string">&quot;Kiwi&quot;</span>);</span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line"><span class="comment">//Banana, Orange, Lemon, Kiwi, Apple, Mango</span></span><br><span class="line">index    必需。规定从何处添加/删除元素。</span><br><span class="line">该参数是开始插入和（或）删除的数组元素的下标，必须是数字。</span><br><span class="line">howmany    必需。规定应该删除多少元素。必须是数字，但可以是 <span class="string">&quot;0&quot;</span>。如果未规定此参数，则删除从 index 开始到原数组结尾的所有元素。</span><br><span class="line">item1, ..., itemX    可选。要添加到数组的新元素</span><br><span class="line">返回值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>+“1e”=parseInt(“1e”)   不理解这个题是什么意思，但是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parseInt：解析一个字符串并返回指定基数的十进制整数（默认）</span><br></pre></td></tr></table></figure></li>
+<li><p>rem与em的区别</p>
+</li>
+<li></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- &lt;!DOCTYPE&gt; 声明不是 HTML 标签；</span></span><br><span class="line"><span class="comment">它是指示 web 浏览器关于页面使用哪个 HTML 版本进行编写的指令</span></span><br><span class="line"><span class="comment">。以上是H5声明的方式在更老的文档中 声明必须引用 DTD (Document Type Definition)--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 元素语言的定义 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 规定 HTML 文档的字符编码： --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="17">
+<li>script标签的位置以及属性</li>
+</ol>
+<ul>
+<li>放在<head>标签内部时，浏览器解析HTML标签，发现script标签时，会先下载完所有的script，再往下解析其他的HTML。——容易出现滞后</head></li>
+<li>放在<body>外部 不标准</body></li>
+<li>放在body内部 对于高度依赖JS的页面加载缓慢 </li>
+</ul>
+<h3 id="ZUvi原里笔试"><a href="#ZUvi原里笔试" class="headerlink" title="ZUvi原里笔试"></a>ZUvi原里笔试</h3><p>只有45分钟，时间过得的太快了有点忘了</p>
+<ol>
+<li>写出5重加快H5加载的方法</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://www.pkak.cn/wt/7296.html">https://www.pkak.cn/wt/7296.html</a></p>
+<ol>
+<li>循环链表插入的方法</li>
+<li>dispaly的重绘重排</li>
+<li>输入一个数组和一个数，找到这个数组中相加等于这个数的，输出他们三个，如果同时有多对，那么输出成绩最小的。</li>
+<li>CSS样式权重</li>
+</ol>
+<p><img src="/2022/03/23/%E7%AC%94%E8%AF%95/image-20220331210803264.png" alt="image-20220331210803264"></p>
+<h3 id="赛意信息"><a href="#赛意信息" class="headerlink" title="赛意信息"></a>赛意信息</h3><ol>
+<li>vue中每个data使用function (){return }是为了</li>
+<li>CSS样式权重</li>
+<li>不属于数组的方法</li>
+<li>块级标签，display的值</li>
+</ol>
+<p>list-item,table,none,block,inline-block,table-cell,inherit</p>
+<ol start="5">
+<li>为什么使用DIV+CSS布局</li>
+</ol>
+<p>div+css页面增加网页打开速度</p>
+<p>重构页面修改方便</p>
+<p>divcss有利于搜索引擎爬虫</p>
 <h3 id="其他模拟笔试"><a href="#其他模拟笔试" class="headerlink" title="其他模拟笔试"></a>其他模拟笔试</h3><ol>
 <li><p>已知，1000个硬币里有10个金币。随机的取出n个硬币，则取出硬币里有金币的概率是多少？</p>
-<p>思路：如果n&gt;990，则一定会取到金币</p>
-</li>
-<li><p>当padding/margin为百分比时，无论top/bottom还是left/right，对应的都是父类的width</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">思路：如果n&gt;<span class="number">990</span>，则一定会取到金币</span><br></pre></td></tr></table></figure></li>
+<li><p>当padding/margin为百分比时，无论-top/-bottom还是left/right，对应的都是父类的width</p>
 </li>
 <li><p>1.匹配相关：与正则表达式配合使用</p>
 <p>（1）str.match(RegExp):匹配指定字符串</p>
@@ -444,7 +933,11 @@ static` `void` `test() &#123;
 <p> sprintf   和printf()一样，有格式化字符串攻击的可能</p>
 <p> strcmp  比较两个string长度，无危害</p>
 </li>
+<li></li>
 </ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>].splice(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>));</span><br><span class="line"><span class="built_in">console</span>.log([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>].slice(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>));</span><br><span class="line"><span class="comment">//输出什么？</span></span><br><span class="line">[<span class="number">2</span>,<span class="number">3</span>]和[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//为什么</span></span><br><span class="line"><span class="attr">splice</span> :删除数组中制定位置的元素并返回该元素，第三个参数至后面所有参数表示从删除元素的位置开始插入这些参数。该方法会改变原数组。</span><br><span class="line">所以[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>].splice(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)的意思是，从序号<span class="number">1</span>开始删除<span class="number">2</span>个元素，并且将<span class="number">3.4</span><span class="number">.5</span>插入序号<span class="number">1</span>的位置，返回[<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="attr">slice</span>:只有两个参数</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30500105/article/details/101064944012">https://blog.csdn.net/weixin_30500105/article/details/101064944012</a></p>
 
       
 
@@ -612,7 +1105,7 @@ static` `void` `test() &#123;
 <li>在函数作用域中可以访问到全局作用域的变量，在函数外无法访问到函数作用域内的变量</li>
 <li>在函数作用域中访问变量、函数时，会先在自身作用域中寻找，若没有找到，则回到函数的上一级作用域中寻找，一直到全局作用域。</li>
 </ul>
-<h6 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h6><h6 id="作用域的深层次理解"><a href="#作用域的深层次理解" class="headerlink" title="作用域的深层次理解"></a>作用域的深层次理解</h6><p><strong>执行上下文</strong></p>
+<h6 id="块级作用域-JS本身没有块级作用域，但是在ES6之后可以模仿块级作用域"><a href="#块级作用域-JS本身没有块级作用域，但是在ES6之后可以模仿块级作用域" class="headerlink" title="块级作用域(JS本身没有块级作用域，但是在ES6之后可以模仿块级作用域)"></a>块级作用域(JS本身没有块级作用域，但是在ES6之后可以模仿块级作用域)</h6><h6 id="作用域的深层次理解"><a href="#作用域的深层次理解" class="headerlink" title="作用域的深层次理解"></a>作用域的深层次理解</h6><p><strong>执行上下文</strong></p>
 <p>当函数在代码执行的前期，会创建一个执行器上下文的内部对象 AO  （作用域），这个内部的独享是预编译的时候创建出来的，因为当函数被调用的时候，会先进项预编译；在全局代码执行的亲戚会创建一个执行上下文的对象 GO</p>
 <p><strong>函数作用域编译</strong></p>
 <ol>
@@ -638,7 +1131,7 @@ static` `void` `test() &#123;
 <p><img src="/2022/03/22/%E9%A2%98/image-20220322163250278.png" alt="image-20220322163250278"></p>
 <h5 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h5><p><strong>当持续促发事件（键盘持续输入内容）  一定时间内没有再触发事件（一定时间内没有再输入）  事件处理函数才会执行一次 如果设定的事件到来之前 又一次触发了函数 就重新开始计时</strong></p>
 <p>比如一个定了一定时间的定时器，在这个定时器时间定完后才会执行事件函数，如果中途点击了这个定时器，那么时间就会重新计时，等重新计时完成才会执行时间函数(就像王者荣耀回城一样，只有在不被别人打断n秒后才能回去， 否则这期间有人打断就会重新计时。)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">functon <span class="function"><span class="title">debounce1</span>(<span class="params">delay,value</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="comment">//既然在计时之时再次输入内容，不能打印东西，那么就要清除以前触发的定时器</span></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer) <span class="comment">//错误  这里的timer是undefined 要使timer一直在内存中-&gt; 内存泄露 -&gt;闭包</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(value)</span><br><span class="line">    &#125;,delay)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//我需要的是输入框的结果只出现一次，是在我键盘抬起不在输入后的1秒之后</span></span><br><span class="line">input.addEventLinstener(<span class="string">&quot;keyup&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    debounce(<span class="number">1000</span>,e,target.value)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">functon <span class="function"><span class="title">debounce2</span>(<span class="params">delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">value</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(timer) </span><br><span class="line">        timer=<span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(value)</span><br><span class="line">        &#125;,delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> deFUnc=debounce2(<span class="number">1000</span>)</span><br><span class="line">input.addEventLinstener(<span class="string">&quot;keyup&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    deFUnc(e,target.value)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">functon <span class="function"><span class="title">debounce1</span>(<span class="params">delay,value</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="comment">//既然在计时之时再次输入内容，不能打印东西，那么就要清除以前触发的定时器</span></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timer) <span class="comment">//错误  这里的timer是undefined 要使timer一直在内存中-&gt; 内存泄露 -&gt;闭包</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(value)</span><br><span class="line">    &#125;,delay)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//我需要的是输入框的结果只出现一次，是在我键盘抬起不在输入后的1秒之后</span></span><br><span class="line">input.addEventLinstener(<span class="string">&quot;keyup&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    debounce(<span class="number">1000</span>,e,target.value)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">functon <span class="function"><span class="title">debounce2</span>(<span class="params">delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line">    <span class="comment">//匿名函数实现闭包</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">value</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(timer) </span><br><span class="line">        timer=<span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(value)</span><br><span class="line">        &#125;,delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> deFUnc=debounce2(<span class="number">1000</span>)</span><br><span class="line">input.addEventLinstener(<span class="string">&quot;keyup&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    deFUnc(e,target.value)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>使用条件: 1,如果客户连续的操作会导致频繁的事件回调(可能引起页面卡顿). 2,客户只关心”<strong>最后一次</strong>“操作(也可以理解为停止连续操作后)所返回的结果. 例如:</p>
 <ul>
@@ -650,9 +1143,8 @@ static` `void` `test() &#123;
 <p>在一定时间之内，限制一个动作只执行一次</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">thro</span>(<span class="params">func,wait</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timerOut</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!timerOut)&#123;</span><br><span class="line">            timerOut=<span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                func()<span class="comment">//事件处理函数</span></span><br><span class="line">                timerOut=<span class="literal">null</span></span><br><span class="line">            &#125;,wait)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="comment">//需要的是哪怕是1秒内点击了100次，也只执行一次</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&quot;button&quot;</span>).onclick=thro(func ,<span class="number">2000</span>)</span><br></pre></td></tr></table></figure>
 
-<h5 id="setTimeOut与setInterval"><a href="#setTimeOut与setInterval" class="headerlink" title="setTimeOut与setInterval"></a>setTimeOut与setInterval</h5><p>用setTimerput实现setInterval</p>
-<h5 id="JS的事件循环机制"><a href="#JS的事件循环机制" class="headerlink" title="JS的事件循环机制"></a>JS的事件循环机制</h5><p>JS单线程语言，同步和异步执行模式。</p>
-<p>虽然浏览器是单线程执行js代码的，但是浏览器世纪是以多个线程协助操作来实现单线程异步模型的，具体线程组成如下：</p>
+<h5 id="setTimeOut与setInterval"><a href="#setTimeOut与setInterval" class="headerlink" title="setTimeOut与setInterval"></a>setTimeOut与setInterval</h5><p>用setTimerout实现setInterval</p>
+<h5 id="JS的事件循环机制"><a href="#JS的事件循环机制" class="headerlink" title="JS的事件循环机制"></a>JS的事件循环机制</h5><p>虽然浏览器是单线程执行js代码的，但是浏览器世纪是以多个线程协助操作来实现单线程异步模型的，具体线程组成如下：</p>
 <ol>
 <li>GUI渲染线程</li>
 <li>JS引擎线程</li>
@@ -660,7 +1152,7 @@ static` `void` `test() &#123;
 <li>HTTP请求线程</li>
 <li>其他线程</li>
 </ol>
-<p><strong>在JavaScript代码运⾏的过程中实际执⾏程序时同时只存在⼀个活动线程，这⾥实现同步异步就是靠</strong>多线程切换的形式来进⾏实现的**。</p>
+<p><strong>在JavaScript代码运⾏的过程中实际执⾏程序时同时只存在⼀个活动线程，这⾥实现同步异步就是靠</strong>多线程切换的形式来进⾏实现的。</p>
 <p>所以我们通常分析时，将上⾯的细分线程归纳为下列两条线程：</p>
 <ol>
 <li><p>【主线程】：这个线程⽤了执⾏⻚⾯的渲染，JavaScript代码的运⾏，事件的触发等等</p>
@@ -668,11 +1160,6 @@ static` `void` `test() &#123;
 <li><p>【⼯作线程】：这个线程是在幕后⼯作的，⽤来处理异步任务的执⾏来实现⾮阻塞的运⾏模式</p>
 </li>
 </ol>
-<p><img src="/2022/03/22/%E9%A2%98/image-20220322201521687.png"></p>
-<p><strong>事件循环机制由三部分组成</strong>：调用栈 微任务队列 消息队列</p>
-<p>event-loop开始的时候会全局一行一行的执行 遇到函数调用 会压到调用栈中 被压入的函数被称之为帧，当函数返回后会从调用栈中弹出</p>
-<p>JS中的异步操作 比如fetch setTimeout setIntrval  Ajax (等宏任务)压入到调用栈中的时候里面的消息会进入到消息队列中 消息队列中 会等到调用栈清空之后再执行</p>
-<p>promise async await（等微任务） 的异步操作的时候会加入到微任务中去 会在调用栈清空的时候立即执行 调用栈中加入的微任务会立马执行 </p>
 <p><strong>微任务是由ES6语法规定的，宏任务是由浏览器规定的</strong></p>
 <p>例题：</p>
 <ol>
@@ -965,7 +1452,7 @@ console.log(&#39;promise 2&#39;)
 <h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>进程是对正在运行中的程序的一个抽象，<strong>是系统进行资源分配和调度的基本单位</strong>。操作系统的其他所有内容都是围绕着进程展开的，负责执行这些任务的是CPU。</p>
 <p>进程是一种抽象的概念，一般是由程序（用于描述进程要完成的功能，是控制进程执行的指令集）、数据集合（是程序在执行时所需要的数据和工作区）和进程控制块（包含进程的描述信息和控制信息，是进程存在的唯一标志）三部分组成。</p>
 <h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>操作系统能够进行运算调度的最小单位，是进程中的一个执行任务（控制单元），负责当前进程中程序的执行。</p>
-<p>一个进程至少有一个线程，一个进程可以运行多个线程。这些线程共享同一块内存，线程之间可以共享对象、资源，如果有冲突或需要协同，还可以随时沟通以解决冲突或保持同步。</p>
+<p><strong>一个进程至少有一个线程，一个进程可以运行多个线程</strong>。这些线程共享同一块内存，线程之间可以共享对象、资源，如果有冲突或需要协同，还可以随时沟通以解决冲突或保持同步。</p>
 <p><strong>每个进程都有独立的代码和数据空间（程序上下文），程序之间的切换会有较大的开销；线程可以看做轻量级的进程，同一类线程共享代码和数据空间，每个线程都有自己独立的运行栈和程序计数器（PC），线程之间切换的开销小</strong></p>
 <p><strong>在操作系统中能同时运行多个进程（程序）；而在同一个进程（程序）中有多个线程同时执行（通过CPU调度，在每个时间片中只有一个线程执行）</strong></p>
 <p><strong>在操作系统中能同时运行多个进程（程序）；而在同一个进程（程序）中有多个线程同时执行（通过CPU调度，在每个时间片中只有一个线程执行）</strong></p>
@@ -1033,355 +1520,6 @@ console.log(&#39;promise 2&#39;)
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2022-03-20T13:52:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>带有结构特性的数据元素的集合,他研究的是数据的逻辑结构和数据的物理结构以及他们之间的相互关系，并对这种结构定义相适应的运算，设计出相应的算法，并确保经过这些运算以后所得到的新结构仍然保持原来的结构类型。简而言之，数据结构是相互之间存在一种或多种特定关系的数据元素的集合，即带“结构”的数据元素的集合。“结构”就是指数据元素之间存在的关系，分为逻辑结构和存储结构。</p>
-<p>数据是存储在计算机内存里的，在存储是，决定了数据顺序和位置关系的便是“数据结构”。</p>
-<p><strong>逻辑结构</strong>：元素之间逻辑关系的数据结构，这里的逻辑关系是指数据元素之间的前后间关系，与数据在计算机中的存储位置无关。</p>
-<p><strong>物理结构</strong>：指数据的逻辑结构在计算机存储空间中的存放形式称为数据的物理结构，也叫做存储结构。</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138523723">十三张图带你彻底了解所有数据结构 - 知乎 (zhihu.com)</a></p>
-<h4 id="时间复杂度，空间复杂度"><a href="#时间复杂度，空间复杂度" class="headerlink" title="时间复杂度，空间复杂度"></a>时间复杂度，空间复杂度</h4><p>算法是指用来操作数据、解决程序问题的一组方法问题，使用不同的算法，也许最终得到的结果是一样的，但在过程和时间却会有很大的区别。</p>
-<h6 id="时间维度："><a href="#时间维度：" class="headerlink" title="时间维度："></a>时间维度：</h6><p>算法的复杂度通常用大O表述，定义为：T(n)=O(f(n))</p>
-<p>时间复杂度：O(1)常数型、O(log n)对数型、O(n)线性型、O(nlogn)线性对数型、O(n^2)平方型、O(n^3)立方型、O(n^k)k次方型、O(2^n)指数型</p>
-<p><strong>计算时间复杂度的方法</strong></p>
-<ol>
-<li>找出算法中的基本语句</li>
-</ol>
-<p>算法中执行次数最多的那条语句就是基本语句，通常是最内层循环的循环体</p>
-<ol>
-<li>计算基本语句的执行次数的数量级</li>
-</ol>
-<p>保留最高次幂</p>
-<ol>
-<li>用大O几号表示算法的时间性能</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//性能最好的算法的时间复杂度为 O(1)，也就是在执行有限次的操作之后达到目标。比如一些计算类型的代码或者交换值的代码等。</span></span><br><span class="line"><span class="comment">//1.计算</span></span><br><span class="line"><span class="keyword">var</span> sum = a * b;</span><br><span class="line"><span class="comment">//2.交换</span></span><br><span class="line"><span class="keyword">var</span> temp = a;</span><br><span class="line"></span><br><span class="line"><span class="comment">//o(n)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">aFunc</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; n; i++) &#123; <span class="comment">// 循环次数为 n</span></span><br><span class="line">        printf(<span class="string">&quot;Hello, World!\n&quot;</span>); <span class="comment">// 循环体时间复杂度为 O(1)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对于顺序执行的语句，总的时间复杂度等于其中最大的时间复杂度，//max(O(n^2), O(n)) = O(n^2)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        sum += i</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            sum += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//循环语句中以2的倍数来逼近n   时间复杂度为 log n</span></span><br><span class="line"><span class="comment">//如果一个O(n)里面嵌套一个O(logn)那么时间复杂度为O(nlogn)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">1</span>; </span><br><span class="line">    <span class="keyword">while</span> (i &lt;= n) &#123;</span><br><span class="line">        i = i * <span class="number">2</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h6 id="空间维度"><a href="#空间维度" class="headerlink" title="空间维度"></a>空间维度</h6><p>空间复杂度主要指执行算法所需内存大小，用于对程序运行过程中所需要的临时存储空间的度量.</p>
-<p>除了需要存储空间、指令、常数、变量和输入数据外，还包括对数据进行操作的工作单元和存储计算所需信息的辅助空间</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//O(1) 临时空间不会随着n的变化而变化，因此空间复杂度为O(1)</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="number">3</span></span><br><span class="line"><span class="comment">//o(n) 随着n的增加，数组的占用的内存空间越大</span></span><br><span class="line"><span class="keyword">let</span> arr []</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=n; ++i)&#123;</span><br><span class="line">  arr.push(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//只要算法不涉及到动态分配的空间，以及递归、栈所需的空间，空间复杂度通常为O(1)，一个一维数组a[n]，空间复杂度O(n)，二维数组为O(n^2)</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="树"><a href="#树" class="headerlink" title="树"></a>树</h4><p><strong>树（Tree）</strong>是n（n&gt;=0)个结点的有限集。n=0时称为空树。</p>
-<p>2）当n&gt;1时，其余结点可分为m(m&gt;0)个互不相交的有限集T1、T2、……、Tn，其中每一个集合本身又是一棵树，并且称为根的子树。</p>
-<p>结点拥有的子树数目称为结点的<strong>度</strong>。</p>
-<p><img src="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220323155422299.png" alt="image-20220323155422299"></p>
-<p>树中结点的最大层次数称为树的深度或高度。上图所示树的深度为4。</p>
-<p><strong>二叉树</strong></p>
-<p><strong>二叉树</strong>是n(n&gt;=0)个结点的有限集合，该集合或者为空集（称为空二叉树），或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树组成。</p>
-<p><img src="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220323155525631.png" alt="image-20220323155525631"></p>
-<p>1）每个结点最多有两颗子树，所以二叉树中不存在度大于2的结点。<br>2）左子树和右子树是有顺序的，次序不能任意颠倒。<br>3）即使树中某结点只有一棵子树，也要区分它是左子树还是右子树。</p>
-<p><strong>性质</strong></p>
-<p>1）在二叉树的第i层上最多有2^(i-1) 个节点 。（i&gt;=1）<br> 2）二叉树中如果深度为k,那么最多有2^k-1个节点。(k&gt;=1）<br> 3）n0=n2+1  n0表示度数为0的节点数，n2表示度数为2的节点数。<br> 4）在完全二叉树中，具有n个节点的完全二叉树的深度为[log2n]+1，其中[log2n]是向下取整。<br> 5）若对含 n 个结点的完全二叉树从上到下且从左至右进行 1 至 n 的编号，则对完全二叉树中任意一个编号为 i 的结点有如下特性：</p>
-<blockquote>
-<p>(1) 若 i=1，则该结点是二叉树的根，无双亲, 否则，编号为 [i/2] 的结点为其双亲结点;<br> (2) 若 2i&gt;n，则该结点无左孩子，  否则，编号为 2i 的结点为其左孩子结点；<br> (3) 若 2i+1&gt;n，则该结点无右孩子结点，  否则，编号为2i+1 的结点为其右孩子结点。</p>
-</blockquote>
-<h5 id="遍历二叉树"><a href="#遍历二叉树" class="headerlink" title="遍历二叉树"></a>遍历二叉树</h5><ol>
-<li>前序  中左右</li>
-<li>中序  左中右</li>
-<li>后序  左右中</li>
-<li>层序 按照二叉树的层次从左到右一次遍历每层中的结点</li>
-</ol>
-<h4 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h4><p>对与排序算法的好坏衡量，主要是从时间复杂度、空间复杂度、稳定性。</p>
-<p>稳定性指的是假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变</p>
-<p>即在原序列中，r[i] = r[j]，且 r[i] 在 r[j] 之前，而在排序后的序列中，r[i] 仍在 r[j] 之前，则称这种排序算法是稳定的；否则称为不稳定的.</p>
-<p><img src="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220325105005837.png" alt="image-20220325105005837"></p>
-<p><strong>常见排序算法</strong></p>
-<h5 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h5><p>思路：</p>
-<ol>
-<li>比较相邻的元素，如果第一个比第二个大，就交换他们两个，</li>
-<li>在每一对相邻的元素作同样的工作，</li>
-<li>针对所有元素重复以上步骤，直到没有任何一对数字需要比较</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从小到大</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; len - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j+<span class="number">1</span>]) &#123;        <span class="comment">// 相邻元素两两对比</span></span><br><span class="line">                <span class="keyword">var</span> temp = arr[j+<span class="number">1</span>];        <span class="comment">// 元素交换</span></span><br><span class="line">                arr[j+<span class="number">1</span>] = arr[j];</span><br><span class="line">                arr[j] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h5><p>无论什么数据进去都是O（n2）的复杂度，所以使用它时，数据规模越小越好，唯一的好处是不占用额外的内存存储空间</p>
-<p>思路：</p>
-<ol>
-<li>在未排序的序列中找到最大（小）存放在排序序列的起始位置；</li>
-<li>从剩余未排序元素中继续寻找最大（小）的元素，然后放到已排序的序列末尾；</li>
-<li>重复第二步。直到排序完成</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectionSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> len = arr.length;</span><br><span class="line">    <span class="keyword">var</span> minIndex, temp;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        minIndex = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = i + <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[minIndex]) &#123;     <span class="comment">// 寻找最小的数</span></span><br><span class="line">                minIndex = j;                 <span class="comment">// 将最小数的索引保存</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        temp = arr[i];</span><br><span class="line">        arr[i] = arr[minIndex];</span><br><span class="line">        arr[minIndex] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h5><p>通过构建有序序列，对于未排序序列，在已排序序列中从后向前扫描，找到相应位置插入</p>
-<p>思路：</p>
-<ol>
-<li>把待排序的数组分成已排序和未排序两个部分，</li>
-<li>初始的时候把第一个元素认为是已排好序的，第一个元素至末尾都是魏排序数组，在未排序序列中选出第一个元素在已排序序列中进行比较，找到合适的位置并插入该位置（如果已经有相同元素，则插在相同元素后面）；</li>
-<li>重复动作直至之后一个元素被插入</li>
-</ol>
-<h5 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h5><p>采用分治法。将已有序的子序列合并，得到完全有序的序列，即先使每个子序列有序，再使子序列段有序。</p>
-<p>思路：</p>
-<ol>
-<li>申请空间，使其大小魏两个已经排序序列之和，该空间用来存放合并后的序列</li>
-<li>设定两个指针，最初位置分别为两个已经排序序列的其实位置</li>
-<li>比较两个指针所指向的元素，选择相对较小的元素放入到合并空间，并移动指针到下一位置</li>
-<li>重复步骤三直到某一指针到达序列尾</li>
-<li>将另一序列剩下的所有元素直接1赋值到合并序列</li>
-</ol>
-<h5 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h5><p>对冒泡排序的一种改进，基本思想是通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据比另一部分的所有数据要小，再按这种方法对这两部分数据分别进行跨苏排序，整个拍戏过程可以地柜进行。</p>
-<ul>
-<li>从数列中挑出一个元素，称为”基准”（pivot）</li>
-<li>重新排序数列，所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任何一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作</li>
-<li>递归地（recursively）把小于基准值元素的子数列和大于基准值元素的子数列排序</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> rec = <span class="function">(<span class="params">arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) &#123; <span class="keyword">return</span> arr; &#125;</span><br><span class="line">    <span class="keyword">const</span> left = [];</span><br><span class="line">    <span class="keyword">const</span> right = [];</span><br><span class="line">    <span class="keyword">const</span> mid = arr[<span class="number">0</span>]; <span class="comment">// 基准元素</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[i] &lt; mid) &#123;</span><br><span class="line">        left.push(arr[i]);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        right.push(arr[i]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [...rec(left), mid, ...rec(right)]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res(arr)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-计算机网路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/">计算机网路</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/" class="archive-article-date">
-  	<time datetime="2022-03-20T13:52:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h5><p>网络（network）是由若干节点和连接这些节点（node）的链路（link）组成，多个网络可以通过路由器连起来，这样就构成了一个覆盖范围更大的网络，即互联网。因特网（Internet）是世界上最大的互联网</p>
-<p><img src="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/image-20220321222538621.png" alt="image-20220321222538621"></p>
-<p><strong>因特网服务提供者ISP（ Internet Service Provider）</strong></p>
-<p><img src="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/image-20220321222708256.png" alt="image-20220321222708256"></p>
-<p><strong>因特网的组成</strong></p>
-<p>边缘部分：由所有连接在因特网上的主机组成，这部分是用户直接使用的，用来进行通信（传送数据、音频或视频）和资源共享</p>
-<p>核心部分：由大量网络和连接这些网络的路由器组成，这部分是为边缘部分提供服务的（提供连通性和交换）</p>
-<p><img src="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/image-20220321223319322.png" alt="image-20220321223319322"></p>
-<p><strong>三种交换方式</strong>(干啥的)</p>
-<p>电路交换</p>
-<p>分组交换</p>
-<p>报文交换</p>
-<h5 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h5><p>一些互相连接的（计算机之间可以通过有限或者无线进行数据通信）、自治（独立的计算机，有自己的硬件和软件，可以单独运行使用）的计算机集合</p>
-<p>定义：计算机网络主要由一些通用的、可编程的硬件互连而成的，而这些硬件并非专门用来实现某一特定目的（例如传送数据或视频信号）。这些可编程的硬件能够用来传送多种不同类型的数据，并能支持广泛的和日益增长的应用。</p>
-<p><em>计算机网络所连接的硬件，并不局限于一般的计算机，而是包括了智能手机等智能硬件；计算机网络并非专门用来传送数据，而是能够支持很多种的应用</em></p>
-<p><img src="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/image-20220321224210766.png" alt="image-20220321224210766"></p>
-<h5 id="计算机网络的性能指标"><a href="#计算机网络的性能指标" class="headerlink" title="计算机网络的性能指标"></a>计算机网络的性能指标</h5><ul>
-<li><p>速率</p>
-</li>
-<li><p>带宽</p>
-</li>
-<li><p>吞吐量</p>
-<p>吞吐量表示在单位时间内通过某个网络的（或信道/接口）的数据量</p>
-</li>
-<li><p>时延</p>
-</li>
-<li><p>时延带宽积</p>
-</li>
-<li><p>往返时间</p>
-</li>
-<li><p>利用率</p>
-</li>
-<li><p>丢包率</p>
-</li>
-</ul>
-<h5 id="计算机网络的体系结构"><a href="#计算机网络的体系结构" class="headerlink" title="计算机网络的体系结构"></a>计算机网络的体系结构</h5><h6 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h6><p>采用怎样的传输媒介，采用怎样的物理接口，使用怎样的信号表示比特0和1.</p>
-<h6 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h6><p>如何标识网络中的各主机（主机编址，例如MAC地址），如何从信号所表示的依赖内存比特流中去根除地址和数据，如何协调各主机争用总线。</p>
-<h6 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h6>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-编程题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/20/%E7%BC%96%E7%A8%8B%E9%A2%98/">编程题</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/20/%E7%BC%96%E7%A8%8B%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2022-03-20T13:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="数组扁平化"><a href="#数组扁平化" class="headerlink" title="数组扁平化"></a>数组扁平化</h5>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/20/%E7%BC%96%E7%A8%8B%E9%A2%98/">展开全文 >></a>
         </p>
       
 
@@ -1532,11 +1670,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">

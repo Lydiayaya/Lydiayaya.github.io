@@ -8,14 +8,17 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>算法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="斐波那契123456function  fib(n)&amp;#123;    if(n&#x3D;&#x3D;&#x3D;0)return 1    if(n&#x3D;&#x3D;&#x3D;1)return 1    if(n&gt;&#x3D;2)&amp;#123;        return fib(n-1)+fib(n-2)&amp;#125;&amp;#125;  合并链表（保持递增）1    数组去重123456789101.Array.from(new Set(arr))2.f">
+<meta property="og:type" content="article">
 <meta property="og:title" content="算法">
 <meta property="og:url" content="http://example.com/2022/03/20/%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="斐波那契123456function  fib(n)&amp;#123;    if(n&#x3D;&#x3D;&#x3D;0)return 1    if(n&#x3D;&#x3D;&#x3D;1)return 1    if(n&gt;&#x3D;2)&amp;#123;        return fib(n-1)+fib(n-2)&amp;#125;&amp;#125;  合并链表（保持递增）1    数组去重123456789101.Array.from(new Set(arr))2.f">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-20T13:52:08.000Z">
-<meta property="article:modified_time" content="2022-03-20T13:52:08.851Z">
+<meta property="article:modified_time" content="2022-04-12T02:17:40.162Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="计算机基础">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -172,7 +175,48 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h5 id="斐波那契"><a href="#斐波那契" class="headerlink" title="斐波那契"></a>斐波那契</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">fib</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n===<span class="number">0</span>)<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span>(n===<span class="number">1</span>)<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span>(n&gt;=<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> fib(n-<span class="number">1</span>)+fib(n-<span class="number">2</span>)&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="合并链表（保持递增）"><a href="#合并链表（保持递增）" class="headerlink" title="合并链表（保持递增）"></a>合并链表（保持递增）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span><span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr))</span><br><span class="line"><span class="number">2.</span><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> j = i+<span class="number">1</span>; j &lt; arr.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[j] === arr[i]) &#123;</span><br><span class="line">                    arr.splice(j, <span class="number">1</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"><span class="number">3.</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="数组扁平化"><a href="#数组扁平化" class="headerlink" title="数组扁平化"></a>数组扁平化</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatter</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">           <span class="keyword">let</span> arr2 = []</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> arr) &#123;</span><br><span class="line">               <span class="built_in">console</span>.log(value)</span><br><span class="line">               <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(value)) &#123;</span><br><span class="line">                   <span class="comment">// arr2 = arr2.concat(flatter(value))</span></span><br><span class="line">                   arr2 = arr2.concat(...value)</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">                   arr2.push(value)</span><br><span class="line"></span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> arr2;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="数组指定位置插入元素"><a href="#数组指定位置插入元素" class="headerlink" title="数组指定位置插入元素"></a>数组指定位置插入元素</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">splice(<span class="number">2</span>,<span class="number">0</span>,<span class="string">&quot;asdk&quot;</span>)</span><br><span class="line">push()尾部添加 pop()尾部删除</span><br><span class="line">unshift()头部添加 shift()头部删除</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="用setinterval实现setTimeout"><a href="#用setinterval实现setTimeout" class="headerlink" title="用setinterval实现setTimeout"></a>用setinterval实现setTimeout</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myset</span>(<span class="params">delay, count</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (count&lt;<span class="number">0</span>)<span class="keyword">return</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;hahah&quot;</span>, count)</span><br><span class="line">        myset(delay, --count)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="去掉空格"><a href="#去掉空格" class="headerlink" title="去掉空格"></a>去掉空格</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">trim</span><br><span class="line">replace(/^\s*|\s*$/g,&quot;&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="判断一个数是否是素数"><a href="#判断一个数是否是素数" class="headerlink" title="判断一个数是否是素数"></a>判断一个数是否是素数</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//素数不能被2~m-1的所有数整除，只能被1和他本身整除</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPrime</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 只要2到num - 1 之间有一个数能被num整除 那么就不是质数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; num; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (num % i === <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="判断回文"><a href="#判断回文" class="headerlink" title="判断回文"></a>判断回文</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="防抖节流"><a href="#防抖节流" class="headerlink" title="防抖节流"></a>防抖节流</h5><h5 id="如果九宫格密码，最少连接4个点，最多连接9个点，那么有多少连接方式？有多少个密码"><a href="#如果九宫格密码，最少连接4个点，最多连接9个点，那么有多少连接方式？有多少个密码" class="headerlink" title="如果九宫格密码，最少连接4个点，最多连接9个点，那么有多少连接方式？有多少个密码"></a>如果九宫格密码，最少连接4个点，最多连接9个点，那么有多少连接方式？有多少个密码</h5><h5 id="假设现有100元的商品，而代金券有50元、30元、20元、5元四种，则最佳优惠是两张50元面额的代金券；而如果现有65元的商品，则最佳优惠是两张30元代金券以及一张5元代金券。"><a href="#假设现有100元的商品，而代金券有50元、30元、20元、5元四种，则最佳优惠是两张50元面额的代金券；而如果现有65元的商品，则最佳优惠是两张30元代金券以及一张5元代金券。" class="headerlink" title="假设现有100元的商品，而代金券有50元、30元、20元、5元四种，则最佳优惠是两张50元面额的代金券；而如果现有65元的商品，则最佳优惠是两张30元代金券以及一张5元代金券。"></a>假设现有100元的商品，而代金券有50元、30元、20元、5元四种，则最佳优惠是两张50元面额的代金券；而如果现有65元的商品，则最佳优惠是两张30元代金券以及一张5元代金券。</h5><h5 id="给定一个包含非负整数的-M-x-N-迷宫，请找出一条从左上角到右下角的路径，使得路径上的数字总和最小。每次只能向下或者向右移动一步。"><a href="#给定一个包含非负整数的-M-x-N-迷宫，请找出一条从左上角到右下角的路径，使得路径上的数字总和最小。每次只能向下或者向右移动一步。" class="headerlink" title="给定一个包含非负整数的 M x N 迷宫，请找出一条从左上角到右下角的路径，使得路径上的数字总和最小。每次只能向下或者向右移动一步。"></a>给定一个包含非负整数的 M x N 迷宫，请找出一条从左上角到右下角的路径，使得路径上的数字总和最小。每次只能向下或者向右移动一步。</h5><h5 id="已知，1000个硬币里有10个金币。随机的取出n个硬币，则取出硬币里有金币的概率是多少？"><a href="#已知，1000个硬币里有10个金币。随机的取出n个硬币，则取出硬币里有金币的概率是多少？" class="headerlink" title="已知，1000个硬币里有10个金币。随机的取出n个硬币，则取出硬币里有金币的概率是多少？"></a>已知，1000个硬币里有10个金币。随机的取出n个硬币，则取出硬币里有金币的概率是多少？</h5><p>还有一套题没看完，在牛客网上</p>
+
       
 
       
@@ -201,6 +245,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -426,11 +481,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">

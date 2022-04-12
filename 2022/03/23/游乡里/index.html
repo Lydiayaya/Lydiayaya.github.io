@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>游乡里 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="uni-app+云开发  微信小程序 主要技术点： 搜索和搜索记录：定位与搜索定位：  组件封装： （模态登录授权框）   ​     评论 云开发请求操作数据库 123456789const db&#x3D;wx.cloud.database()const banner&#x3D;db.collection(&quot;目标数据库&quot;)banner.get()    .then((res)&#x3D;&gt;&amp;#">
+  <meta name="description" content="简单介绍一下项目（项目意义+项目技术栈（vue轻量灵活，而且大部分对框架的要求都是vue，）） 项目架构1234567891011121314151617181920212223242526272829303132333435363738-- common公用方法和样式  -- cloudfun.js封装数据请求  -- list封装公用数据比如定位，用户登录信息  -- util.js封装时间格">
 <meta property="og:type" content="article">
 <meta property="og:title" content="游乡里">
 <meta property="og:url" content="http://example.com/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="uni-app+云开发  微信小程序 主要技术点： 搜索和搜索记录：定位与搜索定位：  组件封装： （模态登录授权框）   ​     评论 云开发请求操作数据库 123456789const db&#x3D;wx.cloud.database()const banner&#x3D;db.collection(&quot;目标数据库&quot;)banner.get()    .then((res)&#x3D;&gt;&amp;#">
+<meta property="og:description" content="简单介绍一下项目（项目意义+项目技术栈（vue轻量灵活，而且大部分对框架的要求都是vue，）） 项目架构1234567891011121314151617181920212223242526272829303132333435363738-- common公用方法和样式  -- cloudfun.js封装数据请求  -- list封装公用数据比如定位，用户登录信息  -- util.js封装时间格">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327230315354.png">
 <meta property="og:image" content="http://example.com/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327230613883.png">
@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://example.com/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327224049486.png">
 <meta property="og:image" content="http://example.com/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327223854176.png">
 <meta property="article:published_time" content="2022-03-23T14:06:29.000Z">
-<meta property="article:modified_time" content="2022-03-28T04:25:35.658Z">
+<meta property="article:modified_time" content="2022-04-11T14:51:34.760Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="项目详细">
 <meta name="twitter:card" content="summary">
@@ -188,15 +188,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>  uni-app+云开发  微信小程序</p>
-<p>主要技术点：</p>
-<h5 id="搜索和搜索记录："><a href="#搜索和搜索记录：" class="headerlink" title="搜索和搜索记录："></a>搜索和搜索记录：</h5><h5 id="定位与搜索定位："><a href="#定位与搜索定位：" class="headerlink" title="定位与搜索定位："></a>定位与搜索定位：</h5><p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327230315354.png" alt="image-20220327230315354"></p>
+        <h4 id="简单介绍一下项目"><a href="#简单介绍一下项目" class="headerlink" title="简单介绍一下项目"></a>简单介绍一下项目</h4><p>（项目意义+项目技术栈（vue轻量灵活，而且大部分对框架的要求都是vue，））</p>
+<h4 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">-- common公用方法和样式</span><br><span class="line">  -- cloudfun.js封装数据请求</span><br><span class="line">  -- list封装公用数据比如定位，用户登录信息</span><br><span class="line">  -- util.js封装时间格式转换</span><br><span class="line">-- components 公共组件插件</span><br><span class="line">-- element组件封装</span><br><span class="line">  -- homeload</span><br><span class="line">  -- loading 加载中组件</span><br><span class="line">  -- modal模态框组件</span><br><span class="line">  -- none 没有数据提示组件</span><br><span class="line">-- node-moudle依赖包</span><br><span class="line">-- pages 页面文件</span><br><span class="line">  -- attractionDetails景点详情页面</span><br><span class="line">    -- components 组件</span><br><span class="line">      -- </span><br><span class="line">  -- catogory 景点卡片页面</span><br><span class="line">  -- city 城市定位于搜索定位</span><br><span class="line">  --index 首页</span><br><span class="line">    -- components 组件</span><br><span class="line">  -- my 个人中心</span><br><span class="line">  -- mycollect 我的收藏</span><br><span class="line">  -- search 搜索页面</span><br><span class="line">  -- store 数据仓库</span><br><span class="line">  -- strategy 游记总页面</span><br><span class="line">    -- components 组件</span><br><span class="line">      --</span><br><span class="line">  -- details 游记详情</span><br><span class="line">  -- travel 发表游记</span><br><span class="line">  </span><br><span class="line">  --static 静态文件</span><br><span class="line">    --tab 一些小图标tab啊或者分类的用到的小图标</span><br><span class="line">-- uni_moudles ?不知道这个文件是干啥的</span><br><span class="line">-- unpackage ?不知道干啥</span><br><span class="line">-- APP.vue</span><br><span class="line">--main.js</span><br><span class="line">--mainifest.json</span><br><span class="line">--package-lock.json</span><br><span class="line">-- pages.json</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="项目亮点"><a href="#项目亮点" class="headerlink" title="项目亮点"></a>项目亮点</h4><p>开发购物车功能</p>
+<h5 id="第三方AI平台交互"><a href="#第三方AI平台交互" class="headerlink" title="第三方AI平台交互"></a>第三方AI平台交互</h5><p>前端（调用）云函数（使用）百度自然语言处理（使）机器处理评论返回好差评标签（上传至）云数据库（返回）评论</p>
+<p>云函数基于node.js</p>
+<p>aeync/await 异步编程同步化</p>
+<h4 id="项目难点"><a href="#项目难点" class="headerlink" title="项目难点"></a>项目难点</h4><p>（发现问题-解决思路-解决办法）</p>
+<p>购物车</p>
+<p>评论：</p>
+<p>上拉加载：</p>
+<h5 id="搜索和搜索记录：关键字模糊查询，用的是本地存储，用户不主动删除就会永远存在的一个数据"><a href="#搜索和搜索记录：关键字模糊查询，用的是本地存储，用户不主动删除就会永远存在的一个数据" class="headerlink" title="搜索和搜索记录：关键字模糊查询，用的是本地存储，用户不主动删除就会永远存在的一个数据"></a>搜索和搜索记录：关键字模糊查询，用的是本地存储，用户不主动删除就会永远存在的一个数据</h5><h5 id="定位与搜索定位："><a href="#定位与搜索定位：" class="headerlink" title="定位与搜索定位："></a>定位与搜索定位：</h5><p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327230315354.png" alt="image-20220327230315354"></p>
 <p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327230613883.png" alt="image-20220327230613883"></p>
 <h5 id="组件封装："><a href="#组件封装：" class="headerlink" title="组件封装："></a>组件封装：</h5><ol>
 <li>（模态登录授权框）</li>
 </ol>
 <p><img src="/2022/03/23/%E6%B8%B8%E4%B9%A1%E9%87%8C/image-20220327230836506.png" alt="image-20220327230836506"></p>
-<p>​    </p>
 <h5 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h5><ol>
 <li><p>云开发请求操作数据库</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> db=wx.cloud.database()</span><br><span class="line"><span class="keyword">const</span> banner=db.collection(<span class="string">&quot;目标数据库&quot;</span>)</span><br><span class="line">banner.get()</span><br><span class="line">    .then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line">    .catch(<span class="function">(<span class="params">error</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
@@ -335,6 +345,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/03/31/leecode/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2022/03/23/%E7%AC%94%E8%AF%95/" id="article-nav-older" class="article-nav-link-wrap">
@@ -488,11 +507,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">

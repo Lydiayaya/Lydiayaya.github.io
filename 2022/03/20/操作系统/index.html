@@ -16,7 +16,7 @@
 <meta property="og:description" content="操作系统（Operating System 简称OS）是一组主管并控制计算机操作、运用和运行硬件、软件资源和提供公共服务来组织用户交互的相互关联的系统软件程序，同时也是计算机系统的内核与基石。 简单来讲，操作系统就是一种复杂的软件，相当于软件管家。 操作系统需要处理如管理与配置内存 、决定系统资源工序的优先次序，控制输入与输出设备、操作网络与管理文件系统等基本事务。 核心概念 进程（线程）：是">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-20T13:52:51.000Z">
-<meta property="article:modified_time" content="2022-03-28T04:26:08.827Z">
+<meta property="article:modified_time" content="2022-03-31T13:44:18.270Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="计算机基础">
 <meta name="twitter:card" content="summary">
@@ -210,7 +210,7 @@
 <h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>进程是对正在运行中的程序的一个抽象，<strong>是系统进行资源分配和调度的基本单位</strong>。操作系统的其他所有内容都是围绕着进程展开的，负责执行这些任务的是CPU。</p>
 <p>进程是一种抽象的概念，一般是由程序（用于描述进程要完成的功能，是控制进程执行的指令集）、数据集合（是程序在执行时所需要的数据和工作区）和进程控制块（包含进程的描述信息和控制信息，是进程存在的唯一标志）三部分组成。</p>
 <h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><p>操作系统能够进行运算调度的最小单位，是进程中的一个执行任务（控制单元），负责当前进程中程序的执行。</p>
-<p>一个进程至少有一个线程，一个进程可以运行多个线程。这些线程共享同一块内存，线程之间可以共享对象、资源，如果有冲突或需要协同，还可以随时沟通以解决冲突或保持同步。</p>
+<p><strong>一个进程至少有一个线程，一个进程可以运行多个线程</strong>。这些线程共享同一块内存，线程之间可以共享对象、资源，如果有冲突或需要协同，还可以随时沟通以解决冲突或保持同步。</p>
 <p><strong>每个进程都有独立的代码和数据空间（程序上下文），程序之间的切换会有较大的开销；线程可以看做轻量级的进程，同一类线程共享代码和数据空间，每个线程都有自己独立的运行栈和程序计数器（PC），线程之间切换的开销小</strong></p>
 <p><strong>在操作系统中能同时运行多个进程（程序）；而在同一个进程（程序）中有多个线程同时执行（通过CPU调度，在每个时间片中只有一个线程执行）</strong></p>
 <p><strong>在操作系统中能同时运行多个进程（程序）；而在同一个进程（程序）中有多个线程同时执行（通过CPU调度，在每个时间片中只有一个线程执行）</strong></p>
@@ -519,11 +519,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">

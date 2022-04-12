@@ -152,6 +152,395 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2022-03-20T13:52:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>带有结构特性的数据元素的集合,他研究的是数据的逻辑结构和数据的物理结构以及他们之间的相互关系，并对这种结构定义相适应的运算，设计出相应的算法，并确保经过这些运算以后所得到的新结构仍然保持原来的结构类型。简而言之，数据结构是相互之间存在一种或多种特定关系的数据元素的集合，即带“结构”的数据元素的集合。“结构”就是指数据元素之间存在的关系，分为逻辑结构和存储结构。</p>
+<p>数据是存储在计算机内存里的，在存储是，决定了数据顺序和位置关系的便是“数据结构”。</p>
+<p><strong>逻辑结构</strong>：元素之间逻辑关系的数据结构，这里的逻辑关系是指数据元素之间的前后间关系，与数据在计算机中的存储位置无关。</p>
+<p><strong>物理结构</strong>：指数据的逻辑结构在计算机存储空间中的存放形式称为数据的物理结构，也叫做存储结构。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138523723">十三张图带你彻底了解所有数据结构 - 知乎 (zhihu.com)</a></p>
+<h4 id="时间复杂度，空间复杂度"><a href="#时间复杂度，空间复杂度" class="headerlink" title="时间复杂度，空间复杂度"></a>时间复杂度，空间复杂度</h4><p>算法是指用来操作数据、解决程序问题的一组方法问题，使用不同的算法，也许最终得到的结果是一样的，但在过程和时间却会有很大的区别。</p>
+<h6 id="时间维度："><a href="#时间维度：" class="headerlink" title="时间维度："></a>时间维度：</h6><p>算法的复杂度通常用大O表述，定义为：T(n)=O(f(n))</p>
+<p>时间复杂度：O(1)常数型、O(log n)对数型、O(n)线性型、O(nlogn)线性对数型、O(n^2)平方型、O(n^3)立方型、O(n^k)k次方型、O(2^n)指数型</p>
+<p><strong>计算时间复杂度的方法</strong></p>
+<ol>
+<li>找出算法中的基本语句</li>
+</ol>
+<p>算法中执行次数最多的那条语句就是基本语句，通常是最内层循环的循环体</p>
+<ol>
+<li>计算基本语句的执行次数的数量级</li>
+</ol>
+<p>保留最高次幂</p>
+<ol>
+<li>用大O几号表示算法的时间性能</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//性能最好的算法的时间复杂度为 O(1)，也就是在执行有限次的操作之后达到目标。比如一些计算类型的代码或者交换值的代码等。</span></span><br><span class="line"><span class="comment">//1.计算</span></span><br><span class="line"><span class="keyword">var</span> sum = a * b;</span><br><span class="line"><span class="comment">//2.交换</span></span><br><span class="line"><span class="keyword">var</span> temp = a;</span><br><span class="line"></span><br><span class="line"><span class="comment">//o(n)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">aFunc</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; n; i++) &#123; <span class="comment">// 循环次数为 n</span></span><br><span class="line">        printf(<span class="string">&quot;Hello, World!\n&quot;</span>); <span class="comment">// 循环体时间复杂度为 O(1)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对于顺序执行的语句，总的时间复杂度等于其中最大的时间复杂度，//max(O(n^2), O(n)) = O(n^2)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        sum += i</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            sum += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//循环语句中以2的倍数来逼近n   时间复杂度为 log n</span></span><br><span class="line"><span class="comment">//如果一个O(n)里面嵌套一个O(logn)那么时间复杂度为O(nlogn)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">process</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">1</span>; </span><br><span class="line">    <span class="keyword">while</span> (i &lt;= n) &#123;</span><br><span class="line">        i = i * <span class="number">2</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="空间维度"><a href="#空间维度" class="headerlink" title="空间维度"></a>空间维度</h6><p>空间复杂度主要指执行算法所需内存大小，用于对程序运行过程中所需要的临时存储空间的度量.</p>
+<p>除了需要存储空间、指令、常数、变量和输入数据外，还包括对数据进行操作的工作单元和存储计算所需信息的辅助空间</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//O(1) 临时空间不会随着n的变化而变化，因此空间复杂度为O(1)</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="number">2</span></span><br><span class="line"><span class="keyword">let</span> c = <span class="number">3</span></span><br><span class="line"><span class="comment">//o(n) 随着n的增加，数组的占用的内存空间越大</span></span><br><span class="line"><span class="keyword">let</span> arr []</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=n; ++i)&#123;</span><br><span class="line">  arr.push(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//只要算法不涉及到动态分配的空间，以及递归、栈所需的空间，空间复杂度通常为O(1)，一个一维数组a[n]，空间复杂度O(n)，二维数组为O(n^2)</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="树"><a href="#树" class="headerlink" title="树"></a>树</h4><p><strong>树（Tree）</strong>是n（n&gt;=0)个结点的有限集。n=0时称为空树。</p>
+<p>2）当n&gt;1时，其余结点可分为m(m&gt;0)个互不相交的有限集T1、T2、……、Tn，其中每一个集合本身又是一棵树，并且称为根的子树。</p>
+<p>结点拥有的子树数目称为结点的<strong>度</strong>。</p>
+<p><img src="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220323155422299.png" alt="image-20220323155422299"></p>
+<p>树中结点的最大层次数称为树的深度或高度。上图所示树的深度为4。</p>
+<p><strong>二叉树</strong></p>
+<p><strong>二叉树</strong>是n(n&gt;=0)个结点的有限集合，该集合或者为空集（称为空二叉树），或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树组成。</p>
+<p><img src="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220323155525631.png" alt="image-20220323155525631"></p>
+<p>1）每个结点最多有两颗子树，所以二叉树中不存在度大于2的结点。<br>2）左子树和右子树是有顺序的，次序不能任意颠倒。<br>3）即使树中某结点只有一棵子树，也要区分它是左子树还是右子树。</p>
+<p><strong>性质</strong></p>
+<p>1）在二叉树的第i层上最多有2^(i-1) 个节点 。（i&gt;=1）<br> 2）二叉树中如果深度为k,那么最多有2^k-1个节点。(k&gt;=1）<br> 3）n0=n2+1  n0表示度数为0的节点数，n2表示度数为2的节点数。<br> 4）在完全二叉树中，具有n个节点的完全二叉树的深度为[log2n]+1，其中[log2n]是向下取整。<br> 5）若对含 n 个结点的完全二叉树从上到下且从左至右进行 1 至 n 的编号，则对完全二叉树中任意一个编号为 i 的结点有如下特性：</p>
+<blockquote>
+<p>(1) 若 i=1，则该结点是二叉树的根，无双亲, 否则，编号为 [i/2] 的结点为其双亲结点;<br> (2) 若 2i&gt;n，则该结点无左孩子，  否则，编号为 2i 的结点为其左孩子结点；<br> (3) 若 2i+1&gt;n，则该结点无右孩子结点，  否则，编号为2i+1 的结点为其右孩子结点。</p>
+</blockquote>
+<h5 id="遍历二叉树"><a href="#遍历二叉树" class="headerlink" title="遍历二叉树"></a>遍历二叉树</h5><ol>
+<li>前序  中左右</li>
+<li>中序  左中右</li>
+<li>后序  左右中</li>
+<li>层序 按照二叉树的层次从左到右一次遍历每层中的结点</li>
+</ol>
+<h4 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h4><p>对与排序算法的好坏衡量，主要是从时间复杂度、空间复杂度、稳定性。</p>
+<p>稳定性指的是假定在待排序的记录序列中，存在多个具有相同的关键字的记录，若经过排序，这些记录的相对次序保持不变</p>
+<p>即在原序列中，r[i] = r[j]，且 r[i] 在 r[j] 之前，而在排序后的序列中，r[i] 仍在 r[j] 之前，则称这种排序算法是稳定的；否则称为不稳定的.</p>
+<p><img src="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220325105005837.png" alt="image-20220325105005837"></p>
+<p><strong>常见排序算法</strong></p>
+<h5 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h5><p>思路：</p>
+<ol>
+<li>比较相邻的元素，如果第一个比第二个大，就交换他们两个，</li>
+<li>在每一对相邻的元素作同样的工作，</li>
+<li>针对所有元素重复以上步骤，直到没有任何一对数字需要比较</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从小到大</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; len - <span class="number">1</span> - i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j+<span class="number">1</span>]) &#123;        <span class="comment">// 相邻元素两两对比</span></span><br><span class="line">                <span class="keyword">var</span> temp = arr[j+<span class="number">1</span>];        <span class="comment">// 元素交换</span></span><br><span class="line">                arr[j+<span class="number">1</span>] = arr[j];</span><br><span class="line">                arr[j] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h5><p>无论什么数据进去都是O（n2）的复杂度，所以使用它时，数据规模越小越好，唯一的好处是不占用额外的内存存储空间</p>
+<p>思路：</p>
+<ol>
+<li>在未排序的序列中找到最大（小）存放在排序序列的起始位置；</li>
+<li>从剩余未排序元素中继续寻找最大（小）的元素，然后放到已排序的序列末尾；</li>
+<li>重复第二步。直到排序完成</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectionSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> len = arr.length;</span><br><span class="line">    <span class="keyword">var</span> minIndex, temp;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        minIndex = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = i + <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[minIndex]) &#123;     <span class="comment">// 寻找最小的数</span></span><br><span class="line">                minIndex = j;                 <span class="comment">// 将最小数的索引保存</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        temp = arr[i];</span><br><span class="line">        arr[i] = arr[minIndex];</span><br><span class="line">        arr[minIndex] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h5><p>通过构建有序序列，对于未排序序列，在已排序序列中从后向前扫描，找到相应位置插入</p>
+<p>思路：</p>
+<ol>
+<li>把待排序的数组分成已排序和未排序两个部分，</li>
+<li>初始的时候把第一个元素认为是已排好序的，第一个元素至末尾都是魏排序数组，在未排序序列中选出第一个元素在已排序序列中进行比较，找到合适的位置并插入该位置（如果已经有相同元素，则插在相同元素后面）；</li>
+<li>重复动作直至之后一个元素被插入</li>
+</ol>
+<h5 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h5><p>采用分治法。将已有序的子序列合并，得到完全有序的序列，即先使每个子序列有序，再使子序列段有序。</p>
+<p>思路：</p>
+<ol>
+<li>申请空间，使其大小魏两个已经排序序列之和，该空间用来存放合并后的序列</li>
+<li>设定两个指针，最初位置分别为两个已经排序序列的其实位置</li>
+<li>比较两个指针所指向的元素，选择相对较小的元素放入到合并空间，并移动指针到下一位置</li>
+<li>重复步骤三直到某一指针到达序列尾</li>
+<li>将另一序列剩下的所有元素直接1赋值到合并序列</li>
+</ol>
+<h5 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h5><p>对冒泡排序的一种改进，基本思想是通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据比另一部分的所有数据要小，再按这种方法对这两部分数据分别进行跨苏排序，整个拍戏过程可以地柜进行。</p>
+<ul>
+<li>从数列中挑出一个元素，称为”基准”（pivot）</li>
+<li>重新排序数列，所有比基准值小的元素摆放在基准前面，所有比基准值大的元素摆在基准后面（相同的数可以到任何一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作</li>
+<li>递归地（recursively）把小于基准值元素的子数列和大于基准值元素的子数列排序</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> rec = <span class="function">(<span class="params">arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) &#123; <span class="keyword">return</span> arr; &#125;</span><br><span class="line">    <span class="keyword">const</span> left = [];</span><br><span class="line">    <span class="keyword">const</span> right = [];</span><br><span class="line">    <span class="keyword">const</span> mid = arr[<span class="number">0</span>]; <span class="comment">// 基准元素</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">      <span class="keyword">if</span> (arr[i] &lt; mid) &#123;</span><br><span class="line">        left.push(arr[i]);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        right.push(arr[i]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> [...rec(left), mid, ...rec(right)]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res(arr)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-计算机网路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/">计算机网路</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/" class="archive-article-date">
+  	<time datetime="2022-03-20T13:52:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h4><p>网络（network）是由若干节点和连接这些节点（node）的链路（link）组成，多个网络可以通过路由器连起来，这样就构成了一个覆盖范围更大的网络，即互联网。因特网（Internet）是世界上最大的互联网</p>
+<p><img src="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/image-20220321222538621.png" alt="image-20220321222538621"></p>
+<p><strong>因特网服务提供者ISP（ Internet Service Provider）</strong></p>
+<p><img src="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/image-20220321222708256.png" alt="image-20220321222708256"></p>
+<p><strong>因特网的组成</strong></p>
+<p>边缘部分：由所有连接在因特网上的主机组成，这部分是用户直接使用的，用来进行通信（传送数据、音频或视频）和资源共享</p>
+<p>核心部分：由大量网络和连接这些网络的路由器组成，这部分是为边缘部分提供服务的（提供连通性和交换）</p>
+<p><img src="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/image-20220321223319322.png" alt="image-20220321223319322"></p>
+<p><strong>三种交换方式</strong>(干啥的)</p>
+<p>电路交换</p>
+<p>分组交换</p>
+<p>报文交换</p>
+<h4 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h4><p>一些互相连接的（计算机之间可以通过有限或者无线进行数据通信）、自治（独立的计算机，有自己的硬件和软件，可以单独运行使用）的计算机集合</p>
+<p>定义：计算机网络主要由一些通用的、可编程的硬件互连而成的，而这些硬件并非专门用来实现某一特定目的（例如传送数据或视频信号）。这些可编程的硬件能够用来传送多种不同类型的数据，并能支持广泛的和日益增长的应用。</p>
+<p><em>计算机网络所连接的硬件，并不局限于一般的计算机，而是包括了智能手机等智能硬件；计算机网络并非专门用来传送数据，而是能够支持很多种的应用</em></p>
+<p><img src="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/image-20220321224210766.png" alt="image-20220321224210766"></p>
+<h5 id="计算机网络的性能指标"><a href="#计算机网络的性能指标" class="headerlink" title="计算机网络的性能指标"></a>计算机网络的性能指标</h5><ul>
+<li><p>速率</p>
+</li>
+<li><p>带宽</p>
+</li>
+<li><p>吞吐量</p>
+<p>吞吐量表示在单位时间内通过某个网络的（或信道/接口）的数据量</p>
+</li>
+<li><p>时延</p>
+</li>
+<li><p>时延带宽积</p>
+</li>
+<li><p>往返时间</p>
+</li>
+<li><p>利用率</p>
+</li>
+<li><p>丢包率</p>
+</li>
+</ul>
+<h4 id="计算机网络的体系结构"><a href="#计算机网络的体系结构" class="headerlink" title="计算机网络的体系结构"></a>计算机网络的体系结构</h4><p><img src="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/image-20220325191414226.png"></p>
+<h6 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h6><p>采用怎样的传输媒介，采用怎样的物理接口，使用怎样的信号表示比特0和1.</p>
+<h6 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h6><p>如何标识网络中的各主机（主机编址，例如MAC地址），如何从信号所表示的依赖内存比特流中去根除地址和数据，如何协调各主机争用总线。</p>
+<h6 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h6><h4 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h4><p>HyperText Transfer Protocol，超文本传输协议，是实现网络通信的一种规范。</p>
+<p>在计算机和网络世界有，存在不同的协议，如广播协议、寻址协议、路由协议等等……</p>
+<p>而<code>HTTP</code>是一个传输协议，即将数据由A传到B或将B传输到A，并且 A 与 B 之间能够存放很多第三方，如： A&lt;=&gt;X&lt;=&gt;Y&lt;=&gt;Z&lt;=&gt;B</p>
+<p>传输的数据并不是计算机底层中的二进制包，而是完整的、有意义的数据，如HTML 文件, 图片文件, 查询结果等超文本，能够被上层应用识别。</p>
+<p><strong>在实际应用中，<code>HTTP</code>常被用于在<code>Web</code>浏览器和网站服务器之间传递信息，以明文方式发送内容，不提供任何方式的数据加密</strong>。</p>
+<h6 id="特点如下："><a href="#特点如下：" class="headerlink" title="特点如下："></a>特点如下：</h6><ul>
+<li>支持客户/服务器模式</li>
+<li>简单快速：客户向服务器请求服务时，只需传送请求方法和路径。由于HTTP协议简单，使得HTTP服务器的程序规模小，因而通信速度很快</li>
+<li>灵活：HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记</li>
+<li>无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间</li>
+<li>无状态：HTTP协议无法根据之前的状态进行本次的请求处理</li>
+</ul>
+<h4 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h4><p><code>HTTP</code>传递信息是以明文的形式发送内容，这并不安全。而<code>HTTPS</code>出现正是为了解决<code>HTTP</code>不安全的特性。</p>
+<p>为了保证这些隐私数据能加密传输，让<code>HTTP</code>运行安全的<code>SSL/TLS</code>协议上，即 HTTPS = HTTP + SSL/TLS，<strong>通过 <code>SSL</code>证书来验证服务器的身份</strong>，并为浏览器和服务器之间的通信进行加密。</p>
+<p><code>SSL</code> 协议位于<code>TCP/IP</code> 协议与各种应用层协议之间，浏览器和服务器在使用 <code>SSL</code> 建立连接时需要选择一组恰当的加密算法来实现安全通信，为数据通讯提供安全支持</p>
+<p><img src="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/image-20220325182826253.png" alt="image-20220325182826253"></p>
+<p><img src="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/image-20220325182924900.png" alt="image-20220325182924900"></p>
+<ul>
+<li>首先客户端通过URL访问服务器建立SSL连接</li>
+<li>服务端收到客户端请求后，会将网站支持的证书信息（证书中包含公钥）传送一份给客户端</li>
+<li>客户端的服务器开始协商SSL连接的安全等级，也就是信息加密的等级</li>
+<li>客户端的浏览器根据双方同意的安全等级，建立会话密钥，然后利用网站的公钥将会话密钥加密，并传送给网站</li>
+<li>服务器利用自己的私钥解密出会话密钥</li>
+<li>服务器利用会话密钥加密与客户端之间的通信</li>
+</ul>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ul>
+<li>HTTPS是HTTP协议的安全版本，HTTP协议的数据传输是明文的，是不安全的，HTTPS使用了SSL/TLS协议进行了加密处理，相对更安全</li>
+<li>HTTP 和 HTTPS 使用连接方式不同，默认端口也不一样，HTTP是80，HTTPS是443</li>
+<li>HTTPS 由于需要设计加密以及多次握手，性能方面不如 HTTP</li>
+<li>HTTPS需要SSL，SSL 证书需要钱，功能越强大的证书费用越高</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wangtaomtk/article/details/80917081">深入浅出HTTPS工作原理_xinjing_wangtao的博客-CSDN博客_https原理</a></p>
+<h4 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h4><p>三次握手四次挥手    UDP/TCP</p>
+<h4 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h4><p>实际操作</p>
+<h4 id="粘包问题分析与对策"><a href="#粘包问题分析与对策" class="headerlink" title="粘包问题分析与对策"></a>粘包问题分析与对策</h4><h4 id="从输入URL到页面加载的全过程"><a href="#从输入URL到页面加载的全过程" class="headerlink" title="从输入URL到页面加载的全过程"></a>从输入URL到页面加载的全过程</h4><ol>
+<li>浏览器地址栏输入URL</li>
+<li>浏览器查看缓存</li>
+</ol>
+<h4 id="浏览器的缓存机制"><a href="#浏览器的缓存机制" class="headerlink" title="浏览器的缓存机制"></a>浏览器的缓存机制</h4><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903593275817998">https://juejin.cn/post/6844903593275817998</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E8%B7%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-编程题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/20/%E7%BC%96%E7%A8%8B%E9%A2%98/">编程题</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/20/%E7%BC%96%E7%A8%8B%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2022-03-20T13:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id><a href="#" class="headerlink" title></a></h5>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/20/%E7%BC%96%E7%A8%8B%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -172,7 +561,48 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h5 id="斐波那契"><a href="#斐波那契" class="headerlink" title="斐波那契"></a>斐波那契</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">fib</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n===<span class="number">0</span>)<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span>(n===<span class="number">1</span>)<span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span>(n&gt;=<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> fib(n-<span class="number">1</span>)+fib(n-<span class="number">2</span>)&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="合并链表（保持递增）"><a href="#合并链表（保持递增）" class="headerlink" title="合并链表（保持递增）"></a>合并链表（保持递增）</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span><span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr))</span><br><span class="line"><span class="number">2.</span><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> j = i+<span class="number">1</span>; j &lt; arr.length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[j] === arr[i]) &#123;</span><br><span class="line">                    arr.splice(j, <span class="number">1</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"><span class="number">3.</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="数组扁平化"><a href="#数组扁平化" class="headerlink" title="数组扁平化"></a>数组扁平化</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatter</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">           <span class="keyword">let</span> arr2 = []</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> arr) &#123;</span><br><span class="line">               <span class="built_in">console</span>.log(value)</span><br><span class="line">               <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(value)) &#123;</span><br><span class="line">                   <span class="comment">// arr2 = arr2.concat(flatter(value))</span></span><br><span class="line">                   arr2 = arr2.concat(...value)</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">                   arr2.push(value)</span><br><span class="line"></span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> arr2;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="数组指定位置插入元素"><a href="#数组指定位置插入元素" class="headerlink" title="数组指定位置插入元素"></a>数组指定位置插入元素</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">splice(<span class="number">2</span>,<span class="number">0</span>,<span class="string">&quot;asdk&quot;</span>)</span><br><span class="line">push()尾部添加 pop()尾部删除</span><br><span class="line">unshift()头部添加 shift()头部删除</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="用setinterval实现setTimeout"><a href="#用setinterval实现setTimeout" class="headerlink" title="用setinterval实现setTimeout"></a>用setinterval实现setTimeout</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myset</span>(<span class="params">delay, count</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (count&lt;<span class="number">0</span>)<span class="keyword">return</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;hahah&quot;</span>, count)</span><br><span class="line">        myset(delay, --count)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="去掉空格"><a href="#去掉空格" class="headerlink" title="去掉空格"></a>去掉空格</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">trim</span><br><span class="line">replace(/^\s*|\s*$/g,&quot;&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="判断一个数是否是素数"><a href="#判断一个数是否是素数" class="headerlink" title="判断一个数是否是素数"></a>判断一个数是否是素数</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//素数不能被2~m-1的所有数整除，只能被1和他本身整除</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isPrime</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 只要2到num - 1 之间有一个数能被num整除 那么就不是质数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; num; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (num % i === <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="判断回文"><a href="#判断回文" class="headerlink" title="判断回文"></a>判断回文</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="防抖节流"><a href="#防抖节流" class="headerlink" title="防抖节流"></a>防抖节流</h5><h5 id="如果九宫格密码，最少连接4个点，最多连接9个点，那么有多少连接方式？有多少个密码"><a href="#如果九宫格密码，最少连接4个点，最多连接9个点，那么有多少连接方式？有多少个密码" class="headerlink" title="如果九宫格密码，最少连接4个点，最多连接9个点，那么有多少连接方式？有多少个密码"></a>如果九宫格密码，最少连接4个点，最多连接9个点，那么有多少连接方式？有多少个密码</h5><h5 id="假设现有100元的商品，而代金券有50元、30元、20元、5元四种，则最佳优惠是两张50元面额的代金券；而如果现有65元的商品，则最佳优惠是两张30元代金券以及一张5元代金券。"><a href="#假设现有100元的商品，而代金券有50元、30元、20元、5元四种，则最佳优惠是两张50元面额的代金券；而如果现有65元的商品，则最佳优惠是两张30元代金券以及一张5元代金券。" class="headerlink" title="假设现有100元的商品，而代金券有50元、30元、20元、5元四种，则最佳优惠是两张50元面额的代金券；而如果现有65元的商品，则最佳优惠是两张30元代金券以及一张5元代金券。"></a>假设现有100元的商品，而代金券有50元、30元、20元、5元四种，则最佳优惠是两张50元面额的代金券；而如果现有65元的商品，则最佳优惠是两张30元代金券以及一张5元代金券。</h5><h5 id="给定一个包含非负整数的-M-x-N-迷宫，请找出一条从左上角到右下角的路径，使得路径上的数字总和最小。每次只能向下或者向右移动一步。"><a href="#给定一个包含非负整数的-M-x-N-迷宫，请找出一条从左上角到右下角的路径，使得路径上的数字总和最小。每次只能向下或者向右移动一步。" class="headerlink" title="给定一个包含非负整数的 M x N 迷宫，请找出一条从左上角到右下角的路径，使得路径上的数字总和最小。每次只能向下或者向右移动一步。"></a>给定一个包含非负整数的 M x N 迷宫，请找出一条从左上角到右下角的路径，使得路径上的数字总和最小。每次只能向下或者向右移动一步。</h5><h5 id="已知，1000个硬币里有10个金币。随机的取出n个硬币，则取出硬币里有金币的概率是多少？"><a href="#已知，1000个硬币里有10个金币。随机的取出n个硬币，则取出硬币里有金币的概率是多少？" class="headerlink" title="已知，1000个硬币里有10个金币。随机的取出n个硬币，则取出硬币里有金币的概率是多少？"></a>已知，1000个硬币里有10个金币。随机的取出n个硬币，则取出硬币里有金币的概率是多少？</h5><p>还有一套题没看完，在牛客网上</p>
+
       
 
       
@@ -180,6 +610,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -234,7 +675,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="底层实现原理"><a href="#底层实现原理" class="headerlink" title="底层实现原理"></a>底层实现原理</h4><h4 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h4><h5 id="数据驱动（MVVM）"><a href="#数据驱动（MVVM）" class="headerlink" title="数据驱动（MVVM）"></a>数据驱动（MVVM）</h5><h5 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h5><h5 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h5><p>指令 (Directives) 是带有 v- 前缀的特殊属性作用：当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。</p>
+        <h4 id="底层实现原理"><a href="#底层实现原理" class="headerlink" title="底层实现原理"></a>底层实现原理</h4><h4 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h4><h5 id="数据驱动（MVVM）"><a href="#数据驱动（MVVM）" class="headerlink" title="数据驱动（MVVM）"></a>数据驱动（MVVM）</h5><p>model：数据模型</p>
+<p>view：ui组件</p>
+<p>viewModel：两者间桥梁</p>
+<p>数据会绑定到viewModel上面，数据发生变化的时候会通知viewModel更新视图。</p>
+<h5 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h5><h5 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h5><p>指令 (Directives) 是带有 v- 前缀的特殊属性作用：当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。</p>
 <ul>
 <li>常用的指令<ul>
 <li>条件渲染指令 <code>v-if</code></li>
@@ -245,7 +690,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="关于双向绑定的理解"><a href="#关于双向绑定的理解" class="headerlink" title="关于双向绑定的理解"></a>关于双向绑定的理解</h4><h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><p>每个Vue实例在创建时期都会经过一系列的初始化过程，vue的生命周期勾子，就是说在达到某一阶段或条件时去触发的函数，目的就是为了完成一些动作或事件。vue实例从创建到销毁的过程就是一个vue的生命周期。即指从创建爱你、初始化数据、编译模板、挂载DOM到渲染、更新到渲染、销毁等一系列过程，主要分为创建、挂载、更新、销毁以及一些其他的特殊场景的生命周期</p>
+<h4 id="关于双向绑定的理解"><a href="#关于双向绑定的理解" class="headerlink" title="关于双向绑定的理解"></a>关于双向绑定的理解</h4><h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><p>每个Vue实例在创建时期都会经过一系列的初始化过程，vue的生命周期勾子，就是说在达到某一阶段或条件时去触发的函数，目的就是为了完成一些动作或事件。vue实例从创建到销毁的过程就是一个vue的生命周期。即指从创建、初始化数据、编译模板、挂载DOM到渲染、更新到渲染、销毁等一系列过程，主要分为创建、挂载、更新、销毁以及一些其他的特殊场景的生命周期</p>
 <ol>
 <li><p><code>create阶段</code>：vue实例被创建</p>
 <pre><code> `beforeCreate`: 创建前，此时data和methods中的数据都还没有初始化
@@ -283,7 +728,7 @@
 
 <h6 id="子组件通过props调用父组件方法"><a href="#子组件通过props调用父组件方法" class="headerlink" title="子组件通过props调用父组件方法"></a>子组件通过props调用父组件方法</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父组件</span></span><br><span class="line">&lt;Father :clickFUnction=<span class="string">&quot;clickFUnction&quot;</span>/&gt;</span><br><span class="line"> methods:&#123;</span><br><span class="line">     <span class="function"><span class="title">clickFUnction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      </span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//子组件</span></span><br><span class="line"><span class="attr">props</span>:[<span class="string">&quot;clickFUnction&quot;</span>]</span><br><span class="line"><span class="attr">methods</span>:&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.clickFUnction()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="vue2与vue3"><a href="#vue2与vue3" class="headerlink" title="vue2与vue3"></a>vue2与vue3</h4><ol>
+<h4 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick"></a>nextTick</h4><h4 id="vue2与vue3"><a href="#vue2与vue3" class="headerlink" title="vue2与vue3"></a>vue2与vue3</h4><ol>
 <li>利用新的语言特性(ES6)</li>
 <li>解决架构问题</li>
 </ol>
@@ -315,6 +760,8 @@
 <p><strong>watch：侦听属性</strong></p>
 <p>不支持缓存，数据变，直接会触发相应的操作,watch支持异步；监听的函数接收两个参数，第一个参数是最新的值；第二个参数是输入之前的值；当一个属性发生变化时，需要执行对应的操作；一对多；</p>
 <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6917805693860839431">详解Vue中的computed和watch - 掘金 (juejin.cn)</a></p>
+<p>虚拟DOM 与 Key 与Diff</p>
+<p><a target="_blank" rel="noopener" href="https://vue3js.cn/interview/vue/key.html#%E4%B8%89%E3%80%81%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90">面试官：你知道vue中key的原理吗？说说你对它的理解 | web前端面试 - 面试官系列 (vue3js.cn)</a></p>
 
       
 
@@ -554,25 +1001,49 @@
 <p><strong>Object.prototype.toString.call()</strong></p>
 <p>用法：Object.prototype.toString.call(sth) </p>
 <p>可以精准判断</p>
-<h5 id="原型链："><a href="#原型链：" class="headerlink" title="原型链："></a>原型链：</h5><h5 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h5><h5 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h5><h5 id="this的指向"><a href="#this的指向" class="headerlink" title="this的指向"></a>this的指向</h5><h5 id="bind-call-apply"><a href="#bind-call-apply" class="headerlink" title="bind/call/apply"></a>bind/call/apply</h5><h5 id="ES6新特性"><a href="#ES6新特性" class="headerlink" title="ES6新特性"></a>ES6新特性</h5><h6 id="var-gt-let-const"><a href="#var-gt-let-const" class="headerlink" title="var-&gt;let/const"></a>var-&gt;let/const</h6><p>var定义的变量，没有块的概念，可以跨块访问，不能跨函数访问。var可以先使用，后声明，因为存在<strong>变量提升</strong>。可以在相同作用域重复声明同一个变量。</p>
+<p>null（空值 。栈中的变量没有指向堆中的内存对象。空指针）和undefined(未定义的值)</p>
+<h5 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h5><p>JS的每个函数在创建的时候，都会有一个prototype属性，这个属性指向一个对象，这个对象就是是这个函数的原型对象。这个对象有个constructor属性，这个属性指向该函数。</p>
+<h5 id="原型链："><a href="#原型链：" class="headerlink" title="原型链："></a>原型链：</h5><p>构造函数创建出来的实例对象，其本身有个属性_ proto _，指向实例对象的构造函数的原型对象。当访问一个对象的属性，会先在这个对象里面的属性上查找，如果找不到，就会在构造函数的原型对象上找，一层一层往上查找形成的链形结构，就是原型链。</p>
+<h5 id="new运算符的实现机制（构造函数创建新对象的过程）"><a href="#new运算符的实现机制（构造函数创建新对象的过程）" class="headerlink" title="new运算符的实现机制（构造函数创建新对象的过程）"></a>new运算符的实现机制（构造函数创建新对象的过程）</h5><ol>
+<li>创建一个新对象</li>
+<li>设置原型，将新对象的原型设置为构造函数prototype指向的对象</li>
+<li>让函数的this指向这个新对象，执行构造函数的代码，为这个新对象添加属性</li>
+<li>返回新对象</li>
+</ol>
+<h5 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h5><p>运行时代码中的某些特定部分中变量，函数和对象的可用范围</p>
+<p>作用是让**不同范围内的变量互不干扰</p>
+<h5 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h5><p>保存变量的使用顺序的一个链，被称为作用域链。每个函数在定义的时候，就一定规划好了自己查找变量的一个路线图，就是作用域链。</p>
+<h5 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">&#125;)()</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">&#125;</span><br><span class="line">func()</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">foo</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        test()</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.foo()</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">foo</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>,<span class="string">&quot;a&quot;</span>)</span><br><span class="line">        <span class="keyword">var</span> c = <span class="built_in">this</span>.a</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">this</span>,<span class="string">&quot;as&quot;</span>)<span class="comment">//window</span></span><br><span class="line">            <span class="keyword">return</span> c</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn=obj2.foo();</span><br><span class="line"><span class="built_in">console</span>.log(fn(),<span class="string">&quot;asd&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="this的指向"><a href="#this的指向" class="headerlink" title="this的指向"></a>this的指向</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/MiemieWan/article/details/110471580">https://blog.csdn.net/MiemieWan/article/details/110471580</a></p>
+<h5 id="bind-call-apply-都是改变this-，传参不同"><a href="#bind-call-apply-都是改变this-，传参不同" class="headerlink" title="bind/call/apply 都是改变this ，传参不同"></a>bind/call/apply 都是改变this ，传参不同</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;小王&quot;</span>, age = <span class="number">17</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;小张&#x27;</span>,</span><br><span class="line">    <span class="attr">objAge</span>: <span class="built_in">this</span>.age,</span><br><span class="line">    <span class="attr">myfun</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;年龄&quot;</span> + <span class="built_in">this</span>.age)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.objAge)</span><br><span class="line">obj.myfun()</span><br><span class="line">obj.myfun.call(<span class="built_in">window</span>) </span><br><span class="line">obj.myfun.apply(<span class="built_in">window</span>)</span><br><span class="line">obj.myfun.bind(<span class="built_in">window</span>)()<span class="comment">//bind返回的是一个函数，需要调用</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/03/19/JS/image-20220331230001023.png" alt="image-20220331230001023"></p>
+<p><img src="/2022/03/19/JS/image-20220331230051295.png" alt="image-20220331230051295"></p>
+<h5 id="ES6新特性"><a href="#ES6新特性" class="headerlink" title="ES6新特性"></a>ES6新特性</h5><h6 id="var-gt-let-const"><a href="#var-gt-let-const" class="headerlink" title="var-&gt;let/const"></a>var-&gt;let/const</h6><p>var定义的变量，没有块的概念，可以跨块访问，不能跨函数访问。var可以先使用，后声明，因为存在<strong>变量提升</strong>。可以在相同作用域重复声明同一个变量。</p>
 <p>let 定义的变量，只能在块作用域里访问，不能跨块访问，也不能跨函数访问。必须先声明后使用。不能在同一作用域中重复声明</p>
 <p>const用来定义常量，使用时必须初始化（即必须赋值），只能在块作用域里访问，且不能修改。不能在同一作用域中重复声明。</p>
 <p><strong>变量提升(Hoisting)</strong></p>
-<p>JS只会提升声明，不会提升初始化，如果一个变量先被使用再被声明和赋值的话，使用时的值是undefined</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*先使用再声明、赋值*/</span></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// Returns undefined</span></span><br><span class="line"><span class="keyword">var</span> num;</span><br><span class="line">num = <span class="number">6</span>;</span><br><span class="line"><span class="comment">/*先赋值再使用再声明*/</span></span><br><span class="line">num = <span class="number">6</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// returns 6</span></span><br><span class="line"><span class="keyword">var</span> num;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">当前上下文中，所有带var和function关键字的进行提前的声明或者定义。</span><br><span class="line"></span><br><span class="line">- var：只声明不定义；</span><br><span class="line">- function：声明+定义；函数正题剪切过去</span><br><span class="line"></span><br><span class="line">变量提升和JS的编译过程密切相关，JS的编译阶段，会搜集所有的变量声明，并且提前让声明生效。变量提升阶段处理过的事情，代码执行阶段不会重复处理。</span><br></pre></td></tr></table></figure>
 
-<p>变量提升和JS的编译郭恒密切相关，JS的编译阶段，会搜集所有的变量声明，并且提前让声明生效。</p>
+<p>JS只会提升声明，不会提升初始化，如果一个变量先被使用再被声明和赋值的话，使用时的值是undefined</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*先使用再声明、赋值*/</span></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// Returns undefined</span></span><br><span class="line"><span class="keyword">var</span> num;</span><br><span class="line">num = <span class="number">6</span>;</span><br><span class="line"><span class="comment">/*先赋值再使用再声明*/</span></span><br><span class="line">num = <span class="number">6</span>;</span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// returns 6</span></span><br><span class="line"><span class="keyword">var</span> num;</span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(a); <span class="comment">// function a () &#123;&#125;</span></span><br><span class="line">   <span class="built_in">console</span>.log(b);  <span class="comment">// undefined</span></span><br><span class="line">   <span class="keyword">var</span> b = <span class="number">234</span>; </span><br><span class="line">   <span class="built_in">console</span>.log(b); <span class="comment">// 234</span></span><br><span class="line">   a = <span class="number">123</span>; </span><br><span class="line">   <span class="built_in">console</span>.log(a); <span class="comment">// 123</span></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123;&#125;  <span class="comment">// 预编译时函数声明已经提升</span></span><br><span class="line">   <span class="keyword">var</span> a; <span class="comment">// 预编译时变量声明已经提升</span></span><br><span class="line">   b = <span class="number">234</span>;</span><br><span class="line">   <span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125; <span class="comment">//函数表达式不能提升</span></span><br><span class="line">   <span class="built_in">console</span>.log(a);  <span class="comment">// 123</span></span><br><span class="line">   <span class="built_in">console</span>.log(b);  <span class="comment">// function () &#123;&#125;</span></span><br><span class="line">&#125;</span><br><span class="line">test(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解析：</span></span><br><span class="line"><span class="number">1</span>：创建AO对象，执行期上下文</span><br><span class="line">AO &#123;&#125;</span><br><span class="line"><span class="number">2</span>:找形参和变量声明，将变量和形参名作为AO属性名，值为<span class="literal">undefined</span></span><br><span class="line">AO &#123;</span><br><span class="line"> <span class="attr">a</span>:<span class="literal">undefined</span>,</span><br><span class="line"> <span class="attr">b</span>:<span class="literal">undefined</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">3</span>:将实参值和形参统一</span><br><span class="line">AO &#123;</span><br><span class="line"> <span class="attr">a</span>: <span class="number">1</span>, <span class="comment">// a为形参,1为实参</span></span><br><span class="line"> <span class="attr">b</span>:<span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="number">4</span>: 在函数体里面找函数声明，值赋予函数体</span><br><span class="line">AO&#123;</span><br><span class="line"><span class="attr">a</span>:<span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="attr">b</span>:<span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">x,y=<span class="keyword">function</span> anonymous1()&#123;x=<span class="number">2</span>&#125;</span>)</span>&#123;</span><br><span class="line">    x=<span class="number">3</span>;</span><br><span class="line">    y();</span><br><span class="line">    <span class="built_in">console</span>.log(x);   <span class="comment">//2</span></span><br><span class="line">&#125;</span><br><span class="line">func(<span class="number">5</span>);</span><br><span class="line"><span class="built_in">console</span>.log(x);  <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//console.log(test); // 1.打印下边整个test函数（在GO中找）</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">test</span>) </span>&#123; <span class="comment">// 2.函数声明，整个函数包括函数体 先不看</span></span><br><span class="line">   <span class="built_in">console</span>.log(test);  <span class="comment">// 4.打印function test () &#123;&#125;(在AO中找)</span></span><br><span class="line">   <span class="keyword">var</span> test = <span class="number">234</span>; <span class="comment">// 5.（替换AO中test的值为234）</span></span><br><span class="line">   <span class="built_in">console</span>.log(test); <span class="comment">// 打印234</span></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;&#125; </span><br><span class="line">&#125; </span><br><span class="line">test(<span class="number">1</span>); <span class="comment">// 3.调用函数（执行之前预编译先创建AO）</span></span><br><span class="line"><span class="keyword">var</span> test = <span class="number">123</span>; <span class="comment">// 7.替换GO 中test的值为234</span></span><br><span class="line"><span class="built_in">console</span>.log(test);<span class="comment">// 打印123</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解析：</span></span><br><span class="line"><span class="number">1</span>：创建GO对象</span><br><span class="line">GO&#123;&#125;</span><br><span class="line"><span class="number">2</span>：找变量声明，将变量作为AO属性名，值为<span class="literal">undefined</span></span><br><span class="line">GO&#123;</span><br><span class="line"> <span class="attr">test</span>:<span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="number">3</span>:再找函数声明，值赋予函数体</span><br><span class="line">GO&#123;</span><br><span class="line"><span class="attr">test</span>:<span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">test</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 整个函数体</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">GO对象创建完成，开始读代码，直到读到全局调用test函数时，函数预编译，开始创建AO对象</span><br><span class="line"><span class="number">1</span>：创建AO对象</span><br><span class="line">AO&#123;&#125;</span><br><span class="line"><span class="number">2</span>：找形参和变量声明，将变量和形参名作为AO属性名，值为<span class="literal">undefined</span></span><br><span class="line">AO&#123;</span><br><span class="line">  <span class="attr">test</span>:<span class="literal">undefined</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="number">3</span>:将实参值和形参统一</span><br><span class="line">AO&#123;</span><br><span class="line">test：<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="number">4</span>：再函数体里面找函数声明，值赋予函数体</span><br><span class="line">AO&#123;</span><br><span class="line"><span class="attr">test</span>:<span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904192314703885">https://juejin.cn/post/6844904192314703885</a></p>
 <p><strong>暂时性死区</strong></p>
 <p>如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。 总之，在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="comment">// TDZ开始</span></span><br><span class="line">    tmp = <span class="string">&#x27;abc&#x27;</span>; <span class="comment">// ReferenceError</span></span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">// ReferenceError</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> tmp; <span class="comment">// TDZ结束</span></span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">    tmp = <span class="number">123</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">// 123</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h6 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h6><p><strong>箭头函数表达式</strong>的语法比<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/function">函数表达式</a>更简洁，并且没有自己的<code>this</code>，<code>arguments</code>，<code>super</code>或<code>new.target</code>。箭头函数表达式更适用于那些本来需要匿名函数的地方，并且它不能用作构造函数。</p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1495550">JS箭头函数之：为何用？怎么用？何时用？ - 云+社区 - 腾讯云 (tencent.com)</a></p>
 <p>在箭头函数出现之前，每一个新函数根据它是被如何调用的来定义这个函数的this值：</p>
-<h6 id="函数参数默认值"><a href="#函数参数默认值" class="headerlink" title="函数参数默认值"></a>函数参数默认值</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> getFinalPrice = <span class="function"><span class="keyword">function</span> (<span class="params">price, tax</span>) </span>&#123;</span><br><span class="line">    tax = tax || <span class="number">0.7</span></span><br><span class="line">    <span class="keyword">return</span> price + price * tax;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">var</span> getFinalPrice = <span class="function"><span class="keyword">function</span> (<span class="params">price, tax = <span class="number">0.7</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> price + price * tax;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="函数参数默认值"><a href="#函数参数默认值" class="headerlink" title="函数参数默认值"></a>函数参数默认值</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="keyword">var</span> getFinalPrice = <span class="function"><span class="keyword">function</span> (<span class="params">price, tax</span>) </span>&#123;</span><br><span class="line">    tax = tax || <span class="number">0.7</span></span><br><span class="line">    <span class="keyword">return</span> price + price * tax;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="keyword">var</span> getFinalPrice =<span class="function">(<span class="params">price, tax = <span class="number">0.7</span></span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> price + price * tax;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h6 id="Spread-Rest操作符"><a href="#Spread-Rest操作符" class="headerlink" title="Spread/Rest操作符"></a>Spread/Rest操作符</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x,y,z</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x,y,z);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">foo(...arr); <span class="comment">// 1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Rest，可以简单理解为合并</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(args);</span><br><span class="line">&#125;</span><br><span class="line">foo( <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);<span class="comment">//[1,2,3,4,5]</span></span><br></pre></td></tr></table></figure>
 
-<h6 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span> &#125;</span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">a</span>: a1, <span class="attr">b</span>: b1, <span class="attr">c</span>: c1 &#125; = obj</span><br><span class="line"><span class="built_in">console</span>.log(a1, b1, c1) <span class="comment">// 1 2 3</span></span><br><span class="line"><span class="comment">// let &#123; a, b, c &#125; = obj // 等同上面</span></span><br><span class="line"><span class="comment">// console.log(a, b, c) // 1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> [d, e, f] = arr</span><br><span class="line"><span class="built_in">console</span>.log(d, e, f) <span class="comment">//1 2 3 </span></span><br></pre></td></tr></table></figure>
+<h6 id="解构"><a href="#解构" class="headerlink" title="解构"></a>解构</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span> &#125;</span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">a</span>: a1, <span class="attr">b</span>: b1, <span class="attr">c</span>: c1 &#125; = obj</span><br><span class="line"><span class="built_in">console</span>.log(a1, b1, c1) <span class="comment">// 1 2 3</span></span><br><span class="line"><span class="comment">// let &#123; a, b, c &#125; = obj // 等同上面</span></span><br><span class="line"><span class="comment">// console.log(a, b, c) // 1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> [d, e, f] = arr</span><br><span class="line"><span class="built_in">console</span>.log(d, e, f) <span class="comment">//1 2 3 </span></span><br></pre></td></tr></table></figure>
 
 <h6 id="模板语法和分隔符"><a href="#模板语法和分隔符" class="headerlink" title="模板语法和分隔符"></a>模板语法和分隔符</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = <span class="string">&#x27;Barret&#x27;</span>;</span><br><span class="line"><span class="comment">// ``作为分隔符，$&#123; ... &#125;用来渲染一个变量</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`Hi <span class="subst">$&#123;user&#125;</span>!`</span>); </span><br></pre></td></tr></table></figure>
 
@@ -588,8 +1059,7 @@
 <p><img src="/2022/03/19/JS/image-20220327215640160.png" alt="image-20220327215640160"></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Promise构造函数接受一个函数作为参数，该函数的两个参数分别是resolve和reject</span></span><br><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
 
-
-
+<p>[promise的原理 - 青青-小草 - 博客园 (cnblogs.com)](<a target="_blank" rel="noopener" href="https://www.cnblogs.com/cherryblog/p/8549405.html#:~:text=%E5%85%B6%E5%AE%9E">https://www.cnblogs.com/cherryblog/p/8549405.html#:~:text=其实</a> promise 原理说起来并不难，它内部有三个状态，分别是 pending ， fulfilled 和 rejected,fulfill （成功）时变为 fulfilled ，当对象 reject （失败）时变为 rejected 。)</p>
 <p><code>Promise</code>构建出来的实例存在以下方法：</p>
 <ul>
 <li>then()</li>
@@ -598,9 +1068,12 @@
 </ul>
 <p><strong>then（）</strong></p>
 <p><code>then</code>是实例状态发生改变时的回调函数，第一个参数是<code>resolved</code>状态的回调函数，第二个参数是<code>rejected</code>状态的回调函数</p>
-<p><code>then</code>方法返回的是一个新的<code>Promise</code>实例，也就是<code>promise</code>能链式书写的原因async/await</p>
+<p><code>then</code>方法返回的是一个新的<code>Promise</code>实例，也就是<code>promise</code>能链式书写的原因</p>
 <p><code>catch()</code>方法是<code>.then(null, rejection)</code>或<code>.then(undefined, rejection)</code>的别名，用于指定发生错误时的回调函数，一般来说，使用<code>catch</code>方法代替<code>then()</code>第二个参数</p>
-<h6 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h6><h6 id="Proxy与Reflect"><a href="#Proxy与Reflect" class="headerlink" title="Proxy与Reflect"></a>Proxy与Reflect</h6><h6 id="for……of-for……in"><a href="#for……of-for……in" class="headerlink" title="for……of /for……in"></a>for……of /for……in</h6><p>for in 里面的key是数组的下标，for of里面的key是数组下标所对应的值。</p>
+<h6 id="async-await是什么？（ES7）"><a href="#async-await是什么？（ES7）" class="headerlink" title="async/await是什么？（ES7）"></a>async/await是什么？（ES7）</h6><p>是promise的语法糖，用async(异步)声明一个异步函数没然后再用await（等待）等待一步结果，把以前then链的结果直接放在wait。async和await关键字让我们可以用一种更简洁的方式写出基于Promise的异步行为，而无需可以地链式调用promise。await表达式会暂停整个async函数的执行进程并出让其控制权，只有当其等待的基于promise的异步操作被兑现或被拒绝之后才会恢复进程。promise的解决值会被当作该await表达式的返回值。</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904175071936519">Async / Await / Generator 实现原理 - 掘金 (juejin.cn)</a></p>
+<p><strong>Async/Await 7如何通过同步的方式实现异步</strong></p>
+<h6 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h6><h6 id="Proxy与Reflect"><a href="#Proxy与Reflect" class="headerlink" title="Proxy与Reflect"></a>Proxy与Reflect</h6><h6 id="for……of-for…"><a href="#for……of-for…" class="headerlink" title="for……of /for…"></a>for……of /for…</h6><h6 id="…in"><a href="#…in" class="headerlink" title="…in"></a>…in</h6><p>for in 里面的key是数组的下标，for of里面的key是数组下标所对应的值。</p>
 <p>for in 可以直接遍历对象，但是for of 不行（如果对象本身定义了迭代器的话就可以遍历）</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="attr">b</span>:<span class="number">2</span>,</span><br><span class="line">    <span class="attr">c</span>:<span class="number">3</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(key);<span class="comment">//a b c</span></span><br><span class="line">    <span class="built_in">console</span>.log(obj[key]);<span class="comment">//1 2 3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">of</span> obj)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(key);<span class="comment">//Uncaught TypeError: obj is not iterable</span></span><br><span class="line">    <span class="built_in">console</span>.log(obj[key]);<span class="comment">//Uncaught TypeError: obj is not iterable</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key,value] <span class="keyword">of</span> <span class="built_in">Object</span>.entires(obj)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(key,value)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.keys(obj)方法会返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和正常循环遍历该对象时返回的顺序一致 。  (属性名)</span><br><span class="line"><span class="built_in">Object</span>.values()方法返回一个给定对象自身的所有可枚举属性值的数组，值的顺序与使用<span class="keyword">for</span>...in循环的顺序相同 ( 区别在于 <span class="keyword">for</span>-<span class="keyword">in</span> 循环枚举原型链中的属性 )  （属性值）</span><br><span class="line"><span class="built_in">Object</span>.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 <span class="keyword">for</span>...in 循环遍历该对象时返回的顺序一致（区别在于 <span class="keyword">for</span>-<span class="keyword">in</span> 循环还会枚举原型链中的属性）。 (键值对)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -612,7 +1085,9 @@
 <p>模拟一个next方法：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> it = makeIterator([<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>]);</span><br><span class="line"></span><br><span class="line">it.next() <span class="comment">// &#123; value: &quot;a&quot;, done: false &#125;</span></span><br><span class="line">it.next() <span class="comment">// &#123; value: &quot;b&quot;, done: false &#125;</span></span><br><span class="line">it.next() <span class="comment">// &#123; value: undefined, done: true &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeIterator</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> nextIndex = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">next</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> nextIndex &lt; array.length ?</span><br><span class="line">        &#123;<span class="attr">value</span>: array[nextIndex++], <span class="attr">done</span>: <span class="literal">false</span>&#125; :</span><br><span class="line">        &#123;<span class="attr">value</span>: <span class="literal">undefined</span>, <span class="attr">done</span>: <span class="literal">true</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h6 id="生成器generator"><a href="#生成器generator" class="headerlink" title="生成器generator"></a>生成器generator</h6><h6 id="set"><a href="#set" class="headerlink" title="set"></a>set</h6><h6 id="map"><a href="#map" class="headerlink" title="map"></a>map</h6><h6 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h6><h6 id="类与超类"><a href="#类与超类" class="headerlink" title="类与超类"></a>类与超类</h6><h5 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h5><h5 id="事件循环机制"><a href="#事件循环机制" class="headerlink" title="事件循环机制"></a>事件循环机制</h5><h5 id="new操作符"><a href="#new操作符" class="headerlink" title="new操作符"></a>new操作符</h5>
+<h6 id="生成器generator"><a href="#生成器generator" class="headerlink" title="生成器generator"></a>生成器generator</h6><h6 id="set"><a href="#set" class="headerlink" title="set"></a>set</h6><h6 id="map"><a href="#map" class="headerlink" title="map"></a>map</h6><h6 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h6><h6 id="类与超类"><a href="#类与超类" class="headerlink" title="类与超类"></a>类与超类</h6><h5 id="事件循环Event-loop"><a href="#事件循环Event-loop" class="headerlink" title="事件循环Event loop"></a>事件循环Event loop</h5><p>JS是一门单线程的语言，同一时间就只能做一件事情，所以，为了实现单线程任务不阻塞的方法就是事件循环。js的任务有两种，同步任务和异步任务，同步任务就是立即执行的任务，异步任务就是异步执行的任务，比如ajax请求，setTimout定时函数。任务进入到执行栈之后，就会判断他是同步任务还是异步任务，如果是同步任务，就会进入到主线程里面，如果是异步任务就会进入到任务队列里面，主线程里面的同步任务执行为空，就会去任务列队读取对应的异步任务，再推入到主线程执行。这个过程的不断重复就是事件循环。</p>
+<h5 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h5><p>原理是找到不再继续使用的变量，释放其内存。垃圾回收器会按照固定的时间间隔或者是代码预定的时间，周期性的执行这一操作。全局变量和局部变量。两种：标记清除（主要思想是给当前不使用的值加上标记，然后再回收他的内存;）、引用计数(跟踪记录所有值被引用的次数;这个值的引用次数为1，这个a值又被赋值给另一个变量b，这时引用次数+1;但当b赋另外的值，引用次数-1;当值的引用书为0，说明没有办法再访问这个值，这时就可以将内存回收了)</p>
+
       
 
       
@@ -685,21 +1160,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="HTML与浏览器"><a href="#HTML与浏览器" class="headerlink" title="HTML与浏览器"></a>HTML与浏览器</h4><h6 id="html5-语义化"><a href="#html5-语义化" class="headerlink" title="html5 语义化"></a>html5 语义化</h6><p>合理正确的使用语义化的标签来创建页面</p>
+        <h4 id="HTML与浏览器"><a href="#HTML与浏览器" class="headerlink" title="HTML与浏览器"></a>HTML与浏览器</h4><h5 id="html5-语义化"><a href="#html5-语义化" class="headerlink" title="html5 语义化"></a>html5 语义化</h5><p>合理正确的使用语义化的标签来创建页面</p>
 <p>语义化标签：header，footer，nav，main，article，section，aside</p>
 <p><strong>优点</strong> </p>
 <p>易读，利于维护，结构，有利于搜索引擎优化（SEO）</p>
-<h6 id="行内元素，块级元素"><a href="#行内元素，块级元素" class="headerlink" title="行内元素，块级元素"></a>行内元素，块级元素</h6><p><strong>行内</strong></p>
+<h5 id="行内元素，块级元素"><a href="#行内元素，块级元素" class="headerlink" title="行内元素，块级元素"></a>行内元素，块级元素</h5><p><strong>行内</strong></p>
 <p>a, span, label, strong, em, br, img, input, select, textarea, cite（引用）</p>
 <p><strong>块级元素</strong></p>
 <p>div, h1~h6, p, form, ul, li, ol, dl, address, hr, menu, table, fieldset-form(控制组)</p>
 <p>在标准文档流里面，块级元素具有以下特点：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">① 总是在新行上开始，占据一整行；</span><br><span class="line">② 高度，行高以及外边距和内边距都可控制；</span><br><span class="line">③ 宽带始终是与浏览器宽度一样，与内容无关；</span><br><span class="line">④ 它可以容纳内联元素和其他块元素。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">① 总是在新行上开始，占据一整行；</span><br><span class="line">② 高度，行高以及外边距和内边距都可控制；</span><br><span class="line">③ 宽度缺省是它父级元素的100%，除非设定一个宽度</span><br><span class="line">④ 它可以容纳内联元素和其他块元素。</span><br></pre></td></tr></table></figure>
 
 <p>行内元素的特点：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">① 和其他元素都在一行上；</span><br><span class="line">② 高，行高及外边距和内边距部分可改变；</span><br><span class="line">③ 宽度只与内容有关；</span><br><span class="line">④ 行内元素只能容纳文本或者其他行内元素。</span><br><span class="line">不可以设置宽高，其宽度随着内容增加，高度随字体大小而改变，内联元素可以设置外边界，但是外边界不对上下起作用，只能对左右起作用，也可以设置内边界，但是内边界在ie6中不对上下起作用，只能对左右起作用</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">① 和其他元素都在一行上，遇到父级元素边界会自动换行</span><br><span class="line"> ；</span><br><span class="line">② 高，行高及外边距和内边距（左右）部分可改变；</span><br><span class="line">③ 宽度只与内容有关；</span><br><span class="line">④ 行内元素只能容纳文本或者其他行内元素。</span><br><span class="line">不可以设置宽高，其宽度随着内容增加，高度随字体大小而改变，内联元素可以设置外边界，但是外边界不对上下起作用，只能对左右起作用，也可以设置内边界，但是内边界在ie6中不对上下起作用，只能对左右起作用</span><br></pre></td></tr></table></figure>
 
-<h6 id="跨标签页通信"><a href="#跨标签页通信" class="headerlink" title="跨标签页通信"></a>跨标签页通信</h6><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903811232825357">面试官：前端跨页面通信，你知道哪些方法？ - 掘金 (juejin.cn)</a></p>
+<h5 id="跨标签页通信"><a href="#跨标签页通信" class="headerlink" title="跨标签页通信"></a>跨标签页通信</h5><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903811232825357">面试官：前端跨页面通信，你知道哪些方法？ - 掘金 (juejin.cn)</a></p>
 <p><strong>理解</strong></p>
 <p><img src="/2022/03/17/HTML5/image-20220319102503915.png" alt="image-20220319102503915"></p>
 <p>跨标签如上图，假如这是两个有联系的页面，那么我改变页面1的信息，页面二的信息会也改变。</p>
@@ -717,14 +1192,14 @@
 <li>LocalStorage</li>
 </ol>
 <p><strong>非同源页面之间的通信</strong></p>
-<h6 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h6><p>前端调用的后端的接口不属于同一个域（协议、域名、端口、子域名不同）</p>
-<h6 id="history-hash"><a href="#history-hash" class="headerlink" title="history/hash"></a>history/hash</h6><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Charissa2017/article/details/104779412">前端路由的两种模式：hash模式和 history模式_蒲公英芽的博客-CSDN博客_history</a></p>
-<h6 id="DOM树"><a href="#DOM树" class="headerlink" title="DOM树"></a>DOM树</h6><p>DOM模型不仅描述了文档的结构，还定义了结点对象的行为，利用对象的方法和属性，可以方便地访问、修改、添加和删除DOM树的结点和内容。</p>
-<h6 id="事件模型"><a href="#事件模型" class="headerlink" title="事件模型"></a>事件模型</h6><p><a target="_blank" rel="noopener" href="https://javascript.ruanyifeng.com/dom/event.html">事件模型 – JavaScript 标准参考教程（alpha） (ruanyifeng.com)</a></p>
-<h6 id="缓存策略"><a href="#缓存策略" class="headerlink" title="缓存策略"></a>缓存策略</h6><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903593275817998">彻底理解浏览器的缓存机制 - 掘金 (juejin.cn)</a></p>
-<h6 id="浏览器架构"><a href="#浏览器架构" class="headerlink" title="浏览器架构"></a>浏览器架构</h6><p><a target="_blank" rel="noopener" href="https://xie.infoq.cn/article/5d36d123bfd1c56688e125ad3">Chrome浏览器架构_chrome_曲迪_InfoQ写作平台</a></p>
-<h6 id="浏览器工作原理"><a href="#浏览器工作原理" class="headerlink" title="浏览器工作原理"></a>浏览器工作原理</h6><p><a target="_blank" rel="noopener" href="https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/">浏览器的工作原理：现代网络浏览器幕后揭秘 - HTML5 Rocks</a></p>
-<h6 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h6><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000020231307">深入了解 JavaScript 内存泄露 - SegmentFault 思否</a></p>
+<h5 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h5><p>前端调用的后端的接口不属于同一个域（协议、域名、端口、子域名不同）</p>
+<h5 id="history-hash"><a href="#history-hash" class="headerlink" title="history/hash"></a>history/hash</h5><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Charissa2017/article/details/104779412">前端路由的两种模式：hash模式和 history模式_蒲公英芽的博客-CSDN博客_history</a></p>
+<h5 id="DOM树"><a href="#DOM树" class="headerlink" title="DOM树"></a>DOM树</h5><p>DOM模型不仅描述了文档的结构，还定义了结点对象的行为，利用对象的方法和属性，可以方便地访问、修改、添加和删除DOM树的结点和内容。</p>
+<h5 id="事件模型"><a href="#事件模型" class="headerlink" title="事件模型"></a>事件模型</h5><p><a target="_blank" rel="noopener" href="https://javascript.ruanyifeng.com/dom/event.html">事件模型 – JavaScript 标准参考教程（alpha） (ruanyifeng.com)</a></p>
+<h5 id="缓存策略"><a href="#缓存策略" class="headerlink" title="缓存策略"></a>缓存策略</h5><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903593275817998">彻底理解浏览器的缓存机制 - 掘金 (juejin.cn)</a></p>
+<h5 id="浏览器架构"><a href="#浏览器架构" class="headerlink" title="浏览器架构"></a>浏览器架构</h5><p><a target="_blank" rel="noopener" href="https://xie.infoq.cn/article/5d36d123bfd1c56688e125ad3">Chrome浏览器架构_chrome_曲迪_InfoQ写作平台</a></p>
+<h5 id="浏览器工作原理"><a href="#浏览器工作原理" class="headerlink" title="浏览器工作原理"></a>浏览器工作原理</h5><p><a target="_blank" rel="noopener" href="https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/">浏览器的工作原理：现代网络浏览器幕后揭秘 - HTML5 Rocks</a></p>
+<h5 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h5><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000020231307">深入了解 JavaScript 内存泄露 - SegmentFault 思否</a></p>
 <p><strong>浏览器工作原理与实践</strong></p>
 <p><a target="_blank" rel="noopener" href="https://blog.poetries.top/browser-working-principle/guide/part5/lesson22.html#%E4%BB%80%E4%B9%88%E6%98%AF-dom">DOM树：JavaScript是如何影响DOM树构建的 | 浏览器工作原理与实践 (poetries.top)</a></p>
 
@@ -783,21 +1258,6 @@
     <article id="post-css" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/17/css/">css</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/17/css/" class="archive-article-date">
-  	<time datetime="2022-03-17T02:21:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-17</time>
-</a>
-        
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><h6 id="CSS选择器以及优先级"><a href="#CSS选择器以及优先级" class="headerlink" title="CSS选择器以及优先级"></a>CSS选择器以及优先级</h6><p>！important&gt;内联样式&gt;id选择器&gt;类选择器/属性选择器/伪类选择器&gt;元素选择器/伪元素&gt;通配符选择器</p>
@@ -818,7 +1278,7 @@
 <p><strong>BFC的原理</strong></p>
 <p>BFC元素垂直方向的边距会发生重叠（见外边距合并）。属于不同BFC外边距不会发生重叠</p>
 <p>BFC的区域不会与浮动元素的布局重叠</p>
-<p>BFC元素是一个独立的容器，外卖呢的元素不会影响里面的元素。里面的元素也不会影响外面的元素</p>
+<p>BFC元素是一个独立的容器，外面的元素不会影响里面的元素。里面的元素也不会影响外面的元素</p>
 <p>计算BFC高度的时候，浮动元素也会参与计算</p>
 <p><strong>如何创建BFC</strong></p>
 <ol>
@@ -826,13 +1286,14 @@
 <li>float的值不为none；</li>
 <li>position的值不为static或relative；</li>
 <li>display属性为inline-blocks,table,table-cell,table-caption,flex,inline-flex;</li>
+<li>根元素，即HTML元素</li>
 </ol>
 <p><strong>外边距合并</strong></p>
 <p>当两个垂直外边距相遇时，他们将形成一个外边距，合并后的外边距高度等于两个发生合并的外边距的高度中的较大者。只有普通文档流中块框的垂直外边距才会发生外边距合并，行内框、浮动框或绝对定位之间的外边距不会合并。</p>
 <h6 id="浮动（float）"><a href="#浮动（float）" class="headerlink" title="浮动（float）"></a>浮动（float）</h6><p>浮动元素脱离（绝对定位，fixed）在常规文档流（从上到下，从左到右）之外，其中块级元素会认为浮动元素不存在，浮动元素会影响行内元素的布局，从而间接影响包含块（一个元素理他最近的块级元素）的布局。</p>
 <p>浮动元素排列规则：</p>
 <ol>
-<li><p>相同方向上的浮动元素，先浮动的元素会显示在钱买你，后浮动的元素在后面</p>
+<li><p>相同方向上的浮动元素，先浮动的元素会显示在前面，后浮动的元素在后面</p>
 </li>
 <li><p>左浮找左，右浮找右</p>
 </li>
@@ -883,30 +1344,35 @@
 <p><strong>VW和VH</strong></p>
 <p>vw —— 视口宽度的 1/100；vh —— 视口高度的 1/100 </p>
 <h6 id="双飞翼-圣杯布局（两侧宽度固定，中间宽度自适应）"><a href="#双飞翼-圣杯布局（两侧宽度固定，中间宽度自适应）" class="headerlink" title="双飞翼/圣杯布局（两侧宽度固定，中间宽度自适应）"></a>双飞翼/圣杯布局（两侧宽度固定，中间宽度自适应）</h6><p><img src="/2022/03/17/css/%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%92%8C%E5%9C%A3%E6%9D%AF.png" alt="image-20220317201131627"></p>
-<p>圣杯：container左右留出left与right的宽度，left，middle（宽度100%），right浮动;left相对定位，负左外边距100%，再负左外边距自己的宽度；right直接负右外边距自己的宽度。</p>
+<p>圣杯：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">margin-right</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box1</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">800px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">100px</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box2</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">800px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">rgb</span>(<span class="number">54</span>, <span class="number">17</span>, <span class="number">17</span>);  </span><br><span class="line">   <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box3</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">800px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">    <span class="attribute">float</span>: right;</span><br><span class="line">    <span class="attribute">margin-right</span>: -<span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>需要设置页面最小宽度，防止页面崩坏。</p>
 <h6 id="居中"><a href="#居中" class="headerlink" title="居中"></a>居中</h6><p><strong>已知宽度</strong></p>
 <ul>
 <li>flex，justify-content，align-center：center</li>
 <li>position：子绝父相，子：left：50%，margin-left：-宽度/2,上边同左边</li>
-<li>子绝父相+所有位置设置为0+margin ：auto（如果不设置宽高，将铺满整个父元素）</li>
-<li>table-cell:display：table-cell，vertical-align：middle</li>
+<li>子绝父相+所有位置设置为0+  <strong>margin ：auto</strong>（如果不设置宽高，将铺满整个父元素）</li>
+<li>table-cell:父元素display：table-cell，vertical-align：middle， 子元素 <strong>margin: 0 auto;</strong></li>
 </ul>
 <p><strong>未知宽度</strong></p>
 <ul>
-<li>position（子绝父相）+transform（-50%，-50%）</li>
+<li><p>position（子绝父相）+transform（-50%，-50%）</p>
+</li>
+<li><p>flex，justify-content，align-center：center</p>
+</li>
 </ul>
 <h6 id="隐藏一个元素"><a href="#隐藏一个元素" class="headerlink" title="隐藏一个元素"></a>隐藏一个元素</h6><ol>
-<li>opacity：0 ，只是设置元素能见度为0</li>
-<li>visibility：hidden;不会改变页面布局，但是不会触发在元素上已绑定的时间，在文档中仍然保留原来的空间</li>
-<li>display：none，在文档中不在分配空间</li>
+<li>opacity：0 ，只是设置元素能见度为0，重绘</li>
+<li>visibility：hidden;不会改变页面布局，但是不会触发在元素上已绑定的时间，在文档中仍然保留原来的空间，重绘</li>
+<li>display：none，在文档中不在分配空间，重排</li>
 </ol>
 <h6 id="实现一个三角形"><a href="#实现一个三角形" class="headerlink" title="实现一个三角形"></a>实现一个三角形</h6><p>盒子宽高均为0，三面边框皆透明</p>
 <h6 id="css3新特性"><a href="#css3新特性" class="headerlink" title="css3新特性"></a>css3新特性</h6><p><strong>过渡</strong></p>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">transition</span>： CSS属性，花费时间，效果曲线(默认ease)，延迟时间(默认<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
 <p><strong>动画</strong></p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">animation</span>：name，一个周期花费时间，运动曲线（默认ease），动画延迟（默认<span class="number">0</span>），播放次数（默认<span class="number">1</span>），是否反向播放动画（默认normal），是否暂停动画（默认running）</span><br><span class="line">@<span class="attribute">keyframes</span> name &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@<span class="attribute">keyframes</span> name &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>形状变换</strong></p>
 <p>transform：用于2D或3D转换的元素</p>
@@ -947,12 +1413,12 @@
 <p>rgba（rgb为颜色值，a为透明度）</p>
 <p>hsla（h:色相”，“s：饱和度”，“l：亮度”，“a：透明度”）</p>
 <p><strong>渐变</strong></p>
-<p>linear-gragient</p>
+<p>linear-gradient</p>
 <p><strong>filter与混合模式</strong></p>
 <p>对图片的杨样式进行处理，就像图片编辑的功能一样。</p>
 <p><strong>弹性布局</strong>（一维布局）</p>
 <p>flex</p>
-<p><strong>栅格布局</strong>（二维布局）</p>
+<p><strong>栅格布局</strong>（二维布局） (Grid layout )</p>
 <p>grid</p>
 <p>display:grid</p>
 <p>列（grid-template-columns）</p>
@@ -1028,6 +1494,9 @@
 </ol>
 <h6 id="文本溢出："><a href="#文本溢出：" class="headerlink" title="文本溢出："></a>文本溢出：</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单行</span></span><br><span class="line"><span class="attr">overflow</span>:hidden;</span><br><span class="line">text-overflow:ellipsis;</span><br><span class="line">white-space:nowrap</span><br><span class="line"><span class="comment">//多行</span></span><br><span class="line"><span class="attr">overflow</span>: hidden;</span><br><span class="line">text-overflow: ellipsis;</span><br><span class="line">display: -webkit-box;</span><br><span class="line">-webkit-line-clamp: <span class="number">2</span>;</span><br><span class="line">-webkit-box-orient: vertical;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h6 id="回流"><a href="#回流" class="headerlink" title="回流"></a>回流</h6><h6 id="外边距塌陷"><a href="#外边距塌陷" class="headerlink" title="外边距塌陷"></a>外边距塌陷</h6><p>产生的原因？解决的办法？</p>
+<p>父子嵌套，父元素与子元素的margin-top重叠，子元素贴着父元素。</p>
+<p>解决办法：给父元素加overflow：hidden;给父元素加border</p>
 
       
 
@@ -1052,317 +1521,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/03/17/css/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-实习月志（四）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/08/%E5%AE%9E%E4%B9%A0%E6%9C%88%E5%BF%97%EF%BC%88%E5%9B%9B%EF%BC%89/">实习月志（四）</a>
-    </h1>
-  
-
-        
-        <a href="/2021/11/08/%E5%AE%9E%E4%B9%A0%E6%9C%88%E5%BF%97%EF%BC%88%E5%9B%9B%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-11-08T14:43:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    又接触了一个新项目，emm归纳觉在写代码之前就遇到了·很多问题，什么没有权限，什么没有功能·，什么就接口报错，还又就是不知道新项目怎么操作，我感觉每个项目可以写一个小小的提示文档吧，方便其他同学上手，虽然老手可能不需要，但是总的来说，还是会节省一些时间？所以，感觉一个项目的项目文档应该是个比较重要的东西。</p>
-<p>不知不觉我已经实习了四个月了！学到了很多东西，却也感觉还有很多东西没学会，处于一个混沌的状态，最离谱的是我发现自己有一个缺点——不喜欢追究问题的根本！这太可怕了，这意味着下一次遇到这个问题我还是不知道为什么，如果不找到根本原因，单单是靠自己的经验取解决问题，这样根本是行不通的，幸好我意识到了自己的问题，现在已经有意识的改变了，同时记录与总结是个好习惯，有些东西自己写出来了，东西才是自己的。</p>
-<p>​    好了，组长在叫我改bug了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实习心得</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/11/08/%E5%AE%9E%E4%B9%A0%E6%9C%88%E5%BF%97%EF%BC%88%E5%9B%9B%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于组件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/15/%E5%85%B3%E4%BA%8E%E7%BB%84%E4%BB%B6/">some idea</a>
-    </h1>
-  
-
-        
-        <a href="/2021/10/15/%E5%85%B3%E4%BA%8E%E7%BB%84%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2021-10-15T14:43:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="npm-link"><a href="#npm-link" class="headerlink" title="npm link"></a>npm link</h3><p>实现组件与业务之间的联调</p>
-<h3 id="组件方面"><a href="#组件方面" class="headerlink" title="组件方面"></a>组件方面</h3><h4 id="暴露某个方法-export-default-func"><a href="#暴露某个方法-export-default-func" class="headerlink" title="暴露某个方法 export default func"></a>暴露某个方法 <code>export default func</code></h4><p>可以在需要使用的地方使用这个方法</p>
-<h4 id="把方法挂载到组件上-Component-func-func"><a href="#把方法挂载到组件上-Component-func-func" class="headerlink" title="把方法挂载到组件上  Component.func=func"></a>把方法挂载到组件上 <code> Component.func=func</code></h4><p>在挂载前需要导入这个方法哦，然后就可以使用组件的方法，在某个没有使用组件的组件中，也可以直接通过导入组件，然后Component.func调用该方法。</p>
-<h4 id="组件可配置"><a href="#组件可配置" class="headerlink" title="组件可配置"></a>组件可配置</h4><p>给组件添加某个参数，在对组件进行定义时，该参数的值回影响组件的状态，根据当前组件的状态可以自己好好看一下，这个不是很难的</p>
-<h4 id="查找节点"><a href="#查找节点" class="headerlink" title="查找节点"></a>查找节点</h4><p>这里需要用到算法，比如这次写的，while循环，通过不断查找父节点来找到同一个系欸但，再在这个基础上进行修改。</p>
-<h4 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h4><p>对需要频繁操作DOM的方法，需要进行一定的限制，减少操作DOM的频率来节流。相应的有节流和防抖的函数。但是对里面的参数不是很了解。因为需要用到setTimeout所以要注意this的指向问题，还要用到apply，说实话我并不是很了解这个apply它的用意到底是什么，还有call，需要再去看看以及实际运用。</p>
-<h4 id="ahooks"><a href="#ahooks" class="headerlink" title="ahooks"></a>ahooks</h4><p>这次浅显的理解了一下useState，useEffect，useMemo，usecallback，useRef和useSize，更明确地使用还不行，但是应该可以知道改用什么了，更多hooks需要去了解。</p>
-<h4 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h4><p>useMemo或者三元表达式。</p>
-<h4 id="态度问题"><a href="#态度问题" class="headerlink" title="态度问题"></a>态度问题</h4><p>写代码不能运行起来就行，你要理解到底为什么要这么做！这个真的很重要。不然你的代码你自己看不懂，也不能说给别人听,无效代码</p>
-<h4 id="不要出现奇怪的数字"><a href="#不要出现奇怪的数字" class="headerlink" title="不要出现奇怪的数字"></a>不要出现奇怪的数字</h4><p>用css调，每个数字都要有缘由的出现在JS里面，还有出现在算法里面的固定量，不管是数字还是字符串这一类的东西，需要用变量名去替换。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实习心得</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/15/%E5%85%B3%E4%BA%8E%E7%BB%84%E4%BB%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-总结一下项目提交操作（git）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/13/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B%E9%A1%B9%E7%9B%AE%E6%8F%90%E4%BA%A4%E6%93%8D%E4%BD%9C%EF%BC%88git%EF%BC%89/">项目提交总结</a>
-    </h1>
-  
-
-        
-        <a href="/2021/10/13/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B%E9%A1%B9%E7%9B%AE%E6%8F%90%E4%BA%A4%E6%93%8D%E4%BD%9C%EF%BC%88git%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-10-13T04:43:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="总结一下项目操作（git）"><a href="#总结一下项目操作（git）" class="headerlink" title="总结一下项目操作（git）"></a>总结一下项目操作（git）</h1><h2 id="开发前创建开发分支"><a href="#开发前创建开发分支" class="headerlink" title="开发前创建开发分支"></a>开发前创建开发分支</h2><p><code>$ git checkout master</code>  切换到分支<code>master</code></p>
-<p><code>$ git pull</code>  取回远程主机某个分支的更新，再与本地的指定分支合并，完整为：<code>git pull [options] [&lt;repository&gt; [&lt;refspec&gt;…]]</code>在这里就是保证本地的分支是最新的代码</p>
-<p><code>$ git checkout -b feature-wdy-featureName</code>   创建并切换到分支 <code>feature-wdy-featureName</code></p>
-<p>代码写好了之后或者说你想要推送到<code>gitlab</code>上面就</p>
-<p><code>git add .</code></p>
-<p><code>git commit -m</code></p>
-<p><code>git push</code> 三连</p>
-<h6 id="PS：推送代码到并创建远程分支"><a href="#PS：推送代码到并创建远程分支" class="headerlink" title="PS：推送代码到并创建远程分支"></a>PS：推送代码到并创建远程分支</h6><p><img src="/2021/10/13/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B%E9%A1%B9%E7%9B%AE%E6%8F%90%E4%BA%A4%E6%93%8D%E4%BD%9C%EF%BC%88git%EF%BC%89/Users\2103207398\AppData\Roaming\Typora\typora-user-images\image-20210727171742790.png" alt="image-20210727171742790"></p>
-<h2 id="在修改代码的时候有意见严肃的事情要说"><a href="#在修改代码的时候有意见严肃的事情要说" class="headerlink" title="在修改代码的时候有意见严肃的事情要说"></a>在修改代码的时候有意见严肃的事情要说</h2><p>最好在feature分支（你的开发分支）上的时候写，因为再哪个分支上写，代码就是哪个分支的，写完之后可以上传。然后再切到其他分支。不然你可能就完蛋了。因为切到的哪个分支没有你在这个feanture分支上的功能嘿！</p>
-<p>写好代码之后add，commit，push三连！</p>
-<p>其次就是要在其他大分支上（test/master）合自己的代码，而不是在自己的分支上来和别人的代码，因为你写的只有一点点代码，但是大分支上不知道有多少修改或新增的代码，用脚脖子想用谁合谁会比较容易！！</p>
-<h2 id="具体合代码的操作（以test为例）"><a href="#具体合代码的操作（以test为例）" class="headerlink" title="具体合代码的操作（以test为例）"></a>具体合代码的操作（以test为例）</h2><h6 id="虽然gitlab上有可视化合代码，但是显然熟知git指令会让操作更简单易懂"><a href="#虽然gitlab上有可视化合代码，但是显然熟知git指令会让操作更简单易懂" class="headerlink" title="虽然gitlab上有可视化合代码，但是显然熟知git指令会让操作更简单易懂"></a>虽然<code>gitlab</code>上有可视化合代码，但是显然熟知git指令会让操作更简单易懂</h6><ol>
-<li>在你的开发分支上保存并推送你的代码到远程</li>
-<li>切换到你要合代码的分支上，开始<code>git merge 你的开发分支</code> ，然后开始解决合并冲突（如果这个时候你的<code>vscode</code>上面有<code>Git History， GitLens</code>这两个插件的话，会帮助你识别冲突的代码是谁以及什么时候写的）</li>
-<li>然后上传到test分支上面</li>
-</ol>
-<h2 id="创建MR"><a href="#创建MR" class="headerlink" title="创建MR"></a>创建MR</h2><p>从master分支，切出MR（merge request）的目标分支</p>
-<p><code>$git checkout master</code></p>
-<p><code>$git pull</code></p>
-<p><code>$git status </code> 查看当前分支</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b release-llm-login</span><br></pre></td></tr></table></figure>
-
-<p><code>$git push --set-upstream origin release--wdy-featureName </code>注意名字前面的前缀</p>
-<p>创建MR，在可视化页面创建MR，主要是为了让reviewer看看代码，方便自己修改</p>
-<p>其实可以直接用git命令合的，具体参考前面合代码的操作</p>
-<h2 id="删除多余的commit（这个操作我还没有成功过55555，不要轻易用这个）"><a href="#删除多余的commit（这个操作我还没有成功过55555，不要轻易用这个）" class="headerlink" title="删除多余的commit（这个操作我还没有成功过55555，不要轻易用这个）"></a>删除多余的commit（这个操作我还没有成功过55555，不要轻易用这个）</h2><p><code>$git log</code>查看所有的commit并记住他们的唯一号码</p>
-<p><code>$git rebase -i ID</code></p>
-<p>进入页面后，输入<code>i</code>进入编辑模式，<code>ESC</code> 退出编辑模式，<code>ZZ</code>两个大写<code>ZZ</code>保存文件并退出。</p>
-<p><code>$ git log</code> 再查看一下</p>
-<h2 id="上线的操作"><a href="#上线的操作" class="headerlink" title="上线的操作"></a>上线的操作</h2><ol>
-<li><p>首先，切到<code>pre_master</code>分支，（在切换到另一个分支前记得保存在当前分支上的操作哦！）</p>
-</li>
-<li><p><code>git pull</code> 保证分支是最新的</p>
-<p><img src="/2021/10/13/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B%E9%A1%B9%E7%9B%AE%E6%8F%90%E4%BA%A4%E6%93%8D%E4%BD%9C%EF%BC%88git%EF%BC%89/Users\2103207398\AppData\Roaming\Typora\typora-user-images\image-20210729102114405.png" alt="image-20210729102114405"></p>
-</li>
-<li><p>在<code>pre_master</code>上合自己的代码并<code>git commit</code></p>
-</li>
-<li><p>使用指令 <code>npm version patch</code>生成并返回新的<code>tag</code></p>
-</li>
-<li><p><code>git push --tags</code> 给项打上新的<code>tag</code>并提交</p>
-</li>
-<li><p>在<code>gitlab</code>上CI/CD板块查看版本运行情况</p>
-<p><img src="/2021/10/13/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B%E9%A1%B9%E7%9B%AE%E6%8F%90%E4%BA%A4%E6%93%8D%E4%BD%9C%EF%BC%88git%EF%BC%89/Users\2103207398\AppData\Roaming\Typora\typora-user-images\image-20210729102207438.png" alt="image-20210729102207438"></p>
-</li>
-<li><p>成功的话就可以进行下一步操作</p>
-<p><img src="/2021/10/13/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B%E9%A1%B9%E7%9B%AE%E6%8F%90%E4%BA%A4%E6%93%8D%E4%BD%9C%EF%BC%88git%EF%BC%89/Users\2103207398\AppData\Roaming\Typora\typora-user-images\image-20210729110928136.png" alt="image-20210729110928136"></p>
-<p>成功辣，然后闪电会发给你通知</p>
-<p><img src="/2021/10/13/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B%E9%A1%B9%E7%9B%AE%E6%8F%90%E4%BA%A4%E6%93%8D%E4%BD%9C%EF%BC%88git%EF%BC%89/Users\2103207398\AppData\Roaming\Typora\typora-user-images\image-20210729111039280.png" alt="image-20210729111039280"></p>
-<p>然后你可以复制构建tag到你的闪电工单上，闪电工单就是一个</p>
-<p><img src="/2021/10/13/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B%E9%A1%B9%E7%9B%AE%E6%8F%90%E4%BA%A4%E6%93%8D%E4%BD%9C%EF%BC%88git%EF%BC%89/Users\2103207398\AppData\Roaming\Typora\typora-user-images\image-20210729111131903.png" alt="image-20210729111131903"></p>
-<p>·<a target="_blank" rel="noopener" href="https://shandian.xiaoduoai.com/%C2%B7">https://shandian.xiaoduoai.com/·</a></p>
-<p>链接在这了（如果登不上去就找运维帮你开权限，运维就是前端组里公告上挂着的老师。），上线的话，需要在CD管理里面创建一个工单，然后就是各种填信息，最终要的就是要把tag填进去啦，然后发起审批，审批好了，大家（主要是测试同学哈）说可以发布了，那就发布工单——测试回测到预发布环境——发布工单——测试再测·辣。</p>
-<h2 id="关于回退"><a href="#关于回退" class="headerlink" title="关于回退"></a>关于回退</h2><p><code>git show 要回退到的版本号（v1.1.139）</code>查看他的唯一标识，</p>
-<p><code>git reset --hard 标识（8d5689733361baf11685ef893f41dce964465d5d）</code></p>
-<p><code>git log</code> 查看版本日志</p>
-<p><code>git push -f</code> 保证远程·1仓库与本地一直</p>
-<p>然后你的版本应该已经回退到你需要的版本了。</p>
-</li>
-</ol>
-<h2 id="其余常用命令（有待补充）"><a href="#其余常用命令（有待补充）" class="headerlink" title="其余常用命令（有待补充）"></a>其余常用命令（有待补充）</h2><p><code>$ git branch | grep wdy</code> 查看含有“<code>wdy</code>”的分支</p>
-<p><code>$git reflog --date=local feacture-wdy-contractExoire（BranchName）</code> 查看当前分支是从哪个分支切下来的</p>
-<p><code>$git branch -d Name</code>  删除本地分支</p>
-<p><code>$git push origin --delete name</code>  删除远程分支</p>
-<p><code>git branch -D pre_master</code> 删除本地分支</p>
-<p><code>git branch pre_master origin/pre_master</code> 删除远程pre_master分支?</p>
-<p><code>git checkout pre_master</code> 再直接切到pre_master</p>
-<p><code> git tag -d tag名（eg：v1.1.140）</code>删除本地tag</p>
-<p><code>git show</code> 查看tag</p>
-<p><code>git push origin :refs/tags/v1.1.141</code> 删除远程仓库里的tag，但是你可能会没有权限删除。</p>
-<p>like this</p>
-<p><img src="/2021/10/13/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B%E9%A1%B9%E7%9B%AE%E6%8F%90%E4%BA%A4%E6%93%8D%E4%BD%9C%EF%BC%88git%EF%BC%89/Users\2103207398\AppData\Roaming\Typora\typora-user-images\image-20210730152039988.png" alt="image-20210730152039988"></p>
-<h5 id="一个拉取分支操作"><a href="#一个拉取分支操作" class="headerlink" title="一个拉取分支操作"></a>一个拉取分支操作</h5><p><img src="/2021/10/13/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B%E9%A1%B9%E7%9B%AE%E6%8F%90%E4%BA%A4%E6%93%8D%E4%BD%9C%EF%BC%88git%EF%BC%89/Users\2103207398\AppData\Roaming\Typora\typora-user-images\image-20210804103200832.png" alt="image-20210804103200832"></p>
-<p><code>git revert</code> 和 <code>git reset</code></p>
-<p><code>git revert</code> 撤销某次操作，此次操作之前和之后的commit和history都会保留，并把这次撤销作为一次最新的提交。</p>
-<p><code>git revert commit (版本号)</code> 撤销指定的版本，撤销也会作为一次提交作为保存。，该指令是提交一个新的版本，加ing需要revert版本的内容在反向修改回去，版本会递增，不影响之前提交的内容。</p>
-<p><code>git reset</code> 直接删除指定的commit</p>
-<p>常用回退操作：</p>
-<p>回退到某一版本：git reset –hard commit _id</p>
-<p>强制推送到远程仓库：git push origin -f</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/13/%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B%E9%A1%B9%E7%9B%AE%E6%8F%90%E4%BA%A4%E6%93%8D%E4%BD%9C%EF%BC%88git%EF%BC%89/">展开全文 >></a>
         </p>
       
 
@@ -1513,11 +1671,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
