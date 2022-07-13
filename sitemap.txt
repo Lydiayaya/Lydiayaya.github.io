@@ -45,11 +45,11 @@ http://example.com/tags/HTML%E4%B8%8E%E6%B5%8F%E8%A7%88%E5%99%A8/
 http://example.com/tags/JS/
 http://example.com/tags/Vue/
 http://example.com/tags/%E5%AE%9E%E4%B9%A0%E5%BF%83%E5%BE%97/
-http://example.com/tags/git/
 http://example.com/tags/CSS/
+http://example.com/tags/git/
 http://example.com/tags/hexo/
-http://example.com/tags/tools/
 http://example.com/tags/react/
+http://example.com/tags/tools/
 http://example.com/tags/%E9%A1%B9%E7%9B%AE%E8%AF%A6%E7%BB%86/
 http://example.com/tags/%E6%98%A5%E6%8B%9B/
 http://example.com/tags/Blog/
